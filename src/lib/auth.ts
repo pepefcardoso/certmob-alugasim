@@ -1,5 +1,6 @@
 import { betterAuth } from 'better-auth';
 import { prismaAdapter } from '@better-auth/prisma-adapter';
+import { redirect } from 'next/navigation';
 import { headers } from 'next/headers';
 import { prisma } from '@/lib/prisma';
 import { env } from '@/lib/env';
@@ -29,4 +30,12 @@ export const auth = betterAuth({
 
 export async function getSession() {
   return auth.api.getSession({ headers: await headers() });
+}
+
+export async function requireSession() {
+  const session = await getSession();
+  if (!session) {
+    redirect('/sign-in');
+  }
+  return session;
 }

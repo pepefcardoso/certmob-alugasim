@@ -130,6 +130,7 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **DoD:** `npx prisma db seed` runs idempotently (safe to re-run) and populates all tables.
 
 ---
+
 npx prisma format
 npx prisma validate
 npx prisma migrate dev --name init_user_property_tenant
@@ -161,14 +162,14 @@ npx prisma db seed
 - **Description:** `/sign-up` (email, password, name, personType, document) and `/sign-in` (email, password) using shadcn `Form` + `Input`. Client-side validation with `zod` + `react-hook-form`. On success, redirect to `/dashboard`.
 - **DoD:** Manual signup → redirected to dashboard → sign out → sign back in works end to end in the browser.
 
-### P2.4 — Route protection (Data Access Layer pattern)
+### P2.4 — Route protection (Data Access Layer pattern) - DONE
 
 - **Size:** M
 - **Depends on:** P2.3
 - **Description:** Do **not** rely on middleware alone for auth protection (Next.js middleware can be bypassed via header spoofing — CVE-2025-29927; middleware should redirect for UX but is not a security boundary). Instead, every Server Action and data-fetching function under `/dashboard/*` must call `getSession()` and throw/redirect if absent — centralize this in a `requireSession()` helper in `src/lib/auth.ts` and use it at the top of every protected Server Action and Server Component data fetch.
 - **DoD:** Directly requesting a protected Server Action with a forged/absent cookie (test via a script bypassing the browser) is rejected, not just the page redirect.
 
-### P2.5 — Basic profile page
+### P2.5 — Basic profile page - DONE
 
 - **Size:** S
 - **Depends on:** P2.4
@@ -179,7 +180,7 @@ npx prisma db seed
 
 ## Phase 3 — Core CRUD: Property
 
-### P3.1 — Property list page
+### P3.1 — Property list page - DONE
 
 - **Size:** M
 - **Depends on:** P2.4, P1.7
