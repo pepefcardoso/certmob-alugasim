@@ -78,33 +78,40 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 1 — Database & Schema
 
-### P1.1 — Install Prisma and connect to Postgres
+### P1.1 — Install Prisma and connect to Postgres - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P0.6
 - **Description:** `pnpm add -D prisma`, `pnpm add @prisma/client`, `npx prisma init`. Point `DATABASE_URL` at the compose Postgres service.
 - **DoD:** `npx prisma db pull` (or a trivial query script) connects successfully.
 
-### P1.2 — Define `User` model
+### P1.2 — Define `User` model - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P1.1
 - **Description:** Fields: `id` (cuid), `email` (unique), `name`, `personType` (enum `PF`/`PJ`), `document` (CPF or CNPJ, string, unique), `createdAt`, `updatedAt`. Auth-related fields (password hash, sessions) are added by Better Auth's own schema in P2.1 — don't duplicate them here.
 - **DoD:** `prisma format` and `prisma validate` pass.
 
-### P1.3 — Define `Property` model
+### P1.3 — Define `Property` model - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P1.2
 - **Description:** Fields: `id`, `ownerId` (FK → User), `label` (free-text nickname), `addressStreet`, `addressNumber`, `addressComplement` (nullable), `addressNeighborhood`, `addressCity`, `addressState` (2-letter UF), `addressZip`, `createdAt`, `updatedAt`.
 - **DoD:** Migration generated without errors; `Property.ownerId` has an index.
 
-### P1.4 — Define `Tenant` model
+### P1.4 — Define `Tenant` model - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P1.2
 - **Description:** Fields: `id`, `ownerId` (FK → User — tenant records belong to the landlord, tenant has no login), `name`, `document` (CPF, nullable), `email`, `phone` (nullable), `createdAt`, `updatedAt`. No password/auth fields — this entity is a contact record, not an account.
 - **DoD:** Migration generated; `email` is required (used for reminders in P6).
+
+---
+npx prisma format
+npx prisma validate
+npx prisma migrate dev --name init_user_property_tenant
+npx tsx prisma/verify-connection.ts
+---
 
 ### P1.5 — Define `Contract` model
 

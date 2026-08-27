@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum PersonType {
+  PF
+  PJ
+}
+
+model User {
+  id         String     @id @default(cuid())
+  email      String     @unique
+  name       String
+  personType PersonType
+  document   String     @unique
+  properties Property[]
+  tenants    Tenant[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Property {
+  id                  String   @id @default(cuid())
+  ownerId             String
+  owner               User     @relation(fields: [ownerId], references: [id])
+  label               String
+  addressStreet       String
+  addressNumber       String
+  addressComplement   String?
+  addressNeighborhood String
+  addressCity         String
+  addressState        String   @db.VarChar(2)
+  addressZip          String
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([ownerId])
+}
+
+model Tenant {
+  id        String   @id @default(cuid())
+  ownerId   String
+  owner     User     @relation(fields: [ownerId], references: [id])
+  name      String
+  document  String?
+  email     String
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([ownerId])
+}
