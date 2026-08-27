@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<!-- README.md -->
+# RentEasy
 
-## Getting Started
+SaaS for small Brazilian property owners (1–10 imóveis, PF/PJ) who self-manage rentals: rent-adjustment calculator (IGP-M/IPCA/INPC) with visible math, payment status dashboard, tenant email reminders. Full brief: `docs/concept-idea.md`.
 
-First, run the development server:
+## Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+Next.js (App Router) · TypeScript · Prisma · PostgreSQL 16 · Better Auth · shadcn/ui · Tailwind · Resend · Vitest/Playwright
+
+## Getting started
+
+\`\`\`bash
+pnpm install
+cp .env.example .env   # fill in values below
+docker compose up -d postgres mailhog
+npx prisma migrate dev
+npx prisma db seed
 pnpm dev
-# or
-bun dev
-```
+\`\`\`
+Open <http://localhost:3000>.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Var | Purpose |
+| --- | --- |
+| `DATABASE_URL` | Postgres connection string |
+| `BETTER_AUTH_SECRET` | Better Auth session secret |
+| `BETTER_AUTH_URL` | Base URL Better Auth issues callbacks against |
+| `RESEND_API_KEY` | Transactional email; unset in dev falls back to Mailhog (`localhost:8025`) |
+| `EMAIL_FROM` | Sender address for reminders |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+| Command | Does |
+| --- | --- |
+| `pnpm dev` | Dev server |
+| `pnpm build` | Production build |
+| `pnpm lint` / `pnpm format --check` | ESLint / Prettier check |
+| `pnpm test` | Vitest unit/component tests |
+| `pnpm test:e2e` | Playwright e2e (needs the docker-compose stack up) |
+| `npx prisma migrate dev` | Apply schema migrations |
+| `npx prisma db seed` | Seed demo data (idempotent) |
 
-To learn more about Next.js, take a look at the following resources:
+## Docker
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`docker compose up` runs app + Postgres 16 + Mailhog + scheduled jobs (payment generation, late-detection, reminders). `docker compose down -v` tears down including volumes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Docs
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Product/legal/market research: `docs/` (`roadmap.md`, `backlog.md`, `design.md`, `legal.md`, `lgpd.md`, `fiscal.md`, `reports.md`). `backlog.md` tracks MVP scope by phase.
