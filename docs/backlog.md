@@ -134,27 +134,27 @@ npx prisma format
 npx prisma validate
 npx prisma migrate dev --name init_user_property_tenant
 npx prisma migrate dev --name add_contract_adjustment_payment
+npx prisma migrate dev --name add_better_auth
 npx prisma db seed
-
 ---
 
 ## Phase 2 — Auth
 
-### P2.1 — Install and configure Better Auth
+### P2.1 — Install and configure Better Auth - DONE
 
 - **Size:** M
 - **Depends on:** P1.2
 - **Description:** `pnpm add better-auth`. Configure the Prisma adapter against the `User` model from P1.2 (Better Auth will extend it with its own session/account tables via its own migration — run that migration and reconcile with the schema from Phase 1). Email + password provider only for MVP (no OAuth, no magic link). Set `BETTER_AUTH_SECRET` and `BETTER_AUTH_URL` from env.
 - **DoD:** A test script can create a user via Better Auth's server API and retrieve a session.
 
-### P2.2 — Auth route handlers + server helpers
+### P2.2 — Auth route handlers + server helpers - DONE
 
 - **Size:** S
 - **Depends on:** P2.1
 - **Description:** Mount Better Auth's route handler at `src/app/api/auth/[...all]/route.ts`. Add `src/lib/auth.ts` exporting a `getSession()` server helper for use in Server Components/Actions.
 - **DoD:** `POST /api/auth/sign-up/email` and `POST /api/auth/sign-in/email` work via curl/Postman against local dev.
 
-### P2.3 — Sign-up and sign-in pages
+### P2.3 — Sign-up and sign-in pages - DONE
 
 - **Size:** M
 - **Depends on:** P2.2, P0.3

@@ -6,6 +6,7 @@ const envSchema = z.object({
   BETTER_AUTH_URL: z.url(),
   RESEND_API_KEY: z.string().optional(),
   EMAIL_FROM: z.string().min(1, 'EMAIL_FROM is required'),
+  NEXT_PUBLIC_BETTER_AUTH_URL: z.url(),
 });
 
 const parsed = envSchema.safeParse(process.env);
