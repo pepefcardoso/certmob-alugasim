@@ -13,7 +13,7 @@ const parsed = envSchema.safeParse(process.env);
 
 if (!parsed.success) {
   console.error('Invalid environment variables:', z.treeifyError(parsed.error));
-  throw new Error('Invalid environment variables — check .env against .env.example');
+  throw new Error('Invalid environment variables. Check .env against .env.example');
 }
 
 export const env = parsed.data;

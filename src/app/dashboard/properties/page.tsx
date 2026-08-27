@@ -48,7 +48,7 @@ export default async function PropertiesPage() {
           <TableRow key={property.id}>
             <TableCell>{property.label}</TableCell>
             <TableCell>
-              {property.addressStreet}, {property.addressNumber} — {property.addressCity}/
+              {property.addressStreet}, {property.addressNumber} - {property.addressCity}/
               {property.addressState}
             </TableCell>
             <TableCell>{property._count.contracts}</TableCell>
