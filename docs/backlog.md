@@ -53,21 +53,21 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** Create `.env.example` with placeholders for: `DATABASE_URL`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `RESEND_API_KEY`, `EMAIL_FROM`. Add `.env` to `.gitignore` (keep `.env.example` tracked). Add a `src/lib/env.ts` that validates required env vars at boot using `zod` (fail fast with a clear error instead of a runtime crash later).
 - **DoD:** Removing a required var from `.env` and running `pnpm dev` throws a readable startup error naming the missing var.
 
-### P0.5 — Dockerfile (multi-stage)
+### P0.5 — Dockerfile (multi-stage) - DONE
 
 - **Size:** M
 - **Depends on:** P0.1
 - **Description:** Multi-stage Dockerfile: `deps` (install), `builder` (build with `output: 'standalone'` in `next.config.ts`), `runner` (copy standalone output, run as non-root user, expose port 3000).
 - **DoD:** `docker build -t renteasy .` succeeds; `docker run -p 3000:3000 renteasy` serves the app (with a reachable `DATABASE_URL`).
 
-### P0.6 — docker-compose for local dev
+### P0.6 — docker-compose for local dev - DONE
 
 - **Size:** M
 - **Depends on:** P0.5
 - **Description:** Services: `app` (build from Dockerfile, or run `pnpm dev` mounted for hot reload — prefer the latter for local dev), `postgres:16` (named volume, healthcheck), `mailhog` (SMTP catcher on 8025 for local email preview, used only as a Resend fallback in dev — see P8.1). `.env` wired via `env_file`.
 - **DoD:** `docker compose up` gives a working app + reachable Postgres on the configured port; `docker compose down -v` cleans up.
 
-### P0.7 — GitHub Actions CI skeleton
+### P0.7 — GitHub Actions CI skeleton - DONE
 
 - **Size:** M
 - **Depends on:** P0.2

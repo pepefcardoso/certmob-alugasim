@@ -1,0 +1,14 @@
+# .dockerignore
+node_modules
+.next
+.git
+.github
+.vscode
+docs
+coverage
+*.log
+.env
+.env.*
+!.env.example
+Dockerfile
+docker-compose.yml
