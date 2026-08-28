@@ -177,14 +177,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** `/dashboard/properties` — table (shadcn `Table`) of the logged-in owner's properties (label, address summary, contract count). Empty state with a CTA when zero properties.
 - **DoD:** Seeded properties render for the seeded user; a second test user sees zero (ownership scoping verified).
 
-### P3.2 — Create/edit Property form
+### P3.2 — Create/edit Property form - DONE
 
 - **Size:** M
 - **Depends on:** P3.1
 - **Description:** shadcn `Dialog` or dedicated route with `react-hook-form` + `zod` schema matching P1.3 fields. Server Action for create and update, scoped to `requireSession().user.id`.
 - **DoD:** Creating a property with invalid ZIP format shows a field-level error; valid submission appears in the list without a full page reload.
 
-### P3.3 — Delete Property (soft guard)
+### P3.3 — Delete Property (soft guard) - DONE
 
 - **Size:** S
 - **Depends on:** P3.2
@@ -195,14 +195,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 4 — Core CRUD: Tenant
 
-### P4.1 — Tenant list + create/edit form
+### P4.1 — Tenant list + create/edit form - DONE
 
 - **Size:** M
 - **Depends on:** P2.4
 - **Description:** `/dashboard/tenants` — same pattern as P3.1/P3.2 for the `Tenant` model. Email field required and validated.
 - **DoD:** CRUD works end to end; ownership scoping verified with a second test user.
 
-### P4.2 — Delete Tenant (soft guard)
+### P4.2 — Delete Tenant (soft guard) - DONE
 
 - **Size:** S
 - **Depends on:** P4.1

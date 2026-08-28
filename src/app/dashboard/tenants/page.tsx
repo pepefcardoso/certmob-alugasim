@@ -11,24 +11,24 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { DeletePropertyButton } from './delete-property-button';
+import { DeleteTenantButton } from './delete-tenant-button';
 
-export default async function PropertiesPage() {
+export default async function TenantsPage() {
   const session = await requireSession();
 
-  const properties = await prisma.property.findMany({
+  const tenants = await prisma.tenant.findMany({
     where: { ownerId: session.user.id },
     include: { _count: { select: { contracts: true } } },
     orderBy: { createdAt: 'desc' },
   });
 
-  if (properties.length === 0) {
+  if (tenants.length === 0) {
     return (
       <Card>
         <CardContent className="flex flex-col items-center gap-4 py-12 text-center">
-          <p className="text-muted-foreground">Nenhum imóvel cadastrado ainda.</p>
+          <p className="text-muted-foreground">Nenhum locatário cadastrado ainda.</p>
           <Button asChild>
-            <Link href="/dashboard/properties/new">Cadastrar imóvel</Link>
+            <Link href="/dashboard/tenants/new">Cadastrar locatário</Link>
           </Button>
         </CardContent>
       </Card>
@@ -39,32 +39,31 @@ export default async function PropertiesPage() {
     <div className="space-y-4">
       <div className="flex justify-end">
         <Button asChild>
-          <Link href="/dashboard/properties/new">Novo imóvel</Link>
+          <Link href="/dashboard/tenants/new">Novo locatário</Link>
         </Button>
       </div>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Label</TableHead>
-            <TableHead>Endereço</TableHead>
+            <TableHead>Nome</TableHead>
+            <TableHead>E-mail</TableHead>
+            <TableHead>Telefone</TableHead>
             <TableHead>Contratos</TableHead>
             <TableHead className="text-right">Ações</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {properties.map((property) => (
-            <TableRow key={property.id}>
-              <TableCell>{property.label}</TableCell>
-              <TableCell>
-                {property.addressStreet}, {property.addressNumber} - {property.addressCity}/
-                {property.addressState}
-              </TableCell>
-              <TableCell>{property._count.contracts}</TableCell>
+          {tenants.map((tenant) => (
+            <TableRow key={tenant.id}>
+              <TableCell>{tenant.name}</TableCell>
+              <TableCell>{tenant.email}</TableCell>
+              <TableCell>{tenant.phone ?? '—'}</TableCell>
+              <TableCell>{tenant._count.contracts}</TableCell>
               <TableCell className="flex justify-end gap-2">
                 <Button variant="ghost" size="sm" asChild>
-                  <Link href={`/dashboard/properties/${property.id}/edit`}>Editar</Link>
+                  <Link href={`/dashboard/tenants/${tenant.id}/edit`}>Editar</Link>
                 </Button>
-                <DeletePropertyButton propertyId={property.id} label={property.label} />
+                <DeleteTenantButton tenantId={tenant.id} name={tenant.name} />
               </TableCell>
             </TableRow>
           ))}
