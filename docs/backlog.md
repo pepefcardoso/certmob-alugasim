@@ -227,14 +227,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** Form fields per P1.5. Property and Tenant selected via searchable `Select` (must belong to the same owner — filter the query options server-side, not just client-side). `baseDate` and `startDate` via shadcn date picker. Server Action validates: `endDate` (if set) is after `startDate`; `rentValue` > 0.
 - **DoD:** Submitting with a tenant belonging to a _different_ owner is rejected server-side even if the client were tampered with (test by crafting the request manually).
 
-### P5.3 — Contract detail page
+### P5.3 — Contract detail page - DONE
 
 - **Size:** M
 - **Depends on:** P5.2
 - **Description:** `/dashboard/contracts/[id]` — shows contract terms, linked property/tenant, adjustment history (empty for now, wired in P6), payment history (empty for now, wired in P7). This page is the anchor the later phases attach their sections to.
 - **DoD:** Navigating from the list to a contract's detail page shows correct data; a contract ID belonging to another owner returns 404, not the data.
 
-### P5.4 — Edit / end Contract
+### P5.4 — Edit / end Contract - DONE
 
 - **Size:** S
 - **Depends on:** P5.3

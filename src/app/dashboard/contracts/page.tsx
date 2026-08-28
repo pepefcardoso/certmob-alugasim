@@ -70,6 +70,7 @@ export default async function ContractsPage({
               <TableHead>Valor do aluguel</TableHead>
               <TableHead>Índice</TableHead>
               <TableHead>Status</TableHead>
+              <TableHead className="text-right">Ações</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -84,6 +85,11 @@ export default async function ContractsPage({
                     {STATUS_LABEL[contract.status]}
                   </Badge>
                 </TableCell>
+                <TableCell className="text-right">
+  <Button variant="ghost" size="sm" asChild>
+    <Link href={`/dashboard/contracts/${contract.id}`}>Ver detalhes</Link>
+  </Button>
+</TableCell>
               </TableRow>
             ))}
           </TableBody>
