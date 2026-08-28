@@ -394,14 +394,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** `/privacy/request` — a simple authenticated form (access, correction, deletion, portability request types) that stores the request in a new `PrivacyRequest` table (`userId`, `type`, `details`, `status`, `createdAt`) and emails the DPO address. Manual processing is fine for MVP — no automation required yet.
 - **DoD:** Submitting a request creates a DB row and triggers an email to the configured DPO address.
 
-### P10.3 — HTTPS and transport security (deployment task)
+### P10.3 — HTTPS and transport security (deployment task)  - PARTIALLY DONE ATTENTION
 
 - **Size:** S
 - **Depends on:** P0.5
 - **Description:** Not app code — a deployment note/config: reverse proxy (Caddy or Traefik) in front of the app container with automatic Let's Encrypt TLS, HTTP→HTTPS redirect. Document this in `DEPLOYMENT.md`.
 - **DoD:** Production compose/deployment config enforces HTTPS; documented steps are reproducible by someone else on the team.
 
-### P10.4 — Encryption at rest (deployment task)
+### P10.4 — Encryption at rest (deployment task) - PARTIALLY DONE ATTENTION
 
 - **Size:** S
 - **Depends on:** P0.6
