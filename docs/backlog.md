@@ -455,7 +455,3 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **DoD:** A merge to `main` produces a new image tag in the registry, visible and pullable.
 
 ---
-
-## Suggested execution order
-
-Phases are already sequenced by dependency, but within that: **0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 (can run in parallel with 6–9 once P0.1–P2.4 are done, since it's mostly independent) → 11 (interleave tests with the phase they cover rather than batching all testing at the end — P11.1 right after P6.4, P11.2 right after P7.3, etc.)**
