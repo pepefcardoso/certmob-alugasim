@@ -120,6 +120,16 @@ model RentAdjustment {
   @@index([contractId])
 }
 
+model IndexRateCache {
+  id                 String          @id @default(cuid())
+  index              AdjustmentIndex
+  referenceDate      DateTime        @db.Date
+  accumulatedPercent Decimal         @db.Decimal(7, 4)
+  fetchedAt          DateTime        @default(now())
+
+  @@unique([index, referenceDate])
+}
+
 model Payment {
   id         String        @id @default(cuid())
   contractId String

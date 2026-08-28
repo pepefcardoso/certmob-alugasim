@@ -245,14 +245,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 6 — Rent Adjustment Calculator
 
-### P6.1 — BCB SGS API client
+### P6.1 — BCB SGS API client - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P0.4
 - **Description:** `src/lib/bcb.ts`. Series codes: IGP-M = `189`, INPC = `188`, IPCA = `433` (all monthly % variation series). Endpoint pattern: `https://api.bcb.gov.br/dados/serie/bcdata.sgs.{codigo}/dados?formato=json&dataInicial={dd/MM/yyyy}&dataFinal={dd/MM/yyyy}`. No API key required. Function `getIndexMonthlyRates(index, startDate, endDate)` returns an array of `{ date, value }` monthly rates.
 - **DoD:** Calling the function for IPCA over a known 12-month window returns 12 monthly values matching what's published on the BCB site (spot-check 2–3 values manually).
 
-### P6.2 — Accumulated rate calculation + caching
+### P6.2 — Accumulated rate calculation + caching - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P6.1
