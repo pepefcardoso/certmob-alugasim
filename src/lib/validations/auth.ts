@@ -6,6 +6,9 @@ export const signUpSchema = z.object({
   password: z.string().min(8, 'Mínimo de 8 caracteres'),
   personType: z.enum(['PF', 'PJ']),
   document: z.string().min(11, 'Documento inválido'),
+  acceptedTerms: z.boolean().refine((v) => v === true, {
+    message: 'Você precisa aceitar a Política de Privacidade e os Termos de Uso',
+  }),
 });
 
 export type SignUpInput = z.infer<typeof signUpSchema>;

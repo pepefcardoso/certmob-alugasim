@@ -380,14 +380,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 10 — LGPD / Legal Baseline
 
-### P10.1 — Privacy Policy and Terms of Use pages
+### P10.1 — Privacy Policy and Terms of Use pages - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** —
 - **Description:** Static `/privacy` and `/terms` routes. Content should cover (per the LGPD doc's structure): controller identity, data collected, purposes, legal basis (contract execution — Art. 7º V), sharing, retention periods, data subject rights, security measures, DPO contact. **This is legal content — draft it with a lawyer or the source `lgpd.md`/`legal.md` docs, don't ship AI-generated legal text as-is.**
 - **DoD:** Both pages are reachable, linked from the sign-up page (checkbox acknowledgment) and site footer.
 
-### P10.2 — Data subject rights request form
+### P10.2 — Data subject rights request form - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P10.1

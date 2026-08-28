@@ -8,6 +8,7 @@ const envSchema = z.object({
   EMAIL_FROM: z.string().min(1, 'EMAIL_FROM is required'),
   NEXT_PUBLIC_BETTER_AUTH_URL: z.url(),
   CRON_SECRET: z.string().min(1, 'CRON_SECRET is required'),
+  DPO_EMAIL: z.email('DPO_EMAIL inválido'),
 });
 
 const parsed = envSchema.safeParse(process.env);

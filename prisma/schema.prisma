@@ -23,6 +23,7 @@ model User {
   properties    Property[]
   tenants       Tenant[]
   contracts     Contract[]
+  privacyRequests PrivacyRequest[]
   sessions      Session[]
   accounts      Account[]
   createdAt     DateTime   @default(now())
@@ -188,4 +189,31 @@ model Verification {
   updatedAt  DateTime? @updatedAt
 
   @@index([identifier])
+}
+
+enum PrivacyRequestType {
+  ACCESS
+  CORRECTION
+  DELETION
+  PORTABILITY
+}
+
+enum PrivacyRequestStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+model PrivacyRequest {
+  id        String                @id @default(cuid())
+  userId    String
+  user      User                  @relation(fields: [userId], references: [id])
+  type      PrivacyRequestType
+  details   String?
+  status    PrivacyRequestStatus  @default(PENDING)
+  createdAt DateTime              @default(now())
+  updatedAt DateTime              @updatedAt
+
+  @@index([userId])
+  @@index([status])
 }

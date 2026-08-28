@@ -1,13 +1,12 @@
 'use client';
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import { signUp } from '@/lib/auth-client';
 import { signUpSchema, type SignUpInput } from '@/lib/validations/auth';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Form,
@@ -24,12 +23,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
 
 export default function SignUpPage() {
   const router = useRouter();
   const form = useForm<SignUpInput>({
     resolver: zodResolver(signUpSchema),
-    defaultValues: { name: '', email: '', password: '', personType: 'PF', document: '' },
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+      personType: 'PF',
+      document: '',
+      acceptedTerms: false,
+    },
   });
 
   async function onSubmit(values: SignUpInput) {
@@ -128,6 +137,31 @@ export default function SignUpPage() {
                       <Input {...field} />
                     </FormControl>
                     <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="acceptedTerms"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start gap-2 space-y-0">
+                    <FormControl>
+                      <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel className="font-normal">
+                        Li e concordo com a{' '}
+                        <Link href="/privacy" className="underline" target="_blank">
+                          Política de Privacidade
+                        </Link>{' '}
+                        e os{' '}
+                        <Link href="/terms" className="underline" target="_blank">
+                          Termos de Uso
+                        </Link>
+                        .
+                      </FormLabel>
+                      <FormMessage />
+                    </div>
                   </FormItem>
                 )}
               />
