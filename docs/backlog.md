@@ -355,21 +355,21 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 9 — Reports
 
-### P9.1 — Monthly revenue report
+### P9.1 — Monthly revenue report - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P7.5
 - **Description:** `/dashboard/reports` — sum of `PAID` payments per calendar month across all the owner's contracts, last 12 months, as a simple table (chart is a nice-to-have, not required for MVP).
 - **DoD:** Seeded paid payments across 2+ months produce correct per-month sums.
 
-### P9.2 — Delinquency rate
+### P9.2 — Delinquency rate - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P9.1
 - **Description:** On the same page: `LATE` payments ÷ total `Payment` rows due in the period, as a percentage, for the current month and trailing 3 months.
 - **DoD:** Matches a manually-computed value against seed data.
 
-### P9.3 — Monthly income export (carnê-leão support)
+### P9.3 — Monthly income export (carnê-leão support) - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P9.1
