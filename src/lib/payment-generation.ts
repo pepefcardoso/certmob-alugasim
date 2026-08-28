@@ -14,6 +14,13 @@ export function billingDueDate(startDate: Date, periodIndex: number): Date {
   return addMonthsClamped(startDate, periodIndex);
 }
 
+export function isDueInDays(dueDate: Date, days: number, today: Date = new Date()): boolean {
+  const dueUtc = Date.UTC(dueDate.getUTCFullYear(), dueDate.getUTCMonth(), dueDate.getUTCDate());
+  const todayUtc = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+  const diffDays = Math.round((dueUtc - todayUtc) / 86_400_000);
+  return diffDays === days;
+}
+
 export function buildUpcomingPayments({
   contractId,
   startDate,

@@ -337,14 +337,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** A single React Email (or plain HTML) template: tenant name, property address, amount due, due date. Written in Portuguese (product's market is Brazil).
 - **DoD:** Rendering the template with seed data produces a legible email in Mailhog.
 
-### P8.3 — Reminder job (3-day-out due payments)
+### P8.3 — Reminder job (3-day-out due payments) - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P8.2, P7.2
 - **Description:** `src/app/api/jobs/send-reminders/route.ts` — finds `Payment` rows with `status = UPCOMING` and `dueDate` exactly 3 days out, sends the P8.2 template to the linked `Tenant.email`. Add a `reminderSentAt` column to `Payment` (migration) and skip rows where it's already set, so re-running the job doesn't double-send.
 - **DoD:** Running the job against a seeded payment due in exactly 3 days sends one email and sets `reminderSentAt`; running it again sends zero additional emails for that row.
 
-### P8.4 — Cron container wiring
+### P8.4 — Cron container wiring - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P7.2, P7.3, P8.3

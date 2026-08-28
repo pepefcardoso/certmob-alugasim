@@ -131,15 +131,16 @@ model IndexRateCache {
 }
 
 model Payment {
-  id         String        @id @default(cuid())
-  contractId String
-  contract   Contract      @relation(fields: [contractId], references: [id])
-  dueDate    DateTime      @db.Date
-  amount     Decimal       @db.Decimal(10, 2)
-  status     PaymentStatus @default(UPCOMING)
-  paidAt     DateTime?
-  createdAt  DateTime      @default(now())
-  updatedAt  DateTime      @updatedAt
+  id              String        @id @default(cuid())
+  contractId      String
+  contract        Contract      @relation(fields: [contractId], references: [id])
+  dueDate         DateTime      @db.Date
+  amount          Decimal       @db.Decimal(10, 2)
+  status          PaymentStatus @default(UPCOMING)
+  paidAt          DateTime?
+  reminderSentAt  DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
 
   @@unique([contractId, dueDate])
   @@index([status, dueDate])
