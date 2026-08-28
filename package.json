@@ -10,9 +10,12 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
+    "decimal.js": "^10.6.0",
     "cmdk": "^1.1.1",
     "react-day-picker": "^9.11.0",
     "@better-auth/prisma-adapter": "^1.7.2",
@@ -52,6 +55,7 @@
     "prisma": "^7.10.0",
     "tailwindcss": "^4",
     "tsx": "^4.23.12",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   }
 }

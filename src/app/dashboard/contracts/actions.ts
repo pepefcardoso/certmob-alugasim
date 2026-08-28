@@ -5,6 +5,9 @@ import { requireSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { contractSchema, type ContractInput } from '@/lib/validations/contract';
 import { contractUpdateSchema, type ContractUpdateInput } from '@/lib/validations/contract';
+import Decimal from 'decimal.js';
+import { isAdjustmentEligible } from '@/lib/adjustment-eligibility';
+import { getAccumulated12MonthRate } from '@/lib/rent-index';
 
 export async function createContract(input: ContractInput) {
   const session = await requireSession();
@@ -78,6 +81,71 @@ export async function endContract(id: string) {
 
   revalidatePath('/dashboard/contracts');
   revalidatePath(`/dashboard/contracts/${id}`);
+
+  return { success: true as const };
+}
+
+async function loadEligibleAdjustment(contractId: string, ownerId: string) {
+  const contract = await prisma.contract.findFirst({
+    where: { id: contractId, ownerId },
+    include: { adjustments: { orderBy: { appliedAt: 'desc' }, take: 1 } },
+  });
+  if (!contract) throw new Error('Contrato não encontrado');
+  if (contract.status !== 'ACTIVE') throw new Error('Contrato não está ativo');
+
+  const lastAdjustmentAt = contract.adjustments[0]?.appliedAt ?? null;
+  const eligible = isAdjustmentEligible({ baseDate: contract.baseDate, lastAdjustmentAt });
+  if (!eligible) throw new Error('Contrato ainda não é elegível para reajuste');
+
+  const referenceDate = new Date();
+  const ratePercent = await getAccumulated12MonthRate(contract.adjustmentIndex, referenceDate);
+  const previousValue = new Decimal(contract.rentValue.toString());
+  const newValue = previousValue.mul(new Decimal(1).plus(new Decimal(ratePercent).div(100))).toDecimalPlaces(2);
+
+  return { contract, ratePercent, previousValue, newValue, referenceDate };
+}
+
+export async function previewAdjustment(contractId: string) {
+  const session = await requireSession();
+  const { contract, ratePercent, previousValue, newValue } = await loadEligibleAdjustment(
+    contractId,
+    session.user.id,
+  );
+
+  return {
+    index: contract.adjustmentIndex,
+    ratePercent,
+    previousValue: previousValue.toNumber(),
+    newValue: newValue.toNumber(),
+  };
+}
+
+export async function applyAdjustment(contractId: string) {
+  const session = await requireSession();
+  const { contract, ratePercent, previousValue, newValue, referenceDate } = await loadEligibleAdjustment(
+    contractId,
+    session.user.id,
+  );
+
+  await prisma.$transaction([
+    prisma.rentAdjustment.create({
+      data: {
+        contractId: contract.id,
+        indexUsed: contract.adjustmentIndex,
+        indexRatePercent: ratePercent,
+        previousValue: previousValue.toNumber(),
+        newValue: newValue.toNumber(),
+        referenceDate,
+      },
+    }),
+    prisma.contract.update({
+      where: { id: contract.id },
+      data: { rentValue: newValue.toNumber() },
+    }),
+  ]);
+
+  revalidatePath('/dashboard/contracts');
+  revalidatePath(`/dashboard/contracts/${contract.id}`);
 
   return { success: true as const };
 }

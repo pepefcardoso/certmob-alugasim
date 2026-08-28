@@ -259,14 +259,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** `getAccumulated12MonthRate(index, referenceDate)` — compounds the 12 monthly rates ending at `referenceDate` (not simple sum: `(1+r1)*(1+r2)*...*(1+r12) - 1`). Cache results in a new `IndexRateCache` table (`index`, `referenceDate`, `accumulatedPercent`, `fetchedAt`) keyed by month, since BCB's published monthly value doesn't change after the month closes — avoid re-fetching on every page load.
 - **DoD:** Two consecutive calls for the same `(index, referenceDate)` hit the cache on the second call (verify via a log line or call counter in a test), and the compounded value differs from a naive sum by a nonzero amount on the test data.
 
-### P6.3 — Adjustment eligibility logic
+### P6.3 — Adjustment eligibility logic - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P5.3
 - **Description:** `isAdjustmentEligible(contract)` — true if `today >= baseDate + 12 months` since the _last applied_ adjustment (or since `startDate` if none applied yet), per Lei 8.245/91's one-adjustment-per-12-months rule. Surface this as a badge/button state on the contract detail page, not a separate task.
 - **DoD:** Unit test: a contract with `baseDate` 13 months ago and no prior `RentAdjustment` is eligible; one adjusted 2 months ago is not eligible again yet.
 
-### P6.4 — "Apply adjustment" flow with visible math
+### P6.4 — "Apply adjustment" flow with visible math - PARTIALLY DONE
 
 - **Size:** L
 - **Depends on:** P6.2, P6.3

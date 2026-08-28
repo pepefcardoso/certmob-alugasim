@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EndContractButton } from '../end-contract-button';
+import { ApplyAdjustmentDialog } from '../apply-adjustment-dialog';
+import { isAdjustmentEligible, nextAdjustmentDate } from '@/lib/adjustment-eligibility';
 import type { ContractStatus } from '@/generated/prisma/client';
 
 const currency = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -20,8 +22,18 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
 
   const contract = await prisma.contract.findFirst({
     where: { id, ownerId: session.user.id },
-    include: { property: true, tenant: true },
+    include: {
+      property: true,
+      tenant: true,
+      adjustments: { orderBy: { appliedAt: 'desc' }, take: 1 },
+    },
   });
+
+  if (!contract) notFound();
+
+  const lastAdjustmentAt = contract.adjustments[0]?.appliedAt ?? null;
+  const eligible = isAdjustmentEligible({ baseDate: contract.baseDate, lastAdjustmentAt });
+  const nextEligibleDate = nextAdjustmentDate({ baseDate: contract.baseDate, lastAdjustmentAt });
 
   if (!contract) notFound();
 
@@ -37,12 +49,20 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
             <Badge variant={contract.status === 'ACTIVE' ? 'default' : 'secondary'}>
               {STATUS_LABEL[contract.status]}
             </Badge>
+            {contract.status === 'ACTIVE' && (
+              <Badge variant={eligible ? 'default' : 'outline'}>
+                {eligible ? 'Elegível para reajuste' : `Próximo reajuste em ${date.format(nextEligibleDate)}`}
+              </Badge>
+            )}
           </div>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" asChild>
             <Link href={`/dashboard/contracts/${contract.id}/edit`}>Editar</Link>
           </Button>
+          {contract.status === 'ACTIVE' && (
+            <ApplyAdjustmentDialog contractId={contract.id} eligible={eligible} />
+          )}
           {contract.status === 'ACTIVE' && <EndContractButton contractId={contract.id} />}
         </div>
       </div>
