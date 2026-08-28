@@ -217,3 +217,14 @@ model PrivacyRequest {
   @@index([userId])
   @@index([status])
 }
+
+model Lead {
+  id            String   @id @default(cuid())
+  email         String
+  whatsapp      String
+  propertyCount Int
+  source        String   @default("landing_hero")
+  createdAt     DateTime @default(now())
+
+  @@index([email])
+}
