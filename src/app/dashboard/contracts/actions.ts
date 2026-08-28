@@ -175,3 +175,26 @@ export async function applyAdjustment(contractId: string) {
 
   return { success: true as const };
 }
+
+export async function markPaymentPaid(paymentId: string) {
+  const session = await requireSession();
+
+  const result = await prisma.payment.updateMany({
+    where: { id: paymentId, contract: { ownerId: session.user.id } },
+    data: { status: 'PAID', paidAt: new Date() },
+  });
+
+  if (result.count === 0) {
+    return { error: 'Pagamento não encontrado' };
+  }
+
+  const payment = await prisma.payment.findUniqueOrThrow({
+    where: { id: paymentId },
+    select: { contractId: true },
+  });
+
+  revalidatePath(`/dashboard/contracts/${payment.contractId}`);
+  revalidatePath('/dashboard');
+
+  return { success: true as const };
+}

@@ -291,21 +291,21 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** When a `Contract` is created (or after an adjustment changes `rentValue`), generate `Payment` rows for the next 3 months (rolling — extended in P7.2), `dueDate` derived from `startDate`'s day-of-month, `amount` = current `rentValue`, `status = UPCOMING`.
 - **DoD:** Creating a contract produces exactly 3 future `Payment` rows with correct due dates (test a `startDate` on the 31st against a 30-day month to confirm date math doesn't crash).
 
-### P7.2 — Scheduled payment generation job
+### P7.2 — Scheduled payment generation job - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P7.1
 - **Description:** `src/app/api/jobs/generate-payments/route.ts` — a route handler (called by the cron container from P0.6's compose or an external scheduler) that, for every `ACTIVE` contract, ensures the next 3 months of `Payment` rows exist (idempotent — relies on the `(contractId, dueDate)` unique constraint from P1.6 to skip duplicates).
 - **DoD:** Calling the route twice in a row doesn't create duplicate payments; calling it after a month has passed extends the rolling window by the expected new row.
 
-### P7.3 — Payment status auto-update (late detection)
+### P7.3 — Payment status auto-update (late detection) - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P7.2
 - **Description:** Same or a sibling job route: any `Payment` with `status = UPCOMING` and `dueDate < today` flips to `LATE`. Run on the same schedule as P7.2.
 - **DoD:** A seeded payment with a past due date and `UPCOMING` status flips to `LATE` after the job runs.
 
-### P7.4 — Mark payment as paid
+### P7.4 — Mark payment as paid - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P7.1

@@ -7,8 +7,9 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { EndContractButton } from '../end-contract-button';
 import { ApplyAdjustmentDialog } from '../apply-adjustment-dialog';
+import { MarkPaidButton } from '../mark-paid-button';
 import { isAdjustmentEligible, nextAdjustmentDate } from '@/lib/adjustment-eligibility';
-import type { ContractStatus } from '@/generated/prisma/client';
+import type { ContractStatus, PaymentStatus } from '@/generated/prisma/client';
 import {
   Table,
   TableBody,
@@ -26,6 +27,11 @@ const percent = new Intl.NumberFormat('pt-BR', {
 });
 
 const STATUS_LABEL: Record<ContractStatus, string> = { ACTIVE: 'Ativo', ENDED: 'Encerrado' };
+const PAYMENT_STATUS_LABEL: Record<PaymentStatus, string> = {
+  UPCOMING: 'A vencer',
+  PAID: 'Pago',
+  LATE: 'Atrasado',
+};
 const INDEX_LABEL = { IGPM: 'IGP-M', IPCA: 'IPCA', INPC: 'INPC' } as const;
 
 export default async function ContractDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -38,6 +44,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
       property: true,
       tenant: true,
       adjustments: { orderBy: { appliedAt: 'desc' } },
+      payments: { orderBy: { dueDate: 'asc' } },
     },
   });
 
@@ -138,30 +145,43 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
 
       <Card>
         <CardHeader>
-          <CardTitle>Histórico de reajustes</CardTitle>
+          <CardTitle>Histórico de pagamentos</CardTitle>
         </CardHeader>
         <CardContent>
-          {contract.adjustments.length === 0 ? (
-            <p className="text-muted-foreground text-sm">Nenhum reajuste aplicado ainda.</p>
+          {contract.payments.length === 0 ? (
+            <p className="text-muted-foreground text-sm">Nenhum pagamento registrado ainda.</p>
           ) : (
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Data</TableHead>
-                  <TableHead>Índice</TableHead>
-                  <TableHead>Taxa</TableHead>
-                  <TableHead>Valor anterior → Novo valor</TableHead>
+                  <TableHead>Vencimento</TableHead>
+                  <TableHead>Valor</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Pago em</TableHead>
+                  <TableHead />
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {contract.adjustments.map((adjustment) => (
-                  <TableRow key={adjustment.id}>
-                    <TableCell>{date.format(adjustment.appliedAt)}</TableCell>
-                    <TableCell>{INDEX_LABEL[adjustment.indexUsed]}</TableCell>
-                    <TableCell>{percent.format(Number(adjustment.indexRatePercent))}%</TableCell>
+                {contract.payments.map((payment) => (
+                  <TableRow key={payment.id}>
+                    <TableCell>{date.format(payment.dueDate)}</TableCell>
+                    <TableCell>{currency.format(Number(payment.amount))}</TableCell>
                     <TableCell>
-                      {currency.format(Number(adjustment.previousValue))} →{' '}
-                      {currency.format(Number(adjustment.newValue))}
+                      <Badge
+                        variant={
+                          payment.status === 'PAID'
+                            ? 'default'
+                            : payment.status === 'LATE'
+                              ? 'destructive'
+                              : 'outline'
+                        }
+                      >
+                        {PAYMENT_STATUS_LABEL[payment.status]}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>{payment.paidAt ? date.format(payment.paidAt) : '—'}</TableCell>
+                    <TableCell>
+                      {payment.status !== 'PAID' && <MarkPaidButton paymentId={payment.id} />}
                     </TableCell>
                   </TableRow>
                 ))}
