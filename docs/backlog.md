@@ -78,42 +78,42 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 1 — Database & Schema
 
-### P1.1 — Install Prisma and connect to Postgres - PARTIALLY DONE
+### P1.1 — Install Prisma and connect to Postgres - DONE
 
 - **Size:** S
 - **Depends on:** P0.6
 - **Description:** `pnpm add -D prisma`, `pnpm add @prisma/client`, `npx prisma init`. Point `DATABASE_URL` at the compose Postgres service.
 - **DoD:** `npx prisma db pull` (or a trivial query script) connects successfully.
 
-### P1.2 — Define `User` model - PARTIALLY DONE
+### P1.2 — Define `User` model - DONE
 
 - **Size:** S
 - **Depends on:** P1.1
 - **Description:** Fields: `id` (cuid), `email` (unique), `name`, `personType` (enum `PF`/`PJ`), `document` (CPF or CNPJ, string, unique), `createdAt`, `updatedAt`. Auth-related fields (password hash, sessions) are added by Better Auth's own schema in P2.1 — don't duplicate them here.
 - **DoD:** `prisma format` and `prisma validate` pass.
 
-### P1.3 — Define `Property` model - PARTIALLY DONE
+### P1.3 — Define `Property` model - DONE
 
 - **Size:** S
 - **Depends on:** P1.2
 - **Description:** Fields: `id`, `ownerId` (FK → User), `label` (free-text nickname), `addressStreet`, `addressNumber`, `addressComplement` (nullable), `addressNeighborhood`, `addressCity`, `addressState` (2-letter UF), `addressZip`, `createdAt`, `updatedAt`.
 - **DoD:** Migration generated without errors; `Property.ownerId` has an index.
 
-### P1.4 — Define `Tenant` model - PARTIALLY DONE
+### P1.4 — Define `Tenant` model - DONE
 
 - **Size:** S
 - **Depends on:** P1.2
 - **Description:** Fields: `id`, `ownerId` (FK → User — tenant records belong to the landlord, tenant has no login), `name`, `document` (CPF, nullable), `email`, `phone` (nullable), `createdAt`, `updatedAt`. No password/auth fields — this entity is a contact record, not an account.
 - **DoD:** Migration generated; `email` is required (used for reminders in P6).
 
-### P1.5 — Define `Contract` model - PARTIALLY DONE
+### P1.5 — Define `Contract` model - DONE
 
 - **Size:** M
 - **Depends on:** P1.3, P1.4
 - **Description:** Fields: `id`, `propertyId` (FK), `tenantId` (FK), `rentValue` (Decimal, current value), `adjustmentIndex` (enum `IGPM`/`IPCA`/`INPC`), `baseDate` (Date — contract anniversary used for adjustment eligibility), `startDate`, `endDate` (nullable), `status` (enum `ACTIVE`/`ENDED`), `createdAt`, `updatedAt`. Use Prisma `Decimal` type for `rentValue`, never `Float` — this is currency.
 - **DoD:** Migration generated; a seed script (P1.7) can create one valid contract without constraint errors.
 
-### P1.6 — Define `RentAdjustment` and `Payment` models - PARTIALLY DONE
+### P1.6 — Define `RentAdjustment` and `Payment` models - DONE
 
 - **Size:** M
 - **Depends on:** P1.5
@@ -122,22 +122,12 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
   - `Payment`: `id`, `contractId` (FK), `dueDate` (Date), `amount` (Decimal), `status` (enum `UPCOMING`/`PAID`/`LATE`), `paidAt` (DateTime, nullable), `createdAt`, `updatedAt`. Add a unique constraint on `(contractId, dueDate)` so the generator (P7) can't create duplicate periods.
 - **DoD:** Migrations generated; unique constraint verified by attempting a duplicate insert in a scratch script and confirming it's rejected.
 
-### P1.7 — Seed script - PARTIALLY DONE
+### P1.7 — Seed script - DONE
 
 - **Size:** M
 - **Depends on:** P1.6
 - **Description:** `prisma/seed.ts`: one demo `User`, 2 `Property`, 2 `Tenant`, 2 `Contract` (one with a `baseDate` >12 months ago to test adjustment eligibility, one recent), a handful of `Payment` rows spanning paid/upcoming/late. Wire into `package.json` `prisma.seed`.
 - **DoD:** `npx prisma db seed` runs idempotently (safe to re-run) and populates all tables.
-
----
-
-npx prisma format
-npx prisma validate
-npx prisma migrate dev --name init_user_property_tenant
-npx prisma migrate dev --name add_contract_adjustment_payment
-npx prisma migrate dev --name add_better_auth
-npx prisma db seed
----
 
 ## Phase 2 — Auth
 
