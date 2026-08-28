@@ -8,6 +8,7 @@ import { contractUpdateSchema, type ContractUpdateInput } from '@/lib/validation
 import Decimal from 'decimal.js';
 import { isAdjustmentEligible } from '@/lib/adjustment-eligibility';
 import { getAccumulated12MonthRate } from '@/lib/rent-index';
+import { buildUpcomingPayments } from '@/lib/payment-generation';
 
 export async function createContract(input: ContractInput) {
   const session = await requireSession();
@@ -21,17 +22,29 @@ export async function createContract(input: ContractInput) {
   if (!property) throw new Error('Imóvel não encontrado');
   if (!tenant) throw new Error('Locatário não encontrado');
 
-  await prisma.contract.create({
-    data: {
-      propertyId: data.propertyId,
-      tenantId: data.tenantId,
-      ownerId: session.user.id,
-      rentValue: data.rentValue,
-      adjustmentIndex: data.adjustmentIndex,
-      baseDate: data.baseDate,
-      startDate: data.startDate,
-      endDate: data.endDate ?? null,
-    },
+  await prisma.$transaction(async (tx) => {
+    const contract = await tx.contract.create({
+      data: {
+        propertyId: data.propertyId,
+        tenantId: data.tenantId,
+        ownerId: session.user.id,
+        rentValue: data.rentValue,
+        adjustmentIndex: data.adjustmentIndex,
+        baseDate: data.baseDate,
+        startDate: data.startDate,
+        endDate: data.endDate ?? null,
+      },
+    });
+
+    await tx.payment.createMany({
+      data: buildUpcomingPayments({
+        contractId: contract.id,
+        startDate: contract.startDate,
+        rentValue: data.rentValue,
+        existingCount: 0,
+      }),
+      skipDuplicates: true,
+    });
   });
 
   revalidatePath('/dashboard/contracts');
@@ -100,7 +113,9 @@ async function loadEligibleAdjustment(contractId: string, ownerId: string) {
   const referenceDate = new Date();
   const ratePercent = await getAccumulated12MonthRate(contract.adjustmentIndex, referenceDate);
   const previousValue = new Decimal(contract.rentValue.toString());
-  const newValue = previousValue.mul(new Decimal(1).plus(new Decimal(ratePercent).div(100))).toDecimalPlaces(2);
+  const newValue = previousValue
+    .mul(new Decimal(1).plus(new Decimal(ratePercent).div(100)))
+    .toDecimalPlaces(2);
 
   return { contract, ratePercent, previousValue, newValue, referenceDate };
 }
@@ -122,13 +137,11 @@ export async function previewAdjustment(contractId: string) {
 
 export async function applyAdjustment(contractId: string) {
   const session = await requireSession();
-  const { contract, ratePercent, previousValue, newValue, referenceDate } = await loadEligibleAdjustment(
-    contractId,
-    session.user.id,
-  );
+  const { contract, ratePercent, previousValue, newValue, referenceDate } =
+    await loadEligibleAdjustment(contractId, session.user.id);
 
-  await prisma.$transaction([
-    prisma.rentAdjustment.create({
+  await prisma.$transaction(async (tx) => {
+    await tx.rentAdjustment.create({
       data: {
         contractId: contract.id,
         indexUsed: contract.adjustmentIndex,
@@ -137,12 +150,25 @@ export async function applyAdjustment(contractId: string) {
         newValue: newValue.toNumber(),
         referenceDate,
       },
-    }),
-    prisma.contract.update({
+    });
+
+    await tx.contract.update({
       where: { id: contract.id },
       data: { rentValue: newValue.toNumber() },
-    }),
-  ]);
+    });
+
+    const existingCount = await tx.payment.count({ where: { contractId: contract.id } });
+
+    await tx.payment.createMany({
+      data: buildUpcomingPayments({
+        contractId: contract.id,
+        startDate: contract.startDate,
+        rentValue: newValue.toNumber(),
+        existingCount,
+      }),
+      skipDuplicates: true,
+    });
+  });
 
   revalidatePath('/dashboard/contracts');
   revalidatePath(`/dashboard/contracts/${contract.id}`);

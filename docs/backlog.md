@@ -273,7 +273,7 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** On the contract detail page, an "Apply adjustment" action (only enabled per P6.3) opens a preview showing: current rent, index name, accumulated rate %, calculated new rent, formula spelled out (e.g. "R$ 2.000,00 × (1 + 4,44%) = R$ 2.088,80") — this visibility is the core trust-building feature from the product spec, not optional polish. Confirming writes a `RentAdjustment` row and updates `Contract.rentValue` in a single transaction.
 - **DoD:** Applying an adjustment updates both `RentAdjustment` history and `Contract.rentValue`; the preview math matches the persisted values exactly (assert in a test, not just visually).
 
-### P6.5 — Adjustment history display
+### P6.5 — Adjustment history display - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P6.4
@@ -284,7 +284,7 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 7 — Payments & Status Dashboard
 
-### P7.1 — Payment generation on contract creation
+### P7.1 — Payment generation on contract creation - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P5.2

@@ -9,9 +9,21 @@ import { EndContractButton } from '../end-contract-button';
 import { ApplyAdjustmentDialog } from '../apply-adjustment-dialog';
 import { isAdjustmentEligible, nextAdjustmentDate } from '@/lib/adjustment-eligibility';
 import type { ContractStatus } from '@/generated/prisma/client';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
 const currency = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 const date = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' });
+const percent = new Intl.NumberFormat('pt-BR', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 
 const STATUS_LABEL: Record<ContractStatus, string> = { ACTIVE: 'Ativo', ENDED: 'Encerrado' };
 const INDEX_LABEL = { IGPM: 'IGP-M', IPCA: 'IPCA', INPC: 'INPC' } as const;
@@ -25,7 +37,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
     include: {
       property: true,
       tenant: true,
-      adjustments: { orderBy: { appliedAt: 'desc' }, take: 1 },
+      adjustments: { orderBy: { appliedAt: 'desc' } },
     },
   });
 
@@ -41,7 +53,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <Link href="/dashboard/contracts" className="text-sm text-muted-foreground">
+          <Link href="/dashboard/contracts" className="text-muted-foreground text-sm">
             &larr; Contratos
           </Link>
           <div className="flex items-center gap-2">
@@ -51,7 +63,9 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
             </Badge>
             {contract.status === 'ACTIVE' && (
               <Badge variant={eligible ? 'default' : 'outline'}>
-                {eligible ? 'Elegível para reajuste' : `Próximo reajuste em ${date.format(nextEligibleDate)}`}
+                {eligible
+                  ? 'Elegível para reajuste'
+                  : `Próximo reajuste em ${date.format(nextEligibleDate)}`}
               </Badge>
             )}
           </div>
@@ -73,23 +87,23 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
         </CardHeader>
         <CardContent className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           <div>
-            <p className="text-sm text-muted-foreground">Valor do aluguel</p>
+            <p className="text-muted-foreground text-sm">Valor do aluguel</p>
             <p>{currency.format(Number(contract.rentValue))}</p>
           </div>
           <div>
-            <p className="text-sm text-muted-foreground">Índice de reajuste</p>
+            <p className="text-muted-foreground text-sm">Índice de reajuste</p>
             <p>{INDEX_LABEL[contract.adjustmentIndex]}</p>
           </div>
           <div>
-            <p className="text-sm text-muted-foreground">Data base</p>
+            <p className="text-muted-foreground text-sm">Data base</p>
             <p>{date.format(contract.baseDate)}</p>
           </div>
           <div>
-            <p className="text-sm text-muted-foreground">Data de início</p>
+            <p className="text-muted-foreground text-sm">Data de início</p>
             <p>{date.format(contract.startDate)}</p>
           </div>
           <div>
-            <p className="text-sm text-muted-foreground">Data de término</p>
+            <p className="text-muted-foreground text-sm">Data de término</p>
             <p>{contract.endDate ? date.format(contract.endDate) : '—'}</p>
           </div>
         </CardContent>
@@ -115,7 +129,9 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
           <CardContent className="space-y-1 text-sm">
             <p>{contract.tenant.name}</p>
             <p className="text-muted-foreground">{contract.tenant.email}</p>
-            {contract.tenant.phone && <p className="text-muted-foreground">{contract.tenant.phone}</p>}
+            {contract.tenant.phone && (
+              <p className="text-muted-foreground">{contract.tenant.phone}</p>
+            )}
           </CardContent>
         </Card>
       </div>
@@ -125,7 +141,33 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
           <CardTitle>Histórico de reajustes</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground">Nenhum reajuste aplicado ainda.</p>
+          {contract.adjustments.length === 0 ? (
+            <p className="text-muted-foreground text-sm">Nenhum reajuste aplicado ainda.</p>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Data</TableHead>
+                  <TableHead>Índice</TableHead>
+                  <TableHead>Taxa</TableHead>
+                  <TableHead>Valor anterior → Novo valor</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {contract.adjustments.map((adjustment) => (
+                  <TableRow key={adjustment.id}>
+                    <TableCell>{date.format(adjustment.appliedAt)}</TableCell>
+                    <TableCell>{INDEX_LABEL[adjustment.indexUsed]}</TableCell>
+                    <TableCell>{percent.format(Number(adjustment.indexRatePercent))}%</TableCell>
+                    <TableCell>
+                      {currency.format(Number(adjustment.previousValue))} →{' '}
+                      {currency.format(Number(adjustment.newValue))}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
         </CardContent>
       </Card>
 
@@ -134,7 +176,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
           <CardTitle>Histórico de pagamentos</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground">Nenhum pagamento registrado ainda.</p>
+          <p className="text-muted-foreground text-sm">Nenhum pagamento registrado ainda.</p>
         </CardContent>
       </Card>
     </div>
