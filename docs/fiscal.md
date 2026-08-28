@@ -2,19 +2,19 @@
 
 Este documento consolida todas as obrigações fiscais aplicáveis ao **RentEasy** e aos seus usuários (locadores PF e PJ), incluindo a emissão de **NFS-e**, **carnê-leão**, **DIMOB**, **IRRF** e as mudanças da **Reforma Tributária (IBS/CBS)**.
 
-***
+---
 
 ## 1. Visão Geral: Quem Emite Nota Fiscal de Aluguel?
 
 ### Cenário atual (antes da Reforma Tributária)
 
-| Tipo de Locador | Emite NF? | Tributação |
-| ----------------- | ----------- | ------------ |
-| **Pessoa Física (PF)** | **Não** (apenas recibo) | IRPF via **carnê-leão** (tabela progressiva até 27,5%) |
-| **Pessoa Jurídica (PJ)** | **Sim** (NFS-e ou nota de locação) | IRPJ, CSLL, PIS, COFINS (regime normal ou Simples) |
-| **Imobiliária (intermediação)** | **Sim** (NFS-e de administração) | ISS (2–5%), IRPJ, CSLL, PIS, COFINS |
+| Tipo de Locador                 | Emite NF?                          | Tributação                                             |
+| ------------------------------- | ---------------------------------- | ------------------------------------------------------ |
+| **Pessoa Física (PF)**          | **Não** (apenas recibo)            | IRPF via **carnê-leão** (tabela progressiva até 27,5%) |
+| **Pessoa Jurídica (PJ)**        | **Sim** (NFS-e ou nota de locação) | IRPJ, CSLL, PIS, COFINS (regime normal ou Simples)     |
+| **Imobiliária (intermediação)** | **Sim** (NFS-e de administração)   | ISS (2–5%), IRPJ, CSLL, PIS, COFINS                    |
 
- [franquiatech](https://franquiatech.com/blog/como-declarar-aluguel-imposto-de-renda-2026-carne-leao)
+[franquiatech](https://franquiatech.com/blog/como-declarar-aluguel-imposto-de-renda-2026-carne-leao)
 
 ### Cenário pós-Reforma Tributária (a partir de dezembro/2026)
 
@@ -27,34 +27,34 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
 
 **Quem é obrigado a emitir NFS-e**:
 
-| Categoria | Critério | Obrigação |
-| ----------- | ---------- | ----------- |
-| **Pessoa Jurídica (PJ)** | Qualquer receita de locação | **Obrigatório** desde o primeiro imóvel e primeiro real |
-| **Pessoa Física (PF)** | **Mais de 3 imóveis distintos** **E** receita anual > **R$ 240 mil** (ano anterior) | **Obrigatório** a partir de 2027 (deve obter **CNPJ técnico**) |
-| **Pessoa Física (PF)** | Receita > **R$ 288 mil** no ano corrente (120% do limite) | **Obrigatório** já no ano em que ultrapassar |
-| **Pessoa Física (PF) pequena** | ≤3 imóveis **OU** receita ≤R$ 240 mil/ano | **Não emite NFS-e** (continua com recibo + carnê-leão) |
+| Categoria                      | Critério                                                                            | Obrigação                                                      |
+| ------------------------------ | ----------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Pessoa Jurídica (PJ)**       | Qualquer receita de locação                                                         | **Obrigatório** desde o primeiro imóvel e primeiro real        |
+| **Pessoa Física (PF)**         | **Mais de 3 imóveis distintos** **E** receita anual > **R$ 240 mil** (ano anterior) | **Obrigatório** a partir de 2027 (deve obter **CNPJ técnico**) |
+| **Pessoa Física (PF)**         | Receita > **R$ 288 mil** no ano corrente (120% do limite)                           | **Obrigatório** já no ano em que ultrapassar                   |
+| **Pessoa Física (PF) pequena** | ≤3 imóveis **OU** receita ≤R$ 240 mil/ano                                           | **Não emite NFS-e** (continua com recibo + carnê-leão)         |
 
- [usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
+[usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
 
 **CNPJ técnico**: PF contribuinte de IBS/CBS deve se inscrever no **CNPJ** (vinculado ao CPF) para emitir NFS-e, mas **não se transforma em PJ**. [clementeporto.com](https://www.clementeporto.com.br/2026/08/05/reforma-tributaria-como-a-holding-economiza-impostos-na-locacao-imobiliaria/)
 
-***
+---
 
 ## 2. Calendário de Obrigações Fiscais (2026–2027)
 
-| Data | Obrigação | Quem | Detalhes |
-| ------ | ----------- | ------ | ---------- |
-| **03/08/2026** | Início da emissão de documentos fiscais com IBS/CBS (fase de testes) | PJ locadora | Destaque simbólico de IBS/CBS na NFS-e |
-| **01/11/2026** | NFS-e Nacional obrigatória para Simples Nacional | ME/EPP prestadoras de serviço | Emissão pelo emissor nacional |
-| **01/12/2026** | **NFS-e obrigatória para locação de imóveis** | PJ locadora + PF contribuinte (IBS/CBS) | Inclui locação, cessão onerosa, arrendamento |
-| **01/01/2027** | Início da cobrança plena de IBS/CBS | PJ + PF contribuinte | Alíquota estimada: 8,8% CBS + 17,7% IBS (com redutores) |
-| **Mensal** | Carnê-leão (IRPF) | PF não contribuinte de IBS/CBS | Declaração mensal + DARF até último dia útil do mês seguinte |
-| **Anual (fevereiro)** | DIMOB | Imobiliárias/PJ (não PF) | Declaração de informações sobre negócios imobiliários |
-| **Anual (março–maio)** | IRPF (declaração anual) | PF | Consolidação de rendimentos do ano anterior |
+| Data                   | Obrigação                                                            | Quem                                    | Detalhes                                                     |
+| ---------------------- | -------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------------------------ |
+| **03/08/2026**         | Início da emissão de documentos fiscais com IBS/CBS (fase de testes) | PJ locadora                             | Destaque simbólico de IBS/CBS na NFS-e                       |
+| **01/11/2026**         | NFS-e Nacional obrigatória para Simples Nacional                     | ME/EPP prestadoras de serviço           | Emissão pelo emissor nacional                                |
+| **01/12/2026**         | **NFS-e obrigatória para locação de imóveis**                        | PJ locadora + PF contribuinte (IBS/CBS) | Inclui locação, cessão onerosa, arrendamento                 |
+| **01/01/2027**         | Início da cobrança plena de IBS/CBS                                  | PJ + PF contribuinte                    | Alíquota estimada: 8,8% CBS + 17,7% IBS (com redutores)      |
+| **Mensal**             | Carnê-leão (IRPF)                                                    | PF não contribuinte de IBS/CBS          | Declaração mensal + DARF até último dia útil do mês seguinte |
+| **Anual (fevereiro)**  | DIMOB                                                                | Imobiliárias/PJ (não PF)                | Declaração de informações sobre negócios imobiliários        |
+| **Anual (março–maio)** | IRPF (declaração anual)                                              | PF                                      | Consolidação de rendimentos do ano anterior                  |
 
- [franquiatech](https://franquiatech.com/blog/carne-leao-2026-o-que-e-quem-paga-como-declarar)
+[franquiatech](https://franquiatech.com/blog/carne-leao-2026-o-que-e-quem-paga-como-declarar)
 
-***
+---
 
 ## 3. Obrigações Fiscais por Tipo de Locador
 
@@ -87,9 +87,9 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
 - Exportar **relatório anual** (para declaração de IRPF).
 - **Não emitir NFS-e** para PF não contribuinte.
 
- [franquiatech](https://franquiatech.com/blog/como-declarar-aluguel-imposto-de-renda-2026-carne-leao)
+[franquiatech](https://franquiatech.com/blog/como-declarar-aluguel-imposto-de-renda-2026-carne-leao)
 
-***
+---
 
 ### 3.2. Pessoa Física (PF) – Grande Locador (>3 imóveis E >R$ 240 mil/ano)
 
@@ -122,9 +122,9 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
 - Gerar **DARF de IBS/CBS** para pagamento.
 - Manter **relatório de rendimentos** para carnê-leão e IRPF.
 
- [usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
+[usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
 
-***
+---
 
 ### 3.3. Pessoa Jurídica (PJ) – Holding ou Empresa Locadora
 
@@ -149,9 +149,9 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
 - **Calcular IBS/CBS** (e outros tributos, se aplicável).
 - Gerar **relatórios para DIMOB, SPED, DCTF**.
 
- [usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
+[usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
 
-***
+---
 
 ### 3.4. Imobiliária (Intermediação)
 
@@ -172,9 +172,9 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
 - **Não reter IRRF** (a menos que RentEasy atue como intermediária PJ).
 - Se atuar como **plataforma de intermediação**, pode ter responsabilidade solidária por IBS/CBS.
 
- [elofiscal](https://elofiscal.com/nfse-dezembro-2026-locacoes-condominios-plataformas/)
+[elofiscal](https://elofiscal.com/nfse-dezembro-2026-locacoes-condominios-plataformas/)
 
-***
+---
 
 ## 4. Plataformas Digitais (SaaS como RentEasy)
 
@@ -184,13 +184,13 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 
 **Cenários**:
 
-| Modelo de RentEasy | Responsabilidade Fiscal |
-| -------------------- | ------------------------ |
-| **SaaS de gestão** (locador emite NF, RentEasy só fornece software) | **Sem responsabilidade** direta por IBS/CBS |
-| **Plataforma de intermediação** (RentEasy recebe aluguel e repassa ao locador) | **Responsável solidário** por reter e recolher IBS/CBS |
-| **Híbrido** (SaaS + gateway de pagamento) | Depende do contrato: se RentEasy apenas processa pagamento, **locador é responsável**; se RentEasy "intermedia", pode ser **responsável** |
+| Modelo de RentEasy                                                             | Responsabilidade Fiscal                                                                                                                   |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **SaaS de gestão** (locador emite NF, RentEasy só fornece software)            | **Sem responsabilidade** direta por IBS/CBS                                                                                               |
+| **Plataforma de intermediação** (RentEasy recebe aluguel e repassa ao locador) | **Responsável solidário** por reter e recolher IBS/CBS                                                                                    |
+| **Híbrido** (SaaS + gateway de pagamento)                                      | Depende do contrato: se RentEasy apenas processa pagamento, **locador é responsável**; se RentEasy "intermedia", pode ser **responsável** |
 
- [piraciadv](https://piraciadv.blog/2026/07/31/parecer-sobre-locacao-de-imoveis-diante-da-nova-realidade-do-ato-conjunto-4-de-31-07-2026-disponivel-para-baixa/)
+[piraciadv](https://piraciadv.blog/2026/07/31/parecer-sobre-locacao-de-imoveis-diante-da-nova-realidade-do-ato-conjunto-4-de-31-07-2026-disponivel-para-baixa/)
 
 **Recomendação para RentEasy**:
 
@@ -198,9 +198,9 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - **Se integrar gateway de pagamento**: usar modelo de **processador de pagamentos** (não intermediário), repassando valores diretamente ao locador (sem reter).
 - **Se atuar como intermediário**: implementar **retenção automática de IBS/CBS** e emissão de NF em nome da plataforma.
 
- [piraciadv](https://piraciadv.blog/2026/07/31/parecer-sobre-locacao-de-imoveis-diante-da-nova-realidade-do-ato-conjunto-4-de-31-07-2026-disponivel-para-baixa/)
+[piraciadv](https://piraciadv.blog/2026/07/31/parecer-sobre-locacao-de-imoveis-diante-da-nova-realidade-do-ato-conjunto-4-de-31-07-2026-disponivel-para-baixa/)
 
-***
+---
 
 ## 5. DIMOB (Declaração de Informações sobre Negócios Imobiliários)
 
@@ -227,7 +227,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - **Não emitir DIMOB** para PF (não é obrigado).
 - Para **PJ (holdings, imobiliárias)**: gerar **relatório exportável** com dados para DIMOB (contratos, valores, CPF/CNPJ das partes).
 
-***
+---
 
 ## 6. IRRF (Imposto de Renda Retido na Fonte)
 
@@ -242,21 +242,21 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - **Calcular IRRF automaticamente** se locador PF receber de PJ (opcional, para facilitar).
 - Gerar **DARF de IRRF** para pagamento pelo locador.
 
- [franquiatech](https://franquiatech.com/blog/como-declarar-aluguel-imposto-de-renda-2026-carne-leao)
+[franquiatech](https://franquiatech.com/blog/como-declarar-aluguel-imposto-de-renda-2026-carne-leao)
 
-***
+---
 
 ## 7. IBS/CBS (Reforma Tributária)
 
 ### Alíquotas e redutores
 
-| Tributo | Alíquota (estimada 2027–2028) | Redutores |
-| --------- | ------------------------------- | ----------- |
-| **CBS** | 8,8% | Redutor de 70% para locação residencial |
-| **IBS** | 17,7% | Redutor de 70% para locação residencial |
-| **Alíquota efetiva** | ~26,5% (sobre 30% da base) | Redutor social: R$ 600/mês por imóvel |
+| Tributo              | Alíquota (estimada 2027–2028) | Redutores                               |
+| -------------------- | ----------------------------- | --------------------------------------- |
+| **CBS**              | 8,8%                          | Redutor de 70% para locação residencial |
+| **IBS**              | 17,7%                         | Redutor de 70% para locação residencial |
+| **Alíquota efetiva** | ~26,5% (sobre 30% da base)    | Redutor social: R$ 600/mês por imóvel   |
 
- [em.com](https://www.em.com.br/colunistas/bertha-maakaroun/2026/08/7480544-reforma-tributaria-da-isencao-da-cesta-basica-a-tributacao-do-aluguel.html)
+[em.com](https://www.em.com.br/colunistas/bertha-maakaroun/2026/08/7480544-reforma-tributaria-da-isencao-da-cesta-basica-a-tributacao-do-aluguel.html)
 
 **Exemplo prático**:
 
@@ -265,7 +265,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - IBS/CBS (26,5%): R$ 900 × 26,5% = **R$ 238,50/mês**
 - Redutor social (se aplicável): R$ 600/mês → pode zerar a base para aluguéis baixos
 
- [em.com](https://www.em.com.br/colunistas/bertha-maakaroun/2026/08/7480544-reforma-tributaria-da-isencao-da-cesta-basica-a-tributacao-do-aluguel.html)
+[em.com](https://www.em.com.br/colunistas/bertha-maakaroun/2026/08/7480544-reforma-tributaria-da-isencao-da-cesta-basica-a-tributacao-do-aluguel.html)
 
 **O que o RentEasy deve fazer**:
 
@@ -273,9 +273,9 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - Incluir campos de **IBS/CBS na NFS-e** (obrigatório a partir de 01/01/2027).
 - Gerar **DARF de IBS/CBS** para pagamento.
 
- [gov](https://www.gov.br/nfse/pt-br/noticias/cgnfs-e-orienta-sobre-os-prazos-para%20destaque-de-ibs-cbs-nas-notas-fiscais-de-servico)
+[gov](https://www.gov.br/nfse/pt-br/noticias/cgnfs-e-orienta-sobre-os-prazos-para%20destaque-de-ibs-cbs-nas-notas-fiscais-de-servico)
 
-***
+---
 
 ## 8. Checklist de Obrigações Fiscais para o RentEasy
 
@@ -300,21 +300,21 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - [ ] **Relatórios para SPED, DCTF** (para PJ).
 - [ ] **Módulo de planejamento tributário** (simulação PF vs. PJ vs. holding).
 
-***
+---
 
 ## 9. Riscos de Não Conformidade
 
-| Risco | Consequência | Mitigação |
-| ------- | -------------- | ----------- |
-| **Não emitir NFS-e (quando obrigatório)** | Multa de 50–100% do tributo devido + juros | Integrar com emissor de NFS-e, alertar usuário sobre obrigatoriedade |
-| **Não recolher IBS/CBS** | Multa de 75–225% do tributo + juros | Calcular automaticamente, gerar DARF |
-| **Não declarar carnê-leão** | Multa de 20% do imposto devido + juros | Gerar relatório mensal para usuário |
-| **Não entregar DIMOB (PJ)** | Multa de R$ 500–R$ 5.000 | Gerar relatório exportável para contador |
-| **RentEasy atuar como intermediário sem reter IBS/CBS** | Responsabilidade solidária + multa | Definir modelo de negócio (SaaS puro vs. intermediário) |
+| Risco                                                   | Consequência                               | Mitigação                                                            |
+| ------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------------------- |
+| **Não emitir NFS-e (quando obrigatório)**               | Multa de 50–100% do tributo devido + juros | Integrar com emissor de NFS-e, alertar usuário sobre obrigatoriedade |
+| **Não recolher IBS/CBS**                                | Multa de 75–225% do tributo + juros        | Calcular automaticamente, gerar DARF                                 |
+| **Não declarar carnê-leão**                             | Multa de 20% do imposto devido + juros     | Gerar relatório mensal para usuário                                  |
+| **Não entregar DIMOB (PJ)**                             | Multa de R$ 500–R$ 5.000                   | Gerar relatório exportável para contador                             |
+| **RentEasy atuar como intermediário sem reter IBS/CBS** | Responsabilidade solidária + multa         | Definir modelo de negócio (SaaS puro vs. intermediário)              |
 
- [usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
+[usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
 
-***
+---
 
 ## 10. Resumo: O que o RentEasy Precisa Fazer
 
@@ -344,7 +344,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - **Modelo intermediário**: reter e recolher IBS/CBS, emitir NF em nome da plataforma.
 - **Termos de uso claros**: definir responsabilidades fiscais.
 
-***
+---
 
 ## Conclusão
 

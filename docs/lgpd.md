@@ -2,7 +2,7 @@
 
 Este documento apresenta um **guia passo a passo** para implementar os requisitos da **Lei Geral de Proteção de Dados (LGPD – Lei 13.709/2018)** no **RentEasy**, incluindo políticas, controles técnicos, processos e documentação necessária para conformidade.
 
-***
+---
 
 ## 1. Contexto: Por que a LGPD é Crítica para o RentEasy?
 
@@ -23,24 +23,24 @@ Este documento apresenta um **guia passo a passo** para implementar os requisito
 
 **Conclusão**: A LGPD não é "burocracia" — é **risco financeiro e operacional real**. O RentEasy precisa de conformidade desde o MVP.
 
-***
+---
 
 ## 2. Dados Pessoais Tratados pelo RentEasy
 
 ### Mapeamento de Dados (ROPA – Registro de Operações de Dados)
 
-| Categoria | Dados Coletados | Finalidade | Base Legal | Prazo de Retenção |
-| ----------- | ----------------- | ------------ | ------------ | ------------------- |
-| **Locador (proprietário)** | Nome, CPF/CNPJ, e-mail, telefone, endereço, dados bancários | Cadastro, autenticação, cobrança, repasses | Execução de contrato (Art. 7º, V) | 5 anos após término do contrato |
-| **Inquilino (locatário)** | Nome, CPF, RG, e-mail, telefone, endereço, dados bancários, profissão, renda | Cadastro, contrato, cobrança, vistoria | Execução de contrato (Art. 7º, V) | 5 anos após devolução do imóvel |
-| **Imóvel** | Endereço, matrícula, IPTU, fotos, características | Gestão do contrato, vistoria | Execução de contrato (Art. 7º, V) | 5 anos após término do contrato |
-| **Contrato** | Valor do aluguel, índice de reajuste, datas, assinaturas digitais | Formalização do contrato, reajustes, cobranças | Execução de contrato (Art. 7º, V) | 5 anos após término do contrato |
-| **Pagamentos** | Histórico de pagamentos, boletos, PIX, inadimplência | Controle financeiro, relatórios | Execução de contrato (Art. 7º, V) | 5 anos após término do contrato |
-| **Comunicação** | E-mails, WhatsApp, ligações registradas | Atendimento, notificações, cobranças | Execução de contrato (Art. 7º, V) | 2 anos após término do contrato |
-| **Vistoria** | Fotos, checklist, observações | Comprovar estado do imóvel na entrada/saída | Execução de contrato (Art. 7º, V) | 5 anos após devolução do imóvel |
-| **Dados sensíveis (opcional)** | Foto do inquilino (reconhecimento facial), biometria | Autenticação, vistoria | Consentimento (Art. 7º, I) ou Execução de contrato | 2 anos após término do contrato |
+| Categoria                      | Dados Coletados                                                              | Finalidade                                     | Base Legal                                         | Prazo de Retenção               |
+| ------------------------------ | ---------------------------------------------------------------------------- | ---------------------------------------------- | -------------------------------------------------- | ------------------------------- |
+| **Locador (proprietário)**     | Nome, CPF/CNPJ, e-mail, telefone, endereço, dados bancários                  | Cadastro, autenticação, cobrança, repasses     | Execução de contrato (Art. 7º, V)                  | 5 anos após término do contrato |
+| **Inquilino (locatário)**      | Nome, CPF, RG, e-mail, telefone, endereço, dados bancários, profissão, renda | Cadastro, contrato, cobrança, vistoria         | Execução de contrato (Art. 7º, V)                  | 5 anos após devolução do imóvel |
+| **Imóvel**                     | Endereço, matrícula, IPTU, fotos, características                            | Gestão do contrato, vistoria                   | Execução de contrato (Art. 7º, V)                  | 5 anos após término do contrato |
+| **Contrato**                   | Valor do aluguel, índice de reajuste, datas, assinaturas digitais            | Formalização do contrato, reajustes, cobranças | Execução de contrato (Art. 7º, V)                  | 5 anos após término do contrato |
+| **Pagamentos**                 | Histórico de pagamentos, boletos, PIX, inadimplência                         | Controle financeiro, relatórios                | Execução de contrato (Art. 7º, V)                  | 5 anos após término do contrato |
+| **Comunicação**                | E-mails, WhatsApp, ligações registradas                                      | Atendimento, notificações, cobranças           | Execução de contrato (Art. 7º, V)                  | 2 anos após término do contrato |
+| **Vistoria**                   | Fotos, checklist, observações                                                | Comprovar estado do imóvel na entrada/saída    | Execução de contrato (Art. 7º, V)                  | 5 anos após devolução do imóvel |
+| **Dados sensíveis (opcional)** | Foto do inquilino (reconhecimento facial), biometria                         | Autenticação, vistoria                         | Consentimento (Art. 7º, I) ou Execução de contrato | 2 anos após término do contrato |
 
- [portaltelemedicina.com](https://portaltelemedicina.com.br/lgpd-e-a-emissao-de-laudos-medicos)
+[portaltelemedicina.com](https://portaltelemedicina.com.br/lgpd-e-a-emissao-de-laudos-medicos)
 
 ### Princípios da LGPD a Observar (Art. 6º)
 
@@ -55,7 +55,7 @@ Este documento apresenta um **guia passo a passo** para implementar os requisito
 9. **Não discriminação**: não usar dados para fins discriminatórios.
 10. **Responsabilização e prestação de contas**: demonstrar conformidade.
 
-***
+---
 
 ## 3. Bases Legais para Tratamento de Dados
 
@@ -86,7 +86,7 @@ Usar **consentimento** apenas para:
 - **Específico**: para cada finalidade.
 - **Revogável**: titular pode retirar consentimento a qualquer momento.
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
 ### Outras Bases Legais Aplicáveis
 
@@ -94,9 +94,9 @@ Usar **consentimento** apenas para:
 - **Legítimo interesse (Art. 7º, IX)**: prevenção à fraude, segurança do sistema (requer teste de balanceamento – LIA).
 - **Exercício regular de direitos (Art. 7º, VI)**: defesa em processos judiciais ou administrativos.
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
-***
+---
 
 ## 4. Implementação Prática: Passo a Passo
 
@@ -119,9 +119,9 @@ Usar **consentimento** apenas para:
 
 **Custo**: pode ser interno (sem custo adicional) ou terceirizado (R$ 1.000–R$ 5.000/mês para DPO compartilhado).
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
-***
+---
 
 ### Passo 2: Criar Política de Privacidade e Termos de Uso
 
@@ -149,9 +149,9 @@ Deve incluir:
 - Link visível no rodapé do site e do app.
 - Checkbox "Li e concordo com a Política de Privacidade" no cadastro.
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
-***
+---
 
 ### Passo 3: Implementar Controles Técnicos de Segurança
 
@@ -161,7 +161,7 @@ Deve incluir:
 - **Dados em repouso**: criptografar banco de dados com **AES-256**.
 - **Backups**: criptografar backups e armazenar em local seguro.
 
- [portaltelemedicina.com](https://portaltelemedicina.com.br/lgpd-e-a-emissao-de-laudos-medicos)
+[portaltelemedicina.com](https://portaltelemedicina.com.br/lgpd-e-a-emissao-de-laudos-medicos)
 
 #### 3.2. Controle de Acesso
 
@@ -173,7 +173,7 @@ Deve incluir:
 - **Princípio do privilégio mínimo**: cada usuário acessa apenas o necessário.
 - **Revogação imediata**: remover acessos quando usuário sair da empresa ou mudar de função.
 
- [adentro.com](https://adentro.com.br/lgpd-cloud/)
+[adentro.com](https://adentro.com.br/lgpd-cloud/)
 
 #### 3.3. Logs de Auditoria
 
@@ -185,7 +185,7 @@ Deve incluir:
 - Manter logs por **pelo menos 2 anos** (prazo para fiscalização da ANPD).
 - Logs devem ser **imutáveis** (WORM: write once, read many).
 
- [adentro.com](https://adentro.com.br/lgpd-cloud/)
+[adentro.com](https://adentro.com.br/lgpd-cloud/)
 
 #### 3.4. Segurança da Infraestrutura
 
@@ -195,9 +195,9 @@ Deve incluir:
 - **Testes de penetração**: realizar pentest anual ou semestral.
 - **Seguro cibernético**: cobrir multas da ANPD, custos de resposta a incidentes.
 
- [nextguardinsurance](https://www.nextguardinsurance.com/florida-insurance-blog/regulacao-lgpd-seguro-cibernetico-brasil)
+[nextguardinsurance](https://www.nextguardinsurance.com/florida-insurance-blog/regulacao-lgpd-seguro-cibernetico-brasil)
 
-***
+---
 
 ### Passo 4: Criar Processo para Direitos dos Titulares (Art. 18)
 
@@ -213,7 +213,7 @@ Deve incluir:
 8. **Informação sobre possibilidade de não fornecer consentimento**.
 9. **Revogação do consentimento**.
 
- [businessandscience.com](https://businessandscience.com.br/privacidade)
+[businessandscience.com](https://businessandscience.com.br/privacidade)
 
 **Como implementar no RentEasy**:
 
@@ -228,25 +228,25 @@ Deve incluir:
 - Criar **funcionalidade de exclusão de conta**:
   - Botão "Excluir minha conta" (com confirmação e aviso sobre consequências).
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
-***
+---
 
 ### Passo 5: Definir Prazos de Retenção e Eliminação de Dados
 
 **Prazos recomendados**:
 
-| Dado | Prazo de Retenção | Justificativa |
-| ------ | ------------------- | --------------- |
-| **Cadastro de locador/inquilino** | 5 anos após término do contrato | Prazo prescricional de ações locatícias (Art. 205, Código Civil) |
-| **Contrato e aditivos** | 5 anos após término do contrato | Prazo prescricional de ações contratuais |
-| **Histórico de pagamentos** | 5 anos após término do contrato | Prazo fiscal e prescricional |
-| **Vistoria (fotos, checklist)** | 5 anos após devolução do imóvel | Prazo para disputas sobre danos |
-| **Comunicação (e-mails, WhatsApp)** | 2 anos após término do contrato | Prazo para disputas sobre cobranças |
-| **Logs de acesso** | 2 anos | Prazo para fiscalização da ANPD |
+| Dado                                  | Prazo de Retenção               | Justificativa                                                             |
+| ------------------------------------- | ------------------------------- | ------------------------------------------------------------------------- |
+| **Cadastro de locador/inquilino**     | 5 anos após término do contrato | Prazo prescricional de ações locatícias (Art. 205, Código Civil)          |
+| **Contrato e aditivos**               | 5 anos após término do contrato | Prazo prescricional de ações contratuais                                  |
+| **Histórico de pagamentos**           | 5 anos após término do contrato | Prazo fiscal e prescricional                                              |
+| **Vistoria (fotos, checklist)**       | 5 anos após devolução do imóvel | Prazo para disputas sobre danos                                           |
+| **Comunicação (e-mails, WhatsApp)**   | 2 anos após término do contrato | Prazo para disputas sobre cobranças                                       |
+| **Logs de acesso**                    | 2 anos                          | Prazo para fiscalização da ANPD                                           |
 | **Dados sensíveis (foto, biometria)** | 2 anos após término do contrato | Minimização (dados sensíveis devem ser retidos pelo menor tempo possível) |
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
 **Como implementar**:
 
@@ -255,9 +255,9 @@ Deve incluir:
   - Job diário/semanal que identifica dados expirados e os exclui (ou anonimiza).
 - Manter **registro de exclusões** (log de eliminação de dados).
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
-***
+---
 
 ### Passo 6: Criar Processo de Resposta a Incidentes
 
@@ -278,7 +278,7 @@ Deve incluir:
 5. **Correção**: corrigir vulnerabilidade, reforçar segurança.
 6. **Documentação**: registrar incidente, ações tomadas, lições aprendidas.
 
- [blogacritica.blogspot](https://blogacritica.blogspot.com/2026/08/anpd-recebeu-quase-uma-comunicacao-de.html)
+[blogacritica.blogspot](https://blogacritica.blogspot.com/2026/08/anpd-recebeu-quase-uma-comunicacao-de.html)
 
 **Como implementar no RentEasy**:
 
@@ -287,9 +287,9 @@ Deve incluir:
 - Realizar **simulado anual** de incidente.
 - Contratar **seguro cibernético** (cobre multas, custos de notificação, defesa administrativa).
 
- [nextguardinsurance](https://www.nextguardinsurance.com/florida-insurance-blog/regulacao-lgpd-seguro-cibernetico-brasil)
+[nextguardinsurance](https://www.nextguardinsurance.com/florida-insurance-blog/regulacao-lgpd-seguro-cibernetico-brasil)
 
-***
+---
 
 ### Passo 7: Revisar Contratos com Fornecedores (Operadores)
 
@@ -309,7 +309,7 @@ Deve incluir:
 - Fornecedor deve notificar RentEasy em caso de incidente.
 - Fornecedor não pode compartilhar dados com terceiros sem autorização.
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
 **Como implementar**:
 
@@ -317,9 +317,9 @@ Deve incluir:
 - Adicionar **Termo Aditivo de Proteção de Dados** (DPA – Data Processing Agreement).
 - Manter **registro de fornecedores** (nome, dados tratados, medidas de segurança).
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
-***
+---
 
 ### Passo 8: Criar Evidências de Conformidade (Accountability)
 
@@ -336,7 +336,7 @@ Deve incluir:
 9. **Registro de exclusões de dados** (após prazo de retenção).
 10. **Comprovante de nomeação do DPO** (e-mail publicado no site).
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
 **Como implementar**:
 
@@ -344,9 +344,9 @@ Deve incluir:
 - Manter todos os documentos atualizados.
 - Realizar **auditoria interna anual** (ou contratar consultoria).
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
-***
+---
 
 ## 5. Checklist de Implementação (MVP, V1, V2)
 
@@ -362,7 +362,7 @@ Deve incluir:
 - [ ] **Criar ROPA** (Registro de Operações de Dados).
 - [ ] **Revisar contratos com fornecedores** (adicionar cláusulas LGPD).
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
 ### V1 (4–6 meses)
 
@@ -374,7 +374,7 @@ Deve incluir:
 - [ ] **Criar Plano de Resposta a Incidentes** (documento interno).
 - [ ] **Contratar seguro cibernético** (opcional, recomendado).
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
 ### V2 (8–12 meses)
 
@@ -384,41 +384,41 @@ Deve incluir:
 - [ ] **Criar relatório de conformidade LGPD** (para investidores, clientes corporativos).
 - [ ] **Implementar anonimização de dados** para relatórios e analytics.
 
- [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
+[opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
 
-***
+---
 
 ## 6. Riscos de Não Conformidade
 
-| Risco | Consequência | Mitigação |
-| ------- | -------------- | ----------- |
-| **Não nomear DPO** | Multa de até R$ 50 milhões (2% do faturamento) | Nomear DPO e publicar e-mail no site |
-| **Não ter Política de Privacidade** | Multa + publicização da infração | Criar política clara e publicar no site |
-| **Vazamento de dados** | Multa + dano reputacional + custos de notificação | Criptografia, MFA, logs, plano de resposta a incidentes |
-| **Não atender solicitações de titulares** | Multa + bloqueio de dados | Criar Central de Privacidade e fluxo interno |
-| **Reter dados além do prazo** | Multa + eliminação obrigatória | Automatizar exclusão de dados expirados |
-| **Contratos sem cláusulas LGPD** | Responsabilidade solidária por vazamento | Revisar contratos com fornecedores |
+| Risco                                     | Consequência                                      | Mitigação                                               |
+| ----------------------------------------- | ------------------------------------------------- | ------------------------------------------------------- |
+| **Não nomear DPO**                        | Multa de até R$ 50 milhões (2% do faturamento)    | Nomear DPO e publicar e-mail no site                    |
+| **Não ter Política de Privacidade**       | Multa + publicização da infração                  | Criar política clara e publicar no site                 |
+| **Vazamento de dados**                    | Multa + dano reputacional + custos de notificação | Criptografia, MFA, logs, plano de resposta a incidentes |
+| **Não atender solicitações de titulares** | Multa + bloqueio de dados                         | Criar Central de Privacidade e fluxo interno            |
+| **Reter dados além do prazo**             | Multa + eliminação obrigatória                    | Automatizar exclusão de dados expirados                 |
+| **Contratos sem cláusulas LGPD**          | Responsabilidade solidária por vazamento          | Revisar contratos com fornecedores                      |
 
- [turivius](https://turivius.com/portal/anpd-2026-fiscalizacao-lgpd/?amp=1)
+[turivius](https://turivius.com/portal/anpd-2026-fiscalizacao-lgpd/?amp=1)
 
-***
+---
 
 ## 7. Custos Estimados de Implementação
 
-| Item | Custo Estimado |
-| ------ | ---------------- |
-| **DPO interno** | R$ 0 (fundador ou funcionário) |
-| **DPO terceirizado** | R$ 1.000–R$ 5.000/mês |
-| **Política de Privacidade + Termos de Uso** | R$ 2.000–R$ 10.000 (advogado especializado) |
-| **Criptografia + MFA + Logs** | R$ 0–R$ 5.000 (já incluso em provedores de cloud) |
-| **Central de Privacidade** | R$ 0–R$ 5.000 (desenvolvimento interno) |
-| **Auditoria interna** | R$ 0 (interno) ou R$ 10.000–R$ 50.000 (consultoria) |
-| **Seguro cibernético** | R$ 5.000–R$ 20.000/ano |
-| **Total (MVP)** | **R$ 7.000–R$ 45.000** (one-time) + R$ 1.000–R$ 5.000/mês (DPO terceirizado, se aplicável) |
+| Item                                        | Custo Estimado                                                                             |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **DPO interno**                             | R$ 0 (fundador ou funcionário)                                                             |
+| **DPO terceirizado**                        | R$ 1.000–R$ 5.000/mês                                                                      |
+| **Política de Privacidade + Termos de Uso** | R$ 2.000–R$ 10.000 (advogado especializado)                                                |
+| **Criptografia + MFA + Logs**               | R$ 0–R$ 5.000 (já incluso em provedores de cloud)                                          |
+| **Central de Privacidade**                  | R$ 0–R$ 5.000 (desenvolvimento interno)                                                    |
+| **Auditoria interna**                       | R$ 0 (interno) ou R$ 10.000–R$ 50.000 (consultoria)                                        |
+| **Seguro cibernético**                      | R$ 5.000–R$ 20.000/ano                                                                     |
+| **Total (MVP)**                             | **R$ 7.000–R$ 45.000** (one-time) + R$ 1.000–R$ 5.000/mês (DPO terceirizado, se aplicável) |
 
- [nextguardinsurance](https://www.nextguardinsurance.com/florida-insurance-blog/regulacao-lgpd-seguro-cibernetico-brasil)
+[nextguardinsurance](https://www.nextguardinsurance.com/florida-insurance-blog/regulacao-lgpd-seguro-cibernetico-brasil)
 
-***
+---
 
 ## 8. Modelo de Política de Privacidade (Estrutura)
 
@@ -426,12 +426,14 @@ Deve incluir:
 # Política de Privacidade – RentEasy
 
 ## 1. Identidade do Controlador
+
 - **Nome**: RentEasy Tecnologia Ltda.
 - **CNPJ**: XX.XXX.XXX/0001-XX
 - **Endereço**: Rua X, nº Y, Cidade/UF
 - **DPO**: privacidade@renteasy.com.br
 
 ## 2. Dados Coletados
+
 - **Locador**: nome, CPF/CNPJ, e-mail, telefone, endereço, dados bancários.
 - **Inquilino**: nome, CPF, RG, e-mail, telefone, endereço, dados bancários, profissão, renda.
 - **Imóvel**: endereço, matrícula, IPTU, fotos, características.
@@ -441,6 +443,7 @@ Deve incluir:
 - **Vistoria**: fotos, checklist, observações.
 
 ## 3. Finalidades
+
 - Cadastro e autenticação de usuários.
 - Formalização e gestão de contratos de locação.
 - Cobrança e repasses de aluguéis.
@@ -449,11 +452,13 @@ Deve incluir:
 - Relatórios financeiros e fiscais.
 
 ## 4. Base Legal
+
 - Execução de contrato (Art. 7º, V, LGPD).
 - Consentimento (Art. 7º, I, LGPD) para finalidades secundárias.
 - Cumprimento de obrigação legal (Art. 7º, II, LGPD) para emissão de NFS-e, DIMOB, IRRF.
 
 ## 5. Compartilhamento
+
 - **Gateways de pagamento**: Asaas, Juno, Pagar.me (para processar pagamentos).
 - **E-signature**: ClickSign, DocuSign, Zapsign (para assinaturas digitais).
 - **E-mail/WhatsApp**: SendGrid, Twilio, Z-API (para notificações).
@@ -461,17 +466,20 @@ Deve incluir:
 - **Contadores**: exportação de relatórios fiscais (se usuário autorizar).
 
 ## 6. Prazos de Retenção
+
 - **Cadastro, contrato, pagamentos, vistoria**: 5 anos após término do contrato.
 - **Comunicação**: 2 anos após término do contrato.
 - **Logs de acesso**: 2 anos.
 - **Dados sensíveis**: 2 anos após término do contrato.
 
 ## 7. Direitos dos Titulares
+
 - Acesso, correção, exclusão, portabilidade, revogação de consentimento.
 - Como solicitar: privacidade@renteasy.com.br ou formulário na Central de Privacidade.
 - Prazo de resposta: 15 dias.
 
 ## 8. Medidas de Segurança
+
 - Criptografia em trânsito (HTTPS/TLS 1.3) e em repouso (AES-256).
 - Autenticação multifator (MFA) para administradores.
 - Controle de acesso por função (RBAC).
@@ -479,18 +487,21 @@ Deve incluir:
 - Monitoramento contínuo e resposta a incidentes.
 
 ## 9. Transferência Internacional
+
 - Dados são armazenados em servidores da AWS/Google Cloud (EUA, Brasil).
 - Provedores possuem certificações de segurança (ISO 27001, SOC 2).
 
 ## 10. Alterações nesta Política
+
 - Esta política pode ser atualizada. A versão mais recente estará sempre disponível em renteasy.com.br/privacidade.
 
 ## 11. Contato
+
 - DPO: privacidade@renteasy.com.br
 - ANPD: https://www.gov.br/anpd/pt-br
 ```
 
-***
+---
 
 ## Conclusão
 

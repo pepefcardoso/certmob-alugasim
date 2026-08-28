@@ -225,7 +225,7 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Size:** L
 - **Depends on:** P5.1
 - **Description:** Form fields per P1.5. Property and Tenant selected via searchable `Select` (must belong to the same owner — filter the query options server-side, not just client-side). `baseDate` and `startDate` via shadcn date picker. Server Action validates: `endDate` (if set) is after `startDate`; `rentValue` > 0.
-- **DoD:** Submitting with a tenant belonging to a *different* owner is rejected server-side even if the client were tampered with (test by crafting the request manually).
+- **DoD:** Submitting with a tenant belonging to a _different_ owner is rejected server-side even if the client were tampered with (test by crafting the request manually).
 
 ### P5.3 — Contract detail page
 
@@ -263,7 +263,7 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 - **Size:** S
 - **Depends on:** P5.3
-- **Description:** `isAdjustmentEligible(contract)` — true if `today >= baseDate + 12 months` since the *last applied* adjustment (or since `startDate` if none applied yet), per Lei 8.245/91's one-adjustment-per-12-months rule. Surface this as a badge/button state on the contract detail page, not a separate task.
+- **Description:** `isAdjustmentEligible(contract)` — true if `today >= baseDate + 12 months` since the _last applied_ adjustment (or since `startDate` if none applied yet), per Lei 8.245/91's one-adjustment-per-12-months rule. Surface this as a badge/button state on the contract detail page, not a separate task.
 - **DoD:** Unit test: a contract with `baseDate` 13 months ago and no prior `RentAdjustment` is eligible; one adjusted 2 months ago is not eligible again yet.
 
 ### P6.4 — "Apply adjustment" flow with visible math

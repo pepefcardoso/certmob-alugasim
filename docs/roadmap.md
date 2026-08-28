@@ -2,15 +2,15 @@
 
 Este relatório consolida a pesquisa de mercado, análise competitiva, fundamentação legal e um roadmap de produto acionável para o SaaS **RentEasy**, focado em pequenos proprietários (PF) com 1–10 imóveis no Brasil.
 
-***
+---
 
 ## 1. Mercado & Oportunidade
 
 ### Tamanho do mercado de pequenos proprietários
 
-O mercado de locação residencial no Brasil atingiu proporções recordes. Entre 2016 e 2025, o número de domicílios alugados saltou **54%**, passando de **12,2 milhões para 18,9 milhões** de unidades.  Em 2024, cerca de **46,5 milhões de brasileiros** (21,9% da população) viviam de aluguel, um recorde histórico. [forbes.com](https://forbes.com.br/forbes-money/forbes-real-estate/2026/08/fiis-residenciais-mercado-aluguel-private-equity/)
+O mercado de locação residencial no Brasil atingiu proporções recordes. Entre 2016 e 2025, o número de domicílios alugados saltou **54%**, passando de **12,2 milhões para 18,9 milhões** de unidades. Em 2024, cerca de **46,5 milhões de brasileiros** (21,9% da população) viviam de aluguel, um recorde histórico. [forbes.com](https://forbes.com.br/forbes-money/forbes-real-estate/2026/08/fiis-residenciais-mercado-aluguel-private-equity/)
 
-Embora não haja um censo exato segmentando proprietários pessoa física (PF) com 1–10 imóveis, a dinâmica do mercado indica que a vasta maioria dos contratos de locação é gerida por pequenos investidores individuais. Nos EUA, por exemplo, **89,6% dos aluguéis de casas unifamiliares** são detidos por proprietários com 1–5 imóveis, e o Brasil segue padrão similar de pulverização.  Estima-se que existam **milhões de proprietários individuais** gerindo diretamente suas carteiras, muitos deles aposentados, investidores iniciantes ou profissionais que adquiriram imóveis como reserva de valor. [baselane](https://www.baselane.com/resources/self-managing-landlord-statistics)
+Embora não haja um censo exato segmentando proprietários pessoa física (PF) com 1–10 imóveis, a dinâmica do mercado indica que a vasta maioria dos contratos de locação é gerida por pequenos investidores individuais. Nos EUA, por exemplo, **89,6% dos aluguéis de casas unifamiliares** são detidos por proprietários com 1–5 imóveis, e o Brasil segue padrão similar de pulverização. Estima-se que existam **milhões de proprietários individuais** gerindo diretamente suas carteiras, muitos deles aposentados, investidores iniciantes ou profissionais que adquiriram imóveis como reserva de valor. [baselane](https://www.baselane.com/resources/self-managing-landlord-statistics)
 
 ### Crescimento do mercado
 
@@ -22,7 +22,7 @@ O mercado de locação está em expansão acelerada e estrutural:
 
 ### Dor financeira real: esquecer reajustes anuais
 
-A Lei do Inquilinato (Lei 8.245/91) permite reajuste anual, mas **não define índice obrigatório** — as partes escolhem livremente (IGP-M, IPCA, INPC, etc.).  O reajuste só pode ocorrer **uma vez a cada 12 meses**, no aniversário do contrato. [partnr](https://www.partnr.ai/blog/indice-de-reajuste-de-aluguel)
+A Lei do Inquilinato (Lei 8.245/91) permite reajuste anual, mas **não define índice obrigatório** — as partes escolhem livremente (IGP-M, IPCA, INPC, etc.). O reajuste só pode ocorrer **uma vez a cada 12 meses**, no aniversário do contrato. [partnr](https://www.partnr.ai/blog/indice-de-reajuste-de-aluguel)
 
 **Impacto financeiro direto:**
 
@@ -33,20 +33,20 @@ A Lei do Inquilinato (Lei 8.245/91) permite reajuste anual, mas **não define í
 
 Além da perda direta, há custos indiretos: inadimplência silenciosa (inquilino "esquece" de pagar), tempo gasto com planilhas, estresse na cobrança e documentos perdidos.
 
-***
+---
 
 ## 2. Análise Competitiva
 
 ### Principais concorrentes diretos e indiretos
 
-| Concorrente | Público-alvo | Preço (mensal) | Pontos fortes | Lacunas / Fraquezas |
-| ------------- | -------------- | ---------------- | --------------- | --------------------- |
-| **Alugo** | Pequenos proprietários, kitnets | A partir de **R$ 29,90** (ilimitado) | Preço baixo, cobrança em lote, régua de cobrança (e-mail/WhatsApp), portal do inquilino, NFS-e integrada, reajuste automático | Foco em kitnets/volume; contratos digitais básicos; sem vistoria digital avançada; relatórios financeiros limitados | [blog.pilotaimoveis.com](https://blog.pilotaimoveis.com.br/post/sistema-locacao-de-casas-guia-pratico-automacao-gestao) |
-| **Pilota Imóveis** | Pequenos a grandes (3–1000+ imóveis) | **R$ 49–R$ 299** (escalonado por volume) | Automação completa (contratos, boletos, PIX, repasses), vistoria digital com fotos, seguros integrados, relatórios fiscais, integração com portais (OLX, VivaReal) | Preço sobe com volume; pode ser complexo para quem tem 1–3 imóveis; curva de aprendizado | [blog.pilotaimoveis.com](https://blog.pilotaimoveis.com.br/post/sistema-locacao-de-casas-guia-pratico-automacao-gestao) |
-| **Superlógica Imobi** | Médias/grandes administradoras | Não publicado (estimado **R$ 200–R$ 500+**) | ERP maduro, conciliação bancária, DIMOB, IRRF, NFS-e, vistorias, área do cliente | Foco em administradoras; preço alto; overkill para 1–10 imóveis; complexidade | [kenlo.com](https://www.kenlo.com.br/comparativo/melhor-sistema-locacao) |
-| **Kenlo Locação** | Administradoras (100+ contratos) | A partir de **R$ 247/mês** (anual, até 100 contratos) | Profundidade fiscal (DIMOB, IRRF, NFS-e), conciliação, área do cliente, vistorias | Preço mínimo alto; focado em administradoras, não em PF pequeno | [kenlo.com](https://www.kenlo.com.br/comparativo/melhor-sistema-locacao) |
-| **Jetimob / Imobzi / Universal** | Imobiliárias/administradoras | **R$ 229–R$ 430+/mês** | CRM + ERP integrados, módulos fiscais, vistorias | Foco B2B (imobiliárias); preço elevado; não desenhado para PF individual | [kenlo.com](https://www.kenlo.com.br/comparativo/melhor-sistema-locacao) |
-| **Planilha Excel / Google Sheets** | Todos (indireto) | **Grátis** | Flexibilidade total, sem custo | Trabalho manual, erros, sem automação, sem lembretes, sem portal do inquilino | [usealugo.com](https://usealugo.com.br/recursos/sistema-para-administrar-kitnets) |
+| Concorrente                        | Público-alvo                         | Preço (mensal)                                        | Pontos fortes                                                                                                                                                      | Lacunas / Fraquezas                                                                                                 |
+| ---------------------------------- | ------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| **Alugo**                          | Pequenos proprietários, kitnets      | A partir de **R$ 29,90** (ilimitado)                  | Preço baixo, cobrança em lote, régua de cobrança (e-mail/WhatsApp), portal do inquilino, NFS-e integrada, reajuste automático                                      | Foco em kitnets/volume; contratos digitais básicos; sem vistoria digital avançada; relatórios financeiros limitados | [blog.pilotaimoveis.com](https://blog.pilotaimoveis.com.br/post/sistema-locacao-de-casas-guia-pratico-automacao-gestao) |
+| **Pilota Imóveis**                 | Pequenos a grandes (3–1000+ imóveis) | **R$ 49–R$ 299** (escalonado por volume)              | Automação completa (contratos, boletos, PIX, repasses), vistoria digital com fotos, seguros integrados, relatórios fiscais, integração com portais (OLX, VivaReal) | Preço sobe com volume; pode ser complexo para quem tem 1–3 imóveis; curva de aprendizado                            | [blog.pilotaimoveis.com](https://blog.pilotaimoveis.com.br/post/sistema-locacao-de-casas-guia-pratico-automacao-gestao) |
+| **Superlógica Imobi**              | Médias/grandes administradoras       | Não publicado (estimado **R$ 200–R$ 500+**)           | ERP maduro, conciliação bancária, DIMOB, IRRF, NFS-e, vistorias, área do cliente                                                                                   | Foco em administradoras; preço alto; overkill para 1–10 imóveis; complexidade                                       | [kenlo.com](https://www.kenlo.com.br/comparativo/melhor-sistema-locacao)                                                |
+| **Kenlo Locação**                  | Administradoras (100+ contratos)     | A partir de **R$ 247/mês** (anual, até 100 contratos) | Profundidade fiscal (DIMOB, IRRF, NFS-e), conciliação, área do cliente, vistorias                                                                                  | Preço mínimo alto; focado em administradoras, não em PF pequeno                                                     | [kenlo.com](https://www.kenlo.com.br/comparativo/melhor-sistema-locacao)                                                |
+| **Jetimob / Imobzi / Universal**   | Imobiliárias/administradoras         | **R$ 229–R$ 430+/mês**                                | CRM + ERP integrados, módulos fiscais, vistorias                                                                                                                   | Foco B2B (imobiliárias); preço elevado; não desenhado para PF individual                                            | [kenlo.com](https://www.kenlo.com.br/comparativo/melhor-sistema-locacao)                                                |
+| **Planilha Excel / Google Sheets** | Todos (indireto)                     | **Grátis**                                            | Flexibilidade total, sem custo                                                                                                                                     | Trabalho manual, erros, sem automação, sem lembretes, sem portal do inquilino                                       | [usealugo.com](https://usealugo.com.br/recursos/sistema-para-administrar-kitnets)                                       |
 
 ### Onde está o gap para o RentEasy?
 
@@ -63,7 +63,7 @@ Existe um **"vale" claro** no mercado:
 - **UX/UI simples e mobile-first**: proprietário idoso ou iniciante consegue usar sem treinamento.
 - **Português nativo, trust-building**: linguagem clara, cálculos visíveis, sem "caixas pretas".
 
-***
+---
 
 ## 3. Legal & Compliance
 
@@ -94,7 +94,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 - **Encarregado (DPO)**: indicar encarregado e divulgar contato publicamente (obrigatório para controladores). [secureprivacy](https://secureprivacy.ai/pt/blog/lgpd-conformidade-guia-completo-2026)
 - **Pequenos agentes**: MEI/PME têm prazos em dobro para atendimento, mas **não estão isentos**. [dponet.com](https://dponet.com.br/blog/guia-definitivo-da-lgpd-nas-empresas-passo-a-passo-para-adequacao-completa-em-2026/)
 
-***
+---
 
 ## 4. Psicologia do Cliente & Pricing
 
@@ -124,7 +124,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 - **Teste grátis 7–14 dias**: deixar o usuário sentir a economia de tempo.
 - **Garantia de reembolso**: "Se não economizar 3h/mês, devolvemos seu dinheiro".
 
-***
+---
 
 ## 5. Roadmap de Produto (Tecnologia-Agnóstico)
 
@@ -135,7 +135,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 - **Mobile-friendly**: 70%+ dos acessos serão via smartphone.
 - **Onboarding rápido**: primeiro imóvel cadastrado em <5 minutos.
 
-***
+---
 
 ### MVP (2–3 meses) – Early Adopters
 
@@ -163,7 +163,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 
 - Assinatura eletrônica, app mobile, WhatsApp, módulo de IR, integração com cartório.
 
-***
+---
 
 ### V1 (4–6 meses após MVP)
 
@@ -189,7 +189,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 - **Redução de inadimplência**: média de 20–30% vs. baseline (planilha).
 - **NPS**: 50+ (usuários recomendam o produto).
 
-***
+---
 
 ### V2 (8–12 meses após V1)
 
@@ -215,7 +215,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 - **Churn mensal**: <5%.
 - **Adoção de apps nativos**: 40%+ dos usuários ativos.
 
-***
+---
 
 ## 6. Riscos & Go-to-Market
 
@@ -251,7 +251,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 
 **Timeline**: 6–9 meses para atingir 72 clientes (assumindo 8–12 novos clientes/mês).
 
-***
+---
 
 ## Conclusão
 

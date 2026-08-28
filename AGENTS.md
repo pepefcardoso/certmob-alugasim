@@ -1,4 +1,5 @@
 <!-- AGENTS.md -->
+
 # RentEasy — Agent Instructions
 
 ## Project
