@@ -312,7 +312,7 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** Action on the contract detail page's payment list (and/or dashboard) to mark a `Payment` as `PAID`, setting `paidAt`. Manual only for MVP — no gateway.
 - **DoD:** Marking paid updates status and `paidAt`, removes it from any "late/upcoming" counts used in P7.5.
 
-### P7.5 — Dashboard: payment status overview
+### P7.5 — Dashboard: payment status overview - PARTIALLY DONE
 
 - **Size:** M
 - **Depends on:** P7.3, P7.4
@@ -323,14 +323,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 8 — Email Reminders
 
-### P8.1 — Resend integration + dev fallback
+### P8.1 — Resend integration + dev fallback - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P0.4, P0.6
 - **Description:** `src/lib/email.ts` wrapping Resend's SDK. In `development`, if `RESEND_API_KEY` is unset, fall back to SMTP against the Mailhog container from P0.6 instead of failing — keeps local dev usable without a real API key.
 - **DoD:** Sending a test email in dev with no `RESEND_API_KEY` appears in Mailhog's UI (`localhost:8025`).
 
-### P8.2 — Reminder email template
+### P8.2 — Reminder email template - PARTIALLY DONE
 
 - **Size:** S
 - **Depends on:** P8.1
