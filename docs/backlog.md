@@ -213,14 +213,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 5 — Core CRUD: Contract
 
-### P5.1 — Contract list page
+### P5.1 — Contract list page - DONE
 
 - **Size:** M
 - **Depends on:** P3.1, P4.1
 - **Description:** `/dashboard/contracts` — table showing property label, tenant name, current rent value, adjustment index, status. Filter by status (Active/Ended).
 - **DoD:** Seeded contracts render correctly joined with property/tenant names.
 
-### P5.2 — Create Contract form
+### P5.2 — Create Contract form - DONE
 
 - **Size:** L
 - **Depends on:** P5.1
