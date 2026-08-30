@@ -1,7 +1,9 @@
+import type { Prisma } from '@/generated/prisma/client';
+
 type PaymentReminderInput = {
   tenantName: string;
   propertyAddress: string;
-  amount: number | string;
+  amount: Prisma.Decimal | number | string;
   dueDate: Date;
 };
 

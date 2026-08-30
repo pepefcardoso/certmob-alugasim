@@ -1,4 +1,4 @@
-import type { PaymentStatus } from '@/generated/prisma/client';
+import type { PaymentStatus, Prisma } from '@/generated/prisma/client';
 
 export const PAYMENT_WINDOW_MONTHS = 3;
 
@@ -30,10 +30,10 @@ export function buildUpcomingPayments({
 }: {
   contractId: string;
   startDate: Date;
-  rentValue: number | string;
+  rentValue: Prisma.Decimal | number | string;
   existingCount: number;
   windowMonths?: number;
-}): { contractId: string; dueDate: Date; amount: number | string; status: PaymentStatus }[] {
+}): { contractId: string; dueDate: Date; amount: Prisma.Decimal | number | string; status: PaymentStatus }[] {
   return Array.from({ length: windowMonths }, (_, i) => ({
     contractId,
     dueDate: billingDueDate(startDate, existingCount + i),

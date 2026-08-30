@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import { createContract } from './actions';
@@ -41,7 +41,7 @@ export function ContractForm({
 }) {
   const router = useRouter();
   const form = useForm<ContractInput>({
-    resolver: zodResolver(contractSchema),
+    resolver: zodResolver(contractSchema) as Resolver<ContractInput>,
     defaultValues: {
       propertyId: '',
       tenantId: '',

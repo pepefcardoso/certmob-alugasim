@@ -1,4 +1,4 @@
-import type { Payment } from '@/generated/prisma/client';
+import type { Payment, Prisma } from '@/generated/prisma/client';
 
 export function monthKey(date: Date): string {
   return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
@@ -71,7 +71,7 @@ export type IncomeExportRow = {
 export function buildIncomeExportRows(
   payments: {
     paidAt: Date | null;
-    amount: number | string;
+    amount: Prisma.Decimal | number | string;
     contract: {
       property: {
         addressStreet: string;
