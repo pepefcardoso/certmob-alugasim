@@ -35,7 +35,9 @@ export async function getIndexMonthlyRates(
   const code = SGS_SERIES_CODE[index];
   const url = `https://api.bcb.gov.br/dados/serie/bcdata.sgs.${code}/dados?formato=json&dataInicial=${formatBcbDate(startDate)}&dataFinal=${formatBcbDate(endDate)}`;
 
-  console.log(`[bcb] fetching ${index} série ${code} (${formatBcbDate(startDate)}–${formatBcbDate(endDate)})`);
+  console.log(
+    `[bcb] fetching ${index} série ${code} (${formatBcbDate(startDate)}–${formatBcbDate(endDate)})`,
+  );
 
   const res = await fetch(url);
   if (!res.ok) {

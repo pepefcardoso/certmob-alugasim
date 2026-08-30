@@ -394,7 +394,7 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** `/privacy/request` — a simple authenticated form (access, correction, deletion, portability request types) that stores the request in a new `PrivacyRequest` table (`userId`, `type`, `details`, `status`, `createdAt`) and emails the DPO address. Manual processing is fine for MVP — no automation required yet.
 - **DoD:** Submitting a request creates a DB row and triggers an email to the configured DPO address.
 
-### P10.3 — HTTPS and transport security (deployment task)  - PARTIALLY DONE ATTENTION
+### P10.3 — HTTPS and transport security (deployment task) - PARTIALLY DONE ATTENTION
 
 - **Size:** S
 - **Depends on:** P0.5

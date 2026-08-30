@@ -86,10 +86,10 @@ export default async function ContractsPage({
                   </Badge>
                 </TableCell>
                 <TableCell className="text-right">
-  <Button variant="ghost" size="sm" asChild>
-    <Link href={`/dashboard/contracts/${contract.id}`}>Ver detalhes</Link>
-  </Button>
-</TableCell>
+                  <Button variant="ghost" size="sm" asChild>
+                    <Link href={`/dashboard/contracts/${contract.id}`}>Ver detalhes</Link>
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

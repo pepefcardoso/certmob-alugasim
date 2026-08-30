@@ -1,4 +1,5 @@
 <!-- DEPLOYMENT.md -->
+
 # Deployment
 
 RentEasy runs as a self-hosted project on the shared `pepefcardoso.dev` VPS. Stack-wide conventions (Traefik, ACME, backups, firewall) are in `VPS-ARCHITECTURE.md` at the infra repo root — this file covers only what's specific to RentEasy.
@@ -29,9 +30,7 @@ docker compose -f docker-compose.prod.yml up -d postgres
 docker run --rm --network <project>_db-internal --env-file .env node:22-alpine
 sh -c "npm i -g prisma@7 && npx prisma migrate deploy"
 
-   (`prisma` is a devDependency and isn't in the standalone runtime image by design — run migrations as a one-off step, not baked into the app container's CMD.)
-5. `docker compose -f docker-compose.prod.yml up -d --build`
-6. `docker inspect --format='{{json .State.Health.Log}}' <app_container>` — confirm healthy before assuming the app is broken if the domain 404s (§8 item 3: Traefik silently drops unhealthy containers from routing).
+(`prisma` is a devDependency and isn't in the standalone runtime image by design — run migrations as a one-off step, not baked into the app container's CMD.) 5. `docker compose -f docker-compose.prod.yml up -d --build` 6. `docker inspect --format='{{json .State.Health.Log}}' <app_container>` — confirm healthy before assuming the app is broken if the domain 404s (§8 item 3: Traefik silently drops unhealthy containers from routing).
 
 ### Verification
 
@@ -62,6 +61,7 @@ Checked Contabo's own documentation/blog for a disk-level encryption guarantee o
 **Decision for MVP:** accept the gap, ship P10.3/P10.4 as documented rather than blocked on either remediation option. Re-open before RentEasy handles real tenant/landlord PII at scale, or before any LGPD audit — `docs/lgpd.md` line 359's "Criptografar banco de dados (AES-256)" checklist item should stay unchecked until one of the two options above is actually done.
 
 # /root/traefik/dynamic/middlewares.yml (append under http.middlewares)
+
     renteasy-security-headers:
       headers:
         frameDeny: true

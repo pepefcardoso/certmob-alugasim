@@ -9,8 +9,21 @@ import { contractUpdateSchema, type ContractUpdateInput } from '@/lib/validation
 import { Button } from '@/components/ui/button';
 import { DatePicker } from '@/components/ui/date-picker';
 import { Combobox, type ComboboxOption } from '@/components/ui/combobox';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 
 const ADJUSTMENT_INDEX_OPTIONS = [
   { value: 'IGPM', label: 'IGP-M' },
@@ -30,7 +43,10 @@ export function ContractEditForm({
   defaultValues: ContractUpdateInput;
 }) {
   const router = useRouter();
-  const form = useForm<ContractUpdateInput>({ resolver: zodResolver(contractUpdateSchema), defaultValues });
+  const form = useForm<ContractUpdateInput>({
+    resolver: zodResolver(contractUpdateSchema),
+    defaultValues,
+  });
 
   async function onSubmit(values: ContractUpdateInput) {
     try {
@@ -143,7 +159,11 @@ export function ContractEditForm({
               <FormItem>
                 <FormLabel>Data de término</FormLabel>
                 <FormControl>
-                  <DatePicker value={field.value} onChange={field.onChange} placeholder="Opcional" />
+                  <DatePicker
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder="Opcional"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

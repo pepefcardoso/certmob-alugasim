@@ -15,12 +15,21 @@ import {
 } from '@/components/ui/dialog';
 
 const currency = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
-const percent = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const percent = new Intl.NumberFormat('pt-BR', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 const INDEX_LABEL = { IGPM: 'IGP-M', IPCA: 'IPCA', INPC: 'INPC' } as const;
 
 type Preview = Awaited<ReturnType<typeof previewAdjustment>>;
 
-export function ApplyAdjustmentDialog({ contractId, eligible }: { contractId: string; eligible: boolean }) {
+export function ApplyAdjustmentDialog({
+  contractId,
+  eligible,
+}: {
+  contractId: string;
+  eligible: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const [preview, setPreview] = useState<Preview | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -68,13 +77,13 @@ export function ApplyAdjustmentDialog({ contractId, eligible }: { contractId: st
             <p>Índice: {INDEX_LABEL[preview.index]}</p>
             <p>Taxa acumulada (12 meses): {percent.format(preview.ratePercent)}%</p>
             <p className="text-muted-foreground">
-              {currency.format(preview.previousValue)} × (1 + {percent.format(preview.ratePercent)}%) ={' '}
-              {currency.format(preview.newValue)}
+              {currency.format(preview.previousValue)} × (1 + {percent.format(preview.ratePercent)}
+              %) = {currency.format(preview.newValue)}
             </p>
             <p className="font-medium">Novo aluguel: {currency.format(preview.newValue)}</p>
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground">Calculando...</p>
+          <p className="text-muted-foreground text-sm">Calculando...</p>
         )}
         <DialogFooter>
           <Button variant="outline" onClick={() => setOpen(false)}>

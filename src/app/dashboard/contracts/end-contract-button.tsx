@@ -39,7 +39,8 @@ export function EndContractButton({ contractId }: { contractId: string }) {
         <DialogHeader>
           <DialogTitle>Encerrar contrato</DialogTitle>
           <DialogDescription>
-            Tem certeza que deseja encerrar este contrato? A data de término será definida como hoje.
+            Tem certeza que deseja encerrar este contrato? A data de término será definida como
+            hoje.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
