@@ -5,6 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-border: var(--border);
+  --color-ring: var(--ring);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
@@ -17,6 +19,9 @@
   --primary: var(--color-slate-900);
   --primary-foreground: var(--color-slate-50);
   --radius: 0.75rem;
+
+  --border: var(--color-slate-200);
+  --ring: var(--color-slate-400);
 
   --success: var(--color-emerald-100);
   --success-foreground: var(--color-emerald-800);
@@ -31,6 +36,9 @@
   --foreground: var(--color-slate-50);
   --primary: var(--color-slate-50);
   --primary-foreground: var(--color-slate-900);
+
+  --border: var(--color-slate-700);
+  --ring: var(--color-slate-500);
 }
 
 body {
@@ -40,12 +48,14 @@ body {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
+    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
   }
   html {
-    @apply font-sans;
+    font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
   }
 }
