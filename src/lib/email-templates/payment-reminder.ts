@@ -40,7 +40,7 @@ export function paymentReminderHtml({
         </tr>
       </table>
       <p>Por favor, efetue o pagamento até a data indicada para evitar atrasos.</p>
-      <p style="color: #999; font-size: 12px; margin-top: 24px;">RentEasy</p>
+      <p style="color: #999; font-size: 12px; margin-top: 24px;">Alugasim</p>
     </div>
   `;
 }

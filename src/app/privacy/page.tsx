@@ -11,7 +11,7 @@ export default function PrivacyPage() {
       <section className="space-y-2">
         <h2 className="text-lg font-medium">1. Identidade do controlador</h2>
         <p>
-          RentEasy Tecnologia Ltda. — CNPJ [CNPJ] — [endereço]. Encarregado de Proteção de Dados
+          Alugasim Tecnologia Ltda. — CNPJ [CNPJ] — [endereço]. Encarregado de Proteção de Dados
           (DPO): <a href={`mailto:${env.DPO_EMAIL}`}>{env.DPO_EMAIL}</a>.
         </p>
       </section>
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
         <p>
           Dados podem ser compartilhados com provedores de hospedagem e de envio de e-mail
           estritamente necessários à operação do serviço, sempre como operadores sob instrução do
-          RentEasy.
+          Alugasim.
         </p>
       </section>
 

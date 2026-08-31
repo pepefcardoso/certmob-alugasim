@@ -19,11 +19,11 @@ function daysFromNow(n: number): Date {
 
 async function main() {
   const owner = await prisma.user.upsert({
-    where: { email: 'proprietario@renteasy.dev' },
+    where: { email: 'proprietario@alugasim.dev' },
     update: {},
     create: {
       id: 'seed-user-1',
-      email: 'proprietario@renteasy.dev',
+      email: 'proprietario@alugasim.dev',
       name: 'Carlos Mendes',
       personType: 'PF',
       document: '12345678901',

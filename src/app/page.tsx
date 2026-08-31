@@ -10,9 +10,9 @@ import { Faq } from '@/components/landing/faq';
 import { LeadCaptureSection } from '@/components/landing/lead-capture-section';
 
 export const metadata: Metadata = {
-  title: 'RentEasy — Reajuste de aluguel automático',
+  title: 'Alugasim — Reajuste de aluguel automático',
   description:
-    'Alugo ajuda a registrar contrato. RentEasy avisa quando você está perdendo dinheiro no aluguel — e resolve sozinho.',
+    'Alugo ajuda a registrar contrato. Alugasim avisa quando você está perdendo dinheiro no aluguel — e resolve sozinho.',
 };
 
 export default function Home() {

@@ -25,11 +25,11 @@ export function TrustSection() {
               </div>
               <div>
                 <p className="font-heading font-medium">Nota do fundador</p>
-                <p className="text-muted-foreground text-xs">RentEasy</p>
+                <p className="text-muted-foreground text-xs">Alugasim</p>
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Estou construindo o RentEasy porque vi minha própria família perder reajuste atrás de
+              Estou construindo o Alugasim porque vi minha própria família perder reajuste atrás de
               reajuste numa planilha esquecida. Ainda somos recentes no mercado — por isso mostramos
               a matemática aberta, sem prometer nada que não fazemos hoje.
             </p>

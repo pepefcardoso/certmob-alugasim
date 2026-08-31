@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 const FAQS = [
   {
     q: 'Isso não é só uma planilha melhorada?',
-    a: 'Uma planilha calcula. O RentEasy calcula, gera a cobrança e manda o lembrete sozinho — você não precisa lembrar de abrir nada.',
+    a: 'Uma planilha calcula. O Alugasim calcula, gera a cobrança e manda o lembrete sozinho — você não precisa lembrar de abrir nada.',
   },
   {
     q: 'Preciso entender de IGP-M, IPCA e INPC?',

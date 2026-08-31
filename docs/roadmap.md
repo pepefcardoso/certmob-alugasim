@@ -1,6 +1,6 @@
-## RentEasy: Relatório de Pesquisa e Roadmap de Produto
+## Alugasim: Relatório de Pesquisa e Roadmap de Produto
 
-Este relatório consolida a pesquisa de mercado, análise competitiva, fundamentação legal e um roadmap de produto acionável para o SaaS **RentEasy**, focado em pequenos proprietários (PF) com 1–10 imóveis no Brasil.
+Este relatório consolida a pesquisa de mercado, análise competitiva, fundamentação legal e um roadmap de produto acionável para o SaaS **Alugasim**, focado em pequenos proprietários (PF) com 1–10 imóveis no Brasil.
 
 ---
 
@@ -48,7 +48,7 @@ Além da perda direta, há custos indiretos: inadimplência silenciosa (inquilin
 | **Jetimob / Imobzi / Universal**   | Imobiliárias/administradoras         | **R$ 229–R$ 430+/mês**                                | CRM + ERP integrados, módulos fiscais, vistorias                                                                                                                   | Foco B2B (imobiliárias); preço elevado; não desenhado para PF individual                                            | [kenlo.com](https://www.kenlo.com.br/comparativo/melhor-sistema-locacao)                                                |
 | **Planilha Excel / Google Sheets** | Todos (indireto)                     | **Grátis**                                            | Flexibilidade total, sem custo                                                                                                                                     | Trabalho manual, erros, sem automação, sem lembretes, sem portal do inquilino                                       | [usealugo.com](https://usealugo.com.br/recursos/sistema-para-administrar-kitnets)                                       |
 
-### Onde está o gap para o RentEasy?
+### Onde está o gap para o Alugasim?
 
 Existe um **"vale" claro** no mercado:
 
@@ -56,7 +56,7 @@ Existe um **"vale" claro** no mercado:
 - **Pilota/Superlógica/Kenlo** são completos, mas caros e complexos para quem tem 1–5 imóveis.
 - **Planilha** é grátis, mas consome tempo e gera erros.
 
-**Oportunidade RentEasy:**
+**Oportunidade Alugasim:**
 
 - **Preço intermediário**: R$ 50–R$ 79/mês (acima do Alugo, abaixo do Pilota/Superlógica).
 - **Foco em dores reais**: reajuste automático visível, cobrança automatizada (PIX/boleto), lembretes por WhatsApp, vistoria digital simples.
@@ -81,9 +81,9 @@ Existe um **"vale" claro** no mercado:
 - **Código Civil (2024)**: IPCA é índice subsidiário quando nenhum índice for convencionado. [partnr](https://www.partnr.ai/blog/indice-de-reajuste-de-aluguel)
 - **ANPD (2026)**: transformada em agência reguladora; fiscalização intensificada em 2026. [secureprivacy](https://secureprivacy.ai/pt/blog/lgpd-conformidade-guia-completo-2026)
 
-### LGPD – Requisitos básicos para RentEasy
+### LGPD – Requisitos básicos para Alugasim
 
-Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados bancários), o RentEasy deve observar:
+Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados bancários), o Alugasim deve observar:
 
 - **Base legal**: execução de contrato (art. 7º, V, LGPD) para tratar dados de inquilinos. [grandcondo.com](https://www.grandcondo.com.br/modelos/cadastros/modelo-ficha-de-cadastro-de-morador)
 - **Minimização**: coletar apenas dados necessários para gestão do aluguel. [sindicoonline](https://www.sindicoonline.com/blog/lgpd-no-condominio-guia-completo-de-protecao-de-dados-para-sindicos)
@@ -120,7 +120,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 ### Superando o "Excel é grátis"
 
 - **Custo oculto do Excel**: tempo (2–4h/mês × R$ 50/h = R$ 100–R$ 200/mês), erros, perda de reajustes.
-- **ROI visível**: landing page com calculadora "Quanto você está perdendo?" (ex.: "Você tem 3 imóveis de R$ 2.000. Esquecer reajuste te custa R$ 720/ano. RentEasy custa R$ 60/mês = R$ 720/ano. **Payback em 12 meses, mas com paz e automação**").
+- **ROI visível**: landing page com calculadora "Quanto você está perdendo?" (ex.: "Você tem 3 imóveis de R$ 2.000. Esquecer reajuste te custa R$ 720/ano. Alugasim custa R$ 60/mês = R$ 720/ano. **Payback em 12 meses, mas com paz e automação**").
 - **Teste grátis 7–14 dias**: deixar o usuário sentir a economia de tempo.
 - **Garantia de reembolso**: "Se não economizar 3h/mês, devolvemos seu dinheiro".
 
@@ -255,7 +255,7 @@ Como SaaS que trata dados de inquilinos (nome, CPF, e-mail, telefone, dados banc
 
 ## Conclusão
 
-O mercado de pequenos proprietários no Brasil é **grande, crescente e mal atendido**. Existe um gap claro entre soluções baratas/básicas (Alugo) e caras/complexas (Superlógica, Kenlo). O **RentEasy** pode preencher esse espaço com **preço intermediário (R$ 50–R$ 79), foco em dores reais (reajuste, cobrança, documentos) e UX simples**.
+O mercado de pequenos proprietários no Brasil é **grande, crescente e mal atendido**. Existe um gap claro entre soluções baratas/básicas (Alugo) e caras/complexas (Superlógica, Kenlo). O **Alugasim** pode preencher esse espaço com **preço intermediário (R$ 50–R$ 79), foco em dores reais (reajuste, cobrança, documentos) e UX simples**.
 
 O roadmap proposto (MVP → V1 → V2) é **factível em 12 meses**, com validação em 30 dias sem código. O principal risco é a **cultura de não pagar por SaaS**, mas isso é mitigável com **ROI claro, teste grátis e garantia**.
 

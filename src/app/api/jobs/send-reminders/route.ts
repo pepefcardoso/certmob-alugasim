@@ -40,7 +40,7 @@ export async function POST(request: Request) {
 
     await sendEmail({
       to: tenant.email,
-      subject: 'Lembrete de pagamento — RentEasy',
+      subject: 'Lembrete de pagamento — Alugasim',
       html: paymentReminderHtml({
         tenantName: tenant.name,
         propertyAddress,

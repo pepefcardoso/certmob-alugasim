@@ -7,7 +7,7 @@ import { Footer } from '@/components/footer';
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'RentEasy',
+  title: 'Alugasim',
   description: 'Reajuste, cobrança e controle de aluguel automáticos.',
 };
 

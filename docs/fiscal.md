@@ -1,6 +1,6 @@
-## Obrigações Fiscais e Emissão de Notas para Plataformas de Aluguel (RentEasy)
+## Obrigações Fiscais e Emissão de Notas para Plataformas de Aluguel (Alugasim)
 
-Este documento consolida todas as obrigações fiscais aplicáveis ao **RentEasy** e aos seus usuários (locadores PF e PJ), incluindo a emissão de **NFS-e**, **carnê-leão**, **DIMOB**, **IRRF** e as mudanças da **Reforma Tributária (IBS/CBS)**.
+Este documento consolida todas as obrigações fiscais aplicáveis ao **Alugasim** e aos seus usuários (locadores PF e PJ), incluindo a emissão de **NFS-e**, **carnê-leão**, **DIMOB**, **IRRF** e as mudanças da **Reforma Tributária (IBS/CBS)**.
 
 ---
 
@@ -81,7 +81,7 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
 3. **Recibo de aluguel**:
    - Emitir recibo simples (não é nota fiscal) para comprovar pagamento.
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Gerar **relatório mensal de rendimentos** (para preenchimento do carnê-leão).
 - Exportar **relatório anual** (para declaração de IRPF).
@@ -115,7 +115,7 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
 5. **Declaração anual de IRPF**:
    - Consolidar rendimentos e informar CNPJ técnico.
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - **Integrar com emissor de NFS-e** (ex.: eNotas, NFe.io, Portal Nacional da NFS-e).
 - **Calcular IBS/CBS automaticamente** (com redutores aplicáveis).
@@ -143,7 +143,7 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
    - **SPED Fiscal/Contribuições**: escrituração fiscal digital.
    - **DCTF**: declaração de débitos tributários federais.
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - **Integrar com emissor de NFS-e**.
 - **Calcular IBS/CBS** (e outros tributos, se aplicável).
@@ -167,16 +167,16 @@ A **Reforma Tributária (LC 214/2025 + Ato Conjunto RFB/CGIBS nº 4/2026)** incl
 3. **IRRF (retenção na fonte)**:
    - Reter **10–15%** do aluguel pago a PF (se houver obrigação).
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
-- **Não reter IRRF** (a menos que RentEasy atue como intermediária PJ).
+- **Não reter IRRF** (a menos que Alugasim atue como intermediária PJ).
 - Se atuar como **plataforma de intermediação**, pode ter responsabilidade solidária por IBS/CBS.
 
 [elofiscal](https://elofiscal.com/nfse-dezembro-2026-locacoes-condominios-plataformas/)
 
 ---
 
-## 4. Plataformas Digitais (SaaS como RentEasy)
+## 4. Plataformas Digitais (SaaS como Alugasim)
 
 ### Responsabilidade fiscal da plataforma
 
@@ -184,15 +184,15 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 
 **Cenários**:
 
-| Modelo de RentEasy                                                             | Responsabilidade Fiscal                                                                                                                   |
+| Modelo de Alugasim                                                             | Responsabilidade Fiscal                                                                                                                   |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **SaaS de gestão** (locador emite NF, RentEasy só fornece software)            | **Sem responsabilidade** direta por IBS/CBS                                                                                               |
-| **Plataforma de intermediação** (RentEasy recebe aluguel e repassa ao locador) | **Responsável solidário** por reter e recolher IBS/CBS                                                                                    |
-| **Híbrido** (SaaS + gateway de pagamento)                                      | Depende do contrato: se RentEasy apenas processa pagamento, **locador é responsável**; se RentEasy "intermedia", pode ser **responsável** |
+| **SaaS de gestão** (locador emite NF, Alugasim só fornece software)            | **Sem responsabilidade** direta por IBS/CBS                                                                                               |
+| **Plataforma de intermediação** (Alugasim recebe aluguel e repassa ao locador) | **Responsável solidário** por reter e recolher IBS/CBS                                                                                    |
+| **Híbrido** (SaaS + gateway de pagamento)                                      | Depende do contrato: se Alugasim apenas processa pagamento, **locador é responsável**; se Alugasim "intermedia", pode ser **responsável** |
 
 [piraciadv](https://piraciadv.blog/2026/07/31/parecer-sobre-locacao-de-imoveis-diante-da-nova-realidade-do-ato-conjunto-4-de-31-07-2026-disponivel-para-baixa/)
 
-**Recomendação para RentEasy**:
+**Recomendação para Alugasim**:
 
 - **Modelo SaaS puro**: deixar claro nos termos de uso que **locador é responsável** por emissão de NF e recolhimento de tributos.
 - **Se integrar gateway de pagamento**: usar modelo de **processador de pagamentos** (não intermediário), repassando valores diretamente ao locador (sem reter).
@@ -222,7 +222,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 
 **Multas**: R$ 500–R$ 5.000 por declaração não entregue ou com erros.
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - **Não emitir DIMOB** para PF (não é obrigado).
 - Para **PJ (holdings, imobiliárias)**: gerar **relatório exportável** com dados para DIMOB (contratos, valores, CPF/CNPJ das partes).
@@ -237,7 +237,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - **Locador PF recebendo de PF**: **não há retenção** (declara via carnê-leão).
 - **Locador PJ**: pode haver retenção de IRRF, PIS, COFINS, CSLL (dependendo do regime).
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - **Calcular IRRF automaticamente** se locador PF receber de PJ (opcional, para facilitar).
 - Gerar **DARF de IRRF** para pagamento pelo locador.
@@ -267,7 +267,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 
 [em.com](https://www.em.com.br/colunistas/bertha-maakaroun/2026/08/7480544-reforma-tributaria-da-isencao-da-cesta-basica-a-tributacao-do-aluguel.html)
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - **Calcular IBS/CBS automaticamente** (com redutores).
 - Incluir campos de **IBS/CBS na NFS-e** (obrigatório a partir de 01/01/2027).
@@ -277,7 +277,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 
 ---
 
-## 8. Checklist de Obrigações Fiscais para o RentEasy
+## 8. Checklist de Obrigações Fiscais para o Alugasim
 
 ### MVP (2–3 meses)
 
@@ -296,7 +296,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 ### V2 (8–12 meses)
 
 - [ ] **Emissão automática de NFS-e** (para PJ e PF contribuinte).
-- [ ] **Retenção automática de IBS/CBS** (se RentEasy atuar como intermediário).
+- [ ] **Retenção automática de IBS/CBS** (se Alugasim atuar como intermediário).
 - [ ] **Relatórios para SPED, DCTF** (para PJ).
 - [ ] **Módulo de planejamento tributário** (simulação PF vs. PJ vs. holding).
 
@@ -310,13 +310,13 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 | **Não recolher IBS/CBS**                                | Multa de 75–225% do tributo + juros        | Calcular automaticamente, gerar DARF                                 |
 | **Não declarar carnê-leão**                             | Multa de 20% do imposto devido + juros     | Gerar relatório mensal para usuário                                  |
 | **Não entregar DIMOB (PJ)**                             | Multa de R$ 500–R$ 5.000                   | Gerar relatório exportável para contador                             |
-| **RentEasy atuar como intermediário sem reter IBS/CBS** | Responsabilidade solidária + multa         | Definir modelo de negócio (SaaS puro vs. intermediário)              |
+| **Alugasim atuar como intermediário sem reter IBS/CBS** | Responsabilidade solidária + multa         | Definir modelo de negócio (SaaS puro vs. intermediário)              |
 
 [usealugo.com](https://usealugo.com.br/recursos/nfse-aluguel-quando-obrigatoria)
 
 ---
 
-## 10. Resumo: O que o RentEasy Precisa Fazer
+## 10. Resumo: O que o Alugasim Precisa Fazer
 
 ### Para **PF pequeno** (≤3 imóveis ou ≤R$ 240 mil/ano)
 
@@ -329,16 +329,16 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 - **Emitir NFS-e** (a partir de 01/12/2026).
 - **Recolher IBS/CBS** (a partir de 01/01/2027).
 - Obter **CNPJ técnico**.
-- RentEasy deve **integrar com emissor de NFS-e** e **calcular IBS/CBS**.
+- Alugasim deve **integrar com emissor de NFS-e** e **calcular IBS/CBS**.
 
 ### Para **PJ (holding, imobiliária)**
 
 - **Emitir NFS-e** (obrigatório desde sempre).
 - **Recolher IBS/CBS** (a partir de 2027).
 - Entregar **DIMOB, SPED, DCTF**.
-- RentEasy deve **integrar com emissor de NFS-e** e **gerar relatórios fiscais**.
+- Alugasim deve **integrar com emissor de NFS-e** e **gerar relatórios fiscais**.
 
-### Para **RentEasy como plataforma**
+### Para **Alugasim como plataforma**
 
 - **Modelo SaaS puro**: sem responsabilidade fiscal direta.
 - **Modelo intermediário**: reter e recolher IBS/CBS, emitir NF em nome da plataforma.
@@ -348,7 +348,7 @@ A **Reforma Tributária (LC 214/2025, art. 22)** estabelece que **plataformas di
 
 ## Conclusão
 
-O **RentEasy** precisa ser desenhado com **conformidade fiscal embutida**, especialmente com a chegada da **Reforma Tributária (IBS/CBS)** em 2026–2027. As principais obrigações são:
+O **Alugasim** precisa ser desenhado com **conformidade fiscal embutida**, especialmente com a chegada da **Reforma Tributária (IBS/CBS)** em 2026–2027. As principais obrigações são:
 
 1. **NFS-e**: obrigatória para PJ e PF contribuinte (a partir de 01/12/2026).
 2. **Carnê-leão**: obrigatório para PF não contribuinte (mensal).
@@ -356,4 +356,4 @@ O **RentEasy** precisa ser desenhado com **conformidade fiscal embutida**, espec
 4. **DIMOB**: obrigatório para PJ (anual).
 5. **IRRF**: retenção na fonte (quando PF recebe de PJ).
 
-A boa notícia: **todas essas obrigações são automatizáveis** e podem ser **diferenciais competitivos** (ex.: "RentEasy: o único SaaS com emissão automática de NFS-e e cálculo de IBS/CBS").
+A boa notícia: **todas essas obrigações são automatizáveis** e podem ser **diferenciais competitivos** (ex.: "Alugasim: o único SaaS com emissão automática de NFS-e e cálculo de IBS/CBS").

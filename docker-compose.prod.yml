@@ -24,11 +24,11 @@ services:
         condition: service_healthy
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.renteasy.rule=Host(`renteasy.pepefcardoso.dev`)'
-      - 'traefik.http.routers.renteasy.entrypoints=websecure'
-      - 'traefik.http.routers.renteasy.tls.certresolver=letsencrypt'
-      - 'traefik.http.routers.renteasy.middlewares=renteasy-security-headers@file'
-      - 'traefik.http.services.renteasy.loadbalancer.server.port=3000'
+      - 'traefik.http.routers.alugasim.rule=Host(`alugasim.pepefcardoso.dev`)'
+      - 'traefik.http.routers.alugasim.entrypoints=websecure'
+      - 'traefik.http.routers.alugasim.tls.certresolver=letsencrypt'
+      - 'traefik.http.routers.alugasim.middlewares=alugasim-security-headers@file'
+      - 'traefik.http.services.alugasim.loadbalancer.server.port=3000'
       - 'ofelia.enabled=true'
       - 'ofelia.job-exec.generate-payments.schedule=@daily'
       - 'ofelia.job-exec.generate-payments.command=sh -c "curl -sf -X POST -H \"Authorization: Bearer $${CRON_SECRET}\" http://localhost:3000/api/jobs/generate-payments"'
@@ -58,7 +58,7 @@ services:
     networks:
       - db-internal
     volumes:
-      - renteasy_postgres_data:/var/lib/postgresql/data
+      - alugasim_postgres_data:/var/lib/postgresql/data
 
   scheduler:
     image: mcuadros/ofelia:latest
@@ -76,4 +76,4 @@ networks:
     external: false
 
 volumes:
-  renteasy_postgres_data:
+  alugasim_postgres_data:

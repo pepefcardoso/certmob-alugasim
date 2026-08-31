@@ -1,10 +1,10 @@
-## Implementação da LGPD no RentEasy: Guia Prático
+## Implementação da LGPD no Alugasim: Guia Prático
 
-Este documento apresenta um **guia passo a passo** para implementar os requisitos da **Lei Geral de Proteção de Dados (LGPD – Lei 13.709/2018)** no **RentEasy**, incluindo políticas, controles técnicos, processos e documentação necessária para conformidade.
+Este documento apresenta um **guia passo a passo** para implementar os requisitos da **Lei Geral de Proteção de Dados (LGPD – Lei 13.709/2018)** no **Alugasim**, incluindo políticas, controles técnicos, processos e documentação necessária para conformidade.
 
 ---
 
-## 1. Contexto: Por que a LGPD é Crítica para o RentEasy?
+## 1. Contexto: Por que a LGPD é Crítica para o Alugasim?
 
 ### Cenário de Fiscalização em 2026
 
@@ -21,11 +21,11 @@ Este documento apresenta um **guia passo a passo** para implementar os requisito
   - **Bloqueio ou eliminação dos dados**: paralisa operações que dependem do dado.
   - **Suspensão do tratamento**: até 6 meses (prorrogáveis). [turivius](https://turivius.com/portal/anpd-2026-fiscalizacao-lgpd/?amp=1)
 
-**Conclusão**: A LGPD não é "burocracia" — é **risco financeiro e operacional real**. O RentEasy precisa de conformidade desde o MVP.
+**Conclusão**: A LGPD não é "burocracia" — é **risco financeiro e operacional real**. O Alugasim precisa de conformidade desde o MVP.
 
 ---
 
-## 2. Dados Pessoais Tratados pelo RentEasy
+## 2. Dados Pessoais Tratados pelo Alugasim
 
 ### Mapeamento de Dados (ROPA – Registro de Operações de Dados)
 
@@ -61,7 +61,7 @@ Este documento apresenta um **guia passo a passo** para implementar os requisito
 
 ### Base Legal Primária: Execução de Contrato (Art. 7º, V)
 
-Para a maioria dos dados do RentEasy, a base legal é **execução de contrato**:
+Para a maioria dos dados do Alugasim, a base legal é **execução de contrato**:
 
 - **Cadastro de locador e inquilino**: necessário para formalizar contrato de locação.
 - **Dados bancários**: necessário para pagamentos e repasses.
@@ -111,10 +111,10 @@ Usar **consentimento** apenas para:
 - Orientar equipes internas sobre LGPD.
 - Manter registro de operações de dados (ROPA).
 
-**Como implementar no RentEasy**:
+**Como implementar no Alugasim**:
 
 - Nomear uma pessoa (pode ser o fundador ou um funcionário) como DPO.
-- Publicar e-mail de contato no site (ex.: **<privacidade@renteasy.com.br>** ou **<dpo@renteasy.com.br>**).
+- Publicar e-mail de contato no site (ex.: **<privacidade@alugasim.com.br>** ou **<dpo@alugasim.com.br>**).
 - Criar página "Privacidade" com informações do DPO.
 
 **Custo**: pode ser interno (sem custo adicional) ou terceirizado (R$ 1.000–R$ 5.000/mês para DPO compartilhado).
@@ -140,12 +140,12 @@ Deve incluir:
 **Termos de Uso**:
 
 - Definir responsabilidades do locador e inquilino.
-- Informar que o RentEasy é **operador** (não controlador) dos dados dos inquilinos.
+- Informar que o Alugasim é **operador** (não controlador) dos dados dos inquilinos.
 - Estabelecer que o **locador é controlador** dos dados dos inquilinos.
 
 **Onde publicar**:
 
-- Página dedicada no site (ex.: **renteasy.com.br/privacidade**).
+- Página dedicada no site (ex.: **alugasim.com.br/privacidade**).
 - Link visível no rodapé do site e do app.
 - Checkbox "Li e concordo com a Política de Privacidade" no cadastro.
 
@@ -215,12 +215,12 @@ Deve incluir:
 
 [businessandscience.com](https://businessandscience.com.br/privacidade)
 
-**Como implementar no RentEasy**:
+**Como implementar no Alugasim**:
 
 - Criar **Central de Privacidade** (página no site/app):
   - Formulário para solicitações de titulares.
   - Prazo de resposta: **15 dias** (prazo legal da LGPD).
-  - Canal de contato: e-mail (<privacidade@renteasy.com.br>) ou formulário online.
+  - Canal de contato: e-mail (<privacidade@alugasim.com.br>) ou formulário online.
 - Criar **fluxo interno** para atender solicitações:
   - Receber solicitação → validar identidade do titular → buscar dados → responder em 15 dias.
 - Criar **funcionalidade de exportação de dados** (portabilidade):
@@ -280,7 +280,7 @@ Deve incluir:
 
 [blogacritica.blogspot](https://blogacritica.blogspot.com/2026/08/anpd-recebeu-quase-uma-comunicacao-de.html)
 
-**Como implementar no RentEasy**:
+**Como implementar no Alugasim**:
 
 - Criar **documento interno** "Plano de Resposta a Incidentes".
 - Designar **equipe de resposta** (DPO, TI, Jurídico).
@@ -304,9 +304,9 @@ Deve incluir:
 **Obrigação**: contratos devem incluir **cláusulas de proteção de dados** (Art. 37–40, LGPD):
 
 - Fornecedor é **operador** (não controlador) dos dados.
-- Fornecedor deve seguir instruções do controlador (RentEasy).
+- Fornecedor deve seguir instruções do controlador (Alugasim).
 - Fornecedor deve implementar medidas de segurança adequadas.
-- Fornecedor deve notificar RentEasy em caso de incidente.
+- Fornecedor deve notificar Alugasim em caso de incidente.
 - Fornecedor não pode compartilhar dados com terceiros sem autorização.
 
 [opservices.com](https://www.opservices.com.br/lei-geral-de-protecao-de-dados/)
@@ -352,7 +352,7 @@ Deve incluir:
 
 ### MVP (2–3 meses)
 
-- [ ] **Nomear DPO** e publicar e-mail no site (<privacidade@renteasy.com.br>).
+- [ ] **Nomear DPO** e publicar e-mail no site (<privacidade@alugasim.com.br>).
 - [ ] **Criar Política de Privacidade** (página no site).
 - [ ] **Criar Termos de Uso** (página no site).
 - [ ] **Implementar HTTPS/TLS** em todo o site/app.
@@ -423,14 +423,14 @@ Deve incluir:
 ## 8. Modelo de Política de Privacidade (Estrutura)
 
 ```markdown
-# Política de Privacidade – RentEasy
+# Política de Privacidade – Alugasim
 
 ## 1. Identidade do Controlador
 
-- **Nome**: RentEasy Tecnologia Ltda.
+- **Nome**: Alugasim Tecnologia Ltda.
 - **CNPJ**: XX.XXX.XXX/0001-XX
 - **Endereço**: Rua X, nº Y, Cidade/UF
-- **DPO**: privacidade@renteasy.com.br
+- **DPO**: privacidade@alugasim.com.br
 
 ## 2. Dados Coletados
 
@@ -475,7 +475,7 @@ Deve incluir:
 ## 7. Direitos dos Titulares
 
 - Acesso, correção, exclusão, portabilidade, revogação de consentimento.
-- Como solicitar: privacidade@renteasy.com.br ou formulário na Central de Privacidade.
+- Como solicitar: privacidade@alugasim.com.br ou formulário na Central de Privacidade.
 - Prazo de resposta: 15 dias.
 
 ## 8. Medidas de Segurança
@@ -493,11 +493,11 @@ Deve incluir:
 
 ## 10. Alterações nesta Política
 
-- Esta política pode ser atualizada. A versão mais recente estará sempre disponível em renteasy.com.br/privacidade.
+- Esta política pode ser atualizada. A versão mais recente estará sempre disponível em alugasim.com.br/privacidade.
 
 ## 11. Contato
 
-- DPO: privacidade@renteasy.com.br
+- DPO: privacidade@alugasim.com.br
 - ANPD: https://www.gov.br/anpd/pt-br
 ```
 
@@ -505,7 +505,7 @@ Deve incluir:
 
 ## Conclusão
 
-A **LGPD não é opcional** — é **obrigação legal** com **multas reais** (até R$ 50 milhões por infração). O RentEasy precisa implementar conformidade desde o MVP, com:
+A **LGPD não é opcional** — é **obrigação legal** com **multas reais** (até R$ 50 milhões por infração). O Alugasim precisa implementar conformidade desde o MVP, com:
 
 1. **DPO nomeado** e e-mail publicado.
 2. **Política de Privacidade e Termos de Uso** claros.
@@ -518,4 +518,4 @@ A **LGPD não é opcional** — é **obrigação legal** com **multas reais** (a
 
 **Custo estimado**: R$ 7.000–R$ 45.000 (one-time) + R$ 1.000–R$ 5.000/mês (DPO terceirizado, se aplicável).
 
-**Benefício**: além de evitar multas, a conformidade LGPD é **diferencial competitivo** (ex.: "RentEasy: o único SaaS de aluguel 100% conforme a LGPD").
+**Benefício**: além de evitar multas, a conformidade LGPD é **diferencial competitivo** (ex.: "Alugasim: o único SaaS de aluguel 100% conforme a LGPD").

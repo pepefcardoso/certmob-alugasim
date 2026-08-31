@@ -49,7 +49,7 @@ export async function GET(request: Request) {
   return new NextResponse(csv, {
     headers: {
       'Content-Type': 'text/csv; charset=utf-8',
-      'Content-Disposition': `attachment; filename="renteasy-receita-${month}.csv"`,
+      'Content-Disposition': `attachment; filename="alugasim-receita-${month}.csv"`,
     },
   });
 }

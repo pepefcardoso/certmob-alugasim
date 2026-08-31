@@ -31,7 +31,7 @@ Managing rentals requires tracking: bill due dates, annual adjustments (IGPM/INP
 
 ## 5. Proposed SaaS
 
-**Code Name:** _RentEasy_
+**Code Name:** _Alugasim_
 Centralized dashboard showing all properties, tenants, and payment status. Features:
 
 - Contract registration with adjustment data (index and base date).

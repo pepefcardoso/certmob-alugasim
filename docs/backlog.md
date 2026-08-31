@@ -1,4 +1,4 @@
-# RentEasy — MVP Backlog
+# Alugasim — MVP Backlog
 
 Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/INPC), payment status dashboard, email reminders, basic reports, LGPD/legal baseline. No e-signature, PIX/boleto, WhatsApp, inspections, NFS-e, multi-user/RBAC.
 
@@ -58,7 +58,7 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Size:** M
 - **Depends on:** P0.1
 - **Description:** Multi-stage Dockerfile: `deps` (install), `builder` (build with `output: 'standalone'` in `next.config.ts`), `runner` (copy standalone output, run as non-root user, expose port 3000).
-- **DoD:** `docker build -t renteasy .` succeeds; `docker run -p 3000:3000 renteasy` serves the app (with a reachable `DATABASE_URL`).
+- **DoD:** `docker build -t alugasim .` succeeds; `docker run -p 3000:3000 alugasim` serves the app (with a reachable `DATABASE_URL`).
 
 ### P0.6 — docker-compose for local dev - DONE
 

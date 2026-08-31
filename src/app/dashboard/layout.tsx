@@ -8,7 +8,7 @@ export default async function DashboardLayout({ children }: LayoutProps<'/dashbo
     <div className="flex min-h-full flex-col">
       <nav className="flex items-center gap-4 border-b px-6 py-3">
         <Link href="/dashboard" className="font-semibold">
-          RentEasy
+          Alugasim
         </Link>
         <Link href="/dashboard/properties">Imóveis</Link>
         <Link href="/dashboard/tenants">Locatários</Link>

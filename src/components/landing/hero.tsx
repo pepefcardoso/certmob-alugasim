@@ -11,11 +11,11 @@ export function Hero() {
           <span className="text-warning-foreground">Isso custa ~R$200–500 por imóvel.</span>
         </h1>
         <p className="text-muted-foreground text-base leading-relaxed sm:text-lg">
-          Cadastre o contrato uma vez. O RentEasy calcula o reajuste certo na data certa, gera a
+          Cadastre o contrato uma vez. O Alugasim calcula o reajuste certo na data certa, gera a
           nova cobrança e cobra o inquilino sozinho.
         </p>
         <p className="text-muted-foreground text-sm">
-          Alugo ajuda a registrar contrato. RentEasy avisa quando você está perdendo dinheiro — e
+          Alugo ajuda a registrar contrato. Alugasim avisa quando você está perdendo dinheiro — e
           resolve sozinho.
         </p>
       </div>

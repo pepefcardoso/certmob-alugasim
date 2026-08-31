@@ -1,6 +1,6 @@
 <!-- README.md -->
 
-# RentEasy
+# Alugasim
 
 SaaS for small Brazilian property owners (1–10 imóveis, PF/PJ) who self-manage rentals: rent-adjustment calculator (IGP-M/IPCA/INPC) with visible math, payment status dashboard, tenant email reminders. Full brief: `docs/concept-idea.md`.
 

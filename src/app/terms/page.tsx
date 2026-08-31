@@ -7,7 +7,7 @@ export default function TermsPage() {
       <section className="space-y-2">
         <h2 className="text-lg font-medium">1. Objeto</h2>
         <p>
-          O RentEasy é uma plataforma de gestão de locações residenciais para locadores PF/PJ,
+          O Alugasim é uma plataforma de gestão de locações residenciais para locadores PF/PJ,
           cobrindo cadastro de imóveis, locatários, contratos, reajustes e pagamentos.
         </p>
       </section>
@@ -15,7 +15,7 @@ export default function TermsPage() {
       <section className="space-y-2">
         <h2 className="text-lg font-medium">2. Papéis quanto a dados pessoais</h2>
         <p>
-          O RentEasy atua como <strong>operador</strong> dos dados de locatários inseridos pelo
+          O Alugasim atua como <strong>operador</strong> dos dados de locatários inseridos pelo
           locador; o <strong>locador é controlador</strong> desses dados e responsável por sua
           exatidão e pela base legal para tratá-los.
         </p>
@@ -40,7 +40,7 @@ export default function TermsPage() {
       <section className="space-y-2">
         <h2 className="text-lg font-medium">5. Limitação de responsabilidade</h2>
         <p>
-          O RentEasy fornece ferramentas de gestão e cálculo, mas não é parte no contrato de locação
+          O Alugasim fornece ferramentas de gestão e cálculo, mas não é parte no contrato de locação
           nem garante o cumprimento das obrigações entre locador e locatário.
         </p>
       </section>

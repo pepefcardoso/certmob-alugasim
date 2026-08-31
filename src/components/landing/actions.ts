@@ -20,7 +20,7 @@ export async function captureLead(input: LeadInput, source = 'landing_hero') {
   try {
     await sendEmail({
       to: data.email,
-      subject: 'Seu cálculo de reajuste — RentEasy',
+      subject: 'Seu cálculo de reajuste — Alugasim',
       html: leadMagnetHtml({ propertyCount: Number(data.propertyCount) }),
     });
   } catch (error) {

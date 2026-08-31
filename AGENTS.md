@@ -1,10 +1,10 @@
 <!-- AGENTS.md -->
 
-# RentEasy — Agent Instructions
+# Alugasim — Agent Instructions
 
 ## Project
 
-RentEasy is a SaaS for small Brazilian property owners (PF/PJ, 1–10 imóveis) who self-manage rentals without an agency. Core value: automatic rent-adjustment calculation (IGP-M/IPCA/INPC) with visible math, payment status tracking, email reminders. Full brief: `docs/concept-idea.md`, `docs/roadmap.md`.
+Alugasim is a SaaS for small Brazilian property owners (PF/PJ, 1–10 imóveis) who self-manage rentals without an agency. Core value: automatic rent-adjustment calculation (IGP-M/IPCA/INPC) with visible math, payment status tracking, email reminders. Full brief: `docs/concept-idea.md`, `docs/roadmap.md`.
 
 ## Stack (fixed — do not swap without discussion)
 

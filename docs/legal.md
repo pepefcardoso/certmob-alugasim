@@ -1,6 +1,6 @@
-## Obrigações Legais do RentEasy: Resumo Completo
+## Obrigações Legais do Alugasim: Resumo Completo
 
-Este documento consolida todas as obrigações legais que o **RentEasy** precisa atender para operar em conformidade com a legislação brasileira, incluindo a **Lei do Inquilinato (Lei 8.245/91)**, **LGPD**, regras de **assinatura eletrônica** e obrigações fiscais.
+Este documento consolida todas as obrigações legais que o **Alugasim** precisa atender para operar em conformidade com a legislação brasileira, incluindo a **Lei do Inquilinato (Lei 8.245/91)**, **LGPD**, regras de **assinatura eletrônica** e obrigações fiscais.
 
 ---
 
@@ -8,7 +8,7 @@ Este documento consolida todas as obrigações legais que o **RentEasy** precisa
 
 ### Pontos principais que impactam o software
 
-| Artigo           | Obrigação                                                                | Impacto no RentEasy                                                                          |
+| Artigo           | Obrigação                                                                | Impacto no Alugasim                                                                          |
 | ---------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
 | **Art. 18**      | Reajuste anual permitido (uma vez a cada 12 meses)                       | Sistema deve **bloquear reajustes antes de 12 meses** e alertar no aniversário do contrato   |
 | **Art. 19**      | Revisão judicial após 3 anos (ação revisional)                           | Sistema deve **alertar locador** quando contrato completar 3 anos (possibilidade de revisão) |
@@ -30,7 +30,7 @@ Este documento consolida todas as obrigações legais que o **RentEasy** precisa
 
 ### O que mudou com as novas regras?
 
-| Mudança                                                | Implicação para o RentEasy                                                       |
+| Mudança                                                | Implicação para o Alugasim                                                       |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- |
 | **Contrato escrito obrigatório (2025)**                | Sistema deve **gerar contrato formal** (PDF) com todas as cláusulas obrigatórias |
 | **Assinatura digital válida (ICP-Brasil ou avançada)** | Integração com provedores de e-signature (ClickSign, DocuSign, etc.)             |
@@ -68,7 +68,7 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 - **Obrigatoriedade**: embora a lei não exija notificação formal, a **praxe jurídica e jurisprudência** recomendam notificar o inquilino com **30 dias de antecedência**. [calculandia](https://calculandia.com/en/brazil-rent-increase-calculator)
 - **Forma**: e-mail, WhatsApp, carta ou notificação dentro do sistema (com confirmação de leitura).
-- **RentEasy**: deve **enviar notificação automática** 30 dias antes do reajuste, com:
+- **Alugasim**: deve **enviar notificação automática** 30 dias antes do reajuste, com:
   - Índice aplicado
   - Cálculo visível
   - Novo valor
@@ -82,7 +82,7 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 ### Deveres do proprietário (Lei 8.245/91, Art. 22)
 
-| Dever                                      | Descrição                                       | Como o RentEasy ajuda                                |
+| Dever                                      | Descrição                                       | Como o Alugasim ajuda                                |
 | ------------------------------------------ | ----------------------------------------------- | ---------------------------------------------------- |
 | **Entregar imóvel em condições de uso**    | Imóvel deve estar habitável na entrega          | Checklist de vistoria de entrada com fotos           |
 | **Garantir uso pacífico**                  | Assegurar posse ao inquilino durante o contrato | Registro de ocorrências e manutenções                |
@@ -108,7 +108,7 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 ## 4. Proteção de Dados (LGPD – Lei 13.709/2018)
 
-### Dados pessoais coletados pelo RentEasy
+### Dados pessoais coletados pelo Alugasim
 
 | Categoria                      | Exemplos                                  | Finalidade                                      |
 | ------------------------------ | ----------------------------------------- | ----------------------------------------------- |
@@ -123,14 +123,14 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 ### Obrigações da LGPD para SaaS
 
-| Obrigação               | Descrição                                  | Como implementar no RentEasy                                                                 |
+| Obrigação               | Descrição                                  | Como implementar no Alugasim                                                                 |
 | ----------------------- | ------------------------------------------ | -------------------------------------------------------------------------------------------- |
 | **Base legal**          | Execução de contrato (Art. 7º, V, LGPD)    | Informar no termo de privacidade que dados são tratados para execução do contrato de locação |
 | **Minimização**         | Coletar apenas dados necessários           | Não pedir dados desnecessários (ex.: estado civil, religião)                                 |
 | **Transparência**       | Política de privacidade clara              | Criar página "Privacidade" com finalidades, retenção, direitos do titular                    |
 | **Segurança**           | Criptografia, controle de acesso, logs     | Criptografar dados em trânsito (HTTPS) e em repouso; logs de acesso                          |
 | **Direitos do titular** | Acesso, correção, exclusão, portabilidade  | Criar área "Meus Dados" para inquilino/locador solicitar exclusão/correção                   |
-| **Encarregado (DPO)**   | Indicar encarregado e divulgar contato     | Nomear DPO e publicar e-mail de contato (ex.: <privacidade@renteasy.com.br>)                 |
+| **Encarregado (DPO)**   | Indicar encarregado e divulgar contato     | Nomear DPO e publicar e-mail de contato (ex.: <privacidade@alugasim.com.br>)                 |
 | **ROPA**                | Registro de Operações de Dados             | Manter inventário interno de quais dados são coletados, por quê, por quanto tempo            |
 | **Incidentes**          | Notificar ANPD e titulares em 3 dias úteis | Criar processo de resposta a incidentes (vazamento, acesso não autorizado)                   |
 | **Retenção**            | Manter dados apenas pelo necessário        | Excluir dados de inquilinos após 5 anos (prazo prescricional de ações locatícias)            |
@@ -152,7 +152,7 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 [arenadodinheiro.com](https://arenadodinheiro.com.br/noticias/aluguel-reajuste-por-ipca-ou-igp-m-qual-escolher/)
 
-**Recomendação para RentEasy**:
+**Recomendação para Alugasim**:
 
 - Usar **base legal "execução de contrato"** para dados essenciais (nome, CPF, e-mail, telefone, dados bancários).
 - Usar **consentimento** apenas para:
@@ -186,7 +186,7 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 [firma](https://firma.dev/pt/legitimidade-da-assinatura-electr%C3%B3nica/brasil)
 
-**Recomendação para RentEasy**:
+**Recomendação para Alugasim**:
 
 - Integrar com provedor de **assinatura avançada** (ClickSign, DocuSign, Zapsign) para MVP/V1.
 - Oferecer **ICP-Brasil** como opção premium (para locadores que querem máxima segurança jurídica).
@@ -198,10 +198,10 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 ### Documentos fiscais e relatórios obrigatórios
 
-| Documento                           | Quem emite                                                         | Periodicidade                        | RentEasy deve gerar?                                                  |
+| Documento                           | Quem emite                                                         | Periodicidade                        | Alugasim deve gerar?                                                  |
 | ----------------------------------- | ------------------------------------------------------------------ | ------------------------------------ | --------------------------------------------------------------------- |
 | **Carnê-Leão (IRPF)**               | Locador PF                                                         | Mensal (se houver retenção) ou anual | **Sim**: gerar relatório de rendimentos mensais para declaração anual |
-| **DIMOB**                           | Imobiliárias/PJ (não PF)                                           | Anual (fevereiro)                    | **Não** (a menos que RentEasy seja PJ intermediária)                  |
+| **DIMOB**                           | Imobiliárias/PJ (não PF)                                           | Anual (fevereiro)                    | **Não** (a menos que Alugasim seja PJ intermediária)                  |
 | **NFS-e (Nota Fiscal de Serviços)** | Locador PJ (desde 01/12/2026) e PF contribuinte (desde 01/01/2027) | Mensal                               | **Sim** (integração com prefeitura para emissão de NFS-e)             |
 | **IBS/CBS**                         | Locador PF/PJ contribuinte                                         | Mensal                               | **Sim** (cálculo automático e emissão de guia)                        |
 | **IRRF (retenção na fonte)**        | Locador PJ (se houver retenção)                                    | Mensal                               | **Sim** (cálculo e emissão de DARF)                                   |
@@ -212,11 +212,11 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 - **Locador PJ**: deve emitir **NFS-e** a partir de **01/12/2026**.
 - **Locador PF contribuinte** (>3 imóveis distintos + >R$ 240 mil/ano): deve emitir **NFS-e** a partir de **01/01/2027** e obter **CNPJ**. [portal.loft.com](https://portal.loft.com.br/o-que-realmente-significa-um-processo-de-aluguel-totalmente-digital-no-brasil/)
-- **RentEasy**: deve integrar com sistemas de **emissão de NFS-e** (ex.: eNotas, NFe.io) para V2.
+- **Alugasim**: deve integrar com sistemas de **emissão de NFS-e** (ex.: eNotas, NFe.io) para V2.
 
 ### Regras para cobrança (boleto, PIX) e inadimplência
 
-| Regra                      | Descrição                                                        | Implicação para RentEasy                                                          |
+| Regra                      | Descrição                                                        | Implicação para Alugasim                                                          |
 | -------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | **Cobrança de aluguel**    | Pode ser por boleto, PIX, depósito, dinheiro (com recibo)        | Sistema deve gerar **boleto registrado** e **PIX com QR Code**                    |
 | **Juros e multa**          | Máximo 2% de multa + 1% de juros ao mês (Art. 406, Código Civil) | Sistema deve **calcular automaticamente** juros e multa dentro dos limites legais |
@@ -226,7 +226,7 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 [calculandia](https://calculandia.com/en/brazil-rent-increase-calculator)
 
-**Recomendações para RentEasy**:
+**Recomendações para Alugasim**:
 
 - **Boleto**: integrar com gateway (Asaas, Juno, Pagar.me) para geração de boletos registrados.
 - **PIX**: gerar PIX com QR Code e notificação automática de pagamento.
@@ -237,7 +237,7 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 ---
 
-## 7. Resumo: Checklist de Conformidade para o RentEasy
+## 7. Resumo: Checklist de Conformidade para o Alugasim
 
 ### Lei do Inquilinato
 
@@ -330,7 +330,7 @@ A Lei do Inquilinato **não define índice obrigatório**. As partes escolhem li
 
 ## Conclusão
 
-O **RentEasy** precisa ser desenhado desde o MVP com **conformidade legal embutida**, não como um "add-on" posterior. As principais obrigações são:
+O **Alugasim** precisa ser desenhado desde o MVP com **conformidade legal embutida**, não como um "add-on" posterior. As principais obrigações são:
 
 1. **Lei do Inquilinato**: reajuste anual, vistoria detalhada, contrato escrito.
 2. **LGPD**: política de privacidade, segurança de dados, DPO, ROPA.
@@ -338,4 +338,4 @@ O **RentEasy** precisa ser desenhado desde o MVP com **conformidade legal embuti
 4. **Fiscal**: relatório de rendimentos (IRPF), futura emissão de NFS-e (2027).
 5. **Cobrança**: boleto/PIX dentro dos limites legais de juros/multa.
 
-A boa notícia: **todas essas obrigações são automatizáveis** e podem ser **diferenciais competitivos** (ex.: "RentEasy: o único SaaS 100% conforme a Lei do Inquilinato e LGPD").
+A boa notícia: **todas essas obrigações são automatizáveis** e podem ser **diferenciais competitivos** (ex.: "Alugasim: o único SaaS 100% conforme a Lei do Inquilinato e LGPD").

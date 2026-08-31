@@ -1,6 +1,6 @@
-## Relatórios Financeiros e Contábeis Essenciais para Gestão de Repasses (RentEasy)
+## Relatórios Financeiros e Contábeis Essenciais para Gestão de Repasses (Alugasim)
 
-Este documento consolida os **relatórios financeiros e contábeis essenciais** para a gestão de repasses no **RentEasy**, incluindo modelos, indicadores, prazos e implicações fiscais.
+Este documento consolida os **relatórios financeiros e contábeis essenciais** para a gestão de repasses no **Alugasim**, incluindo modelos, indicadores, prazos e implicações fiscais.
 
 ---
 
@@ -13,11 +13,11 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 3. **Repassar o saldo** ao proprietário (locador).
 4. **Prestar contas** com relatórios detalhados.
 
-**Público-alvo do RentEasy**:
+**Público-alvo do Alugasim**:
 
 - **Locador PF** (1–10 imóveis) que gerencia diretamente (sem imobiliária).
 - **Locador PJ** (holding patrimonial) que precisa de relatórios para contabilidade.
-- **Pequenas administradoras** (10–100 imóveis) que usam o RentEasy como sistema de gestão.
+- **Pequenas administradoras** (10–100 imóveis) que usam o Alugasim como sistema de gestão.
 
 [terraresidential](https://www.terraresidential.com/blog/what-your-property-management-financial-reports-reveal-about-your-manager)
 
@@ -59,7 +59,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 
 [terraresidential](https://www.terraresidential.com/blog/what-your-property-management-financial-reports-reveal-about-your-manager)
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Gerar **PDF automático** com todos os campos acima.
 - Incluir **link para download** no dashboard do proprietário.
@@ -91,7 +91,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 
 [grandcondo.com](https://www.grandcondo.com.br/biblioteca/doc/kit-checklist-de-gestao-da-inadimplencia)
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Integrar com **API bancária** (Open Finance) ou **gateway de pagamento** (Asaas, Juno, Pagar.me).
 - Importar **extrato bancário automaticamente** (OFX, CSV, API).
@@ -143,7 +143,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 
 [neofin.com](https://www.neofin.com.br/blog/dashboard-financeiro)
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Dashboard em tempo real com **cards de inadimplência** (vermelho = crítico).
 - Lista de inquilinos em atraso, ordenada por **dias em atraso** e **valor devido**.
@@ -189,7 +189,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 
 [terraresidential](https://www.terraresidential.com/blog/what-your-property-management-financial-reports-reveal-about-your-manager)
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Gerar **DRE por imóvel** e **consolidado por proprietário**.
 - Permitir **filtrar por período** (mês, trimestre, ano).
@@ -243,7 +243,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 
 [neofin.com](https://www.neofin.com.br/blog/dashboard-financeiro)
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Dashboard com **cards de topo** (saldo atual, entradas previstas, saídas previstas).
 - **Gráfico de linha** com projeção de caixa (realizado x previsto x cenário conservador).
@@ -270,7 +270,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 
 [terraresidential](https://www.terraresidential.com/blog/what-your-property-management-financial-reports-reveal-about-your-manager)
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Listar **todos os imóveis** do proprietário em uma única tela.
 - **Filtros**: por status (pago, pendente, atrasado), por inquilino, por valor.
@@ -306,7 +306,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 | **IR devido**                 | Base × alíquota – dedução                               | **R$ 1.248,75**                |
 | **DARF**                      | Código 0190, vencimento último dia útil do mês seguinte | 30/09/2026                     |
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Gerar **relatório mensal** com receitas e despesas dedutíveis.
 - Calcular **base de cálculo** e **IR devido** (opcional, para facilitar).
@@ -334,11 +334,11 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 | **Valor de despesas**     | Condomínio, IPTU, reparos       | R$ 12.000,00          |
 | **Saldo repassado**       | Valor líquido ao locador        | R$ 24.000,00          |
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Gerar **relatório anual consolidado** com todos os contratos.
 - Exportar para **Excel/CSV** (para importação no programa da DIMOB).
-- **Atenção**: RentEasy não entrega DIMOB (obrigação do contador), mas fornece **dados para o contador**.
+- **Atenção**: Alugasim não entrega DIMOB (obrigação do contador), mas fornece **dados para o contador**.
 
 ---
 
@@ -363,7 +363,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 | **Redutor social**      | Dedução de R$ 600/mês (se aplicável) | R$ 0,00                          |
 | **Valor líquido**       | Aluguel – IBS/CBS                    | **R$ 2.761,50**                  |
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - **Calcular IBS/CBS automaticamente** (com redutores).
 - Integrar com **emissor de NFS-e** (eNotas, NFe.io, Portal Nacional).
@@ -409,7 +409,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 
 [neofin.com](https://www.neofin.com.br/blog/dashboard-financeiro)
 
-**O que o RentEasy deve fazer**:
+**O que o Alugasim deve fazer**:
 
 - Dashboard **único e consolidado** (visão geral de todos os imóveis).
 - **Filtros**: por proprietário, por imóvel, por período.
@@ -472,7 +472,7 @@ Este documento consolida os **relatórios financeiros e contábeis essenciais** 
 
 ## Conclusão
 
-Os **relatórios financeiros e contábeis essenciais** para gestão de repasses no RentEasy são:
+Os **relatórios financeiros e contábeis essenciais** para gestão de repasses no Alugasim são:
 
 1. **Relatório de repasses ao proprietário** (Owner Statement) – mensal.
 2. **Conciliação bancária** – diária/semanal.
@@ -486,4 +486,4 @@ Os **relatórios financeiros e contábeis essenciais** para gestão de repasses 
 
 **Implementação**: começar com MVP (relatórios básicos) e evoluir para V1/V2 (conciliação automática, DRE, fluxo de caixa, relatórios fiscais completos).
 
-**Benefício**: além de evitar multas e processos, relatórios claros são **diferencial competitivo** (ex.: "RentEasy: o único SaaS de aluguel com relatórios fiscais completos e conciliação automática").
+**Benefício**: além de evitar multas e processos, relatórios claros são **diferencial competitivo** (ex.: "Alugasim: o único SaaS de aluguel com relatórios fiscais completos e conciliação automática").
