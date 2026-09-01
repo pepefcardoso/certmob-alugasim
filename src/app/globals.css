@@ -34,6 +34,8 @@
 
   --shadow-card: 0 1px 3px rgba(24, 52, 71, 0.08);
   --shadow-elevated: 0 8px 24px rgba(24, 52, 71, 0.12);
+
+  --font-heading: var(--font-sans);
 }
 
 @theme inline {

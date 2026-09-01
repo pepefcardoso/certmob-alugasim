@@ -6,7 +6,7 @@ export function SiteNav() {
     <header className="border-border/60 bg-background/95 sticky top-0 z-40 border-b backdrop-blur">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <span className="font-heading text-base font-semibold tracking-tight">Alugasim</span>
-        <Button asChild size="sm">
+        <Button asChild size="default">
           <a href="#lead-magnet">{LEAD_CTA_LABEL}</a>
         </Button>
       </div>

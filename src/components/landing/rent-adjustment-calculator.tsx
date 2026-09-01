@@ -85,13 +85,13 @@ export function RentAdjustmentCalculator() {
             {currency.format(currentRent)}
             <span className="text-muted-foreground"> + (</span>
             {INDEX_LABELS[index]}{' '}
-            <span className="text-warning-foreground">{rate.toFixed(2)}%</span>
+            <span className="text-warning-700">{rate.toFixed(2)}%</span>
             <span className="text-muted-foreground">) = </span>
-            <span className="text-warning-foreground">{currency.format(newRent)}</span>
+            <span className="text-warning-700">{currency.format(newRent)}</span>
           </p>
           <p className="text-muted-foreground mt-2 text-sm">
             Sem esse reajuste, você deixa de ganhar{' '}
-            <span className="text-warning-foreground font-medium">
+            <span className="text-warning-700 font-medium">
               {currency.format(annualLoss)}
             </span>{' '}
             neste imóvel em 12 meses.

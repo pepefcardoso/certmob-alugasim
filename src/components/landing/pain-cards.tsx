@@ -31,7 +31,7 @@ export function PainCards() {
             <CardContent className="space-y-2">
               <Icon className="text-muted-foreground size-5" />
               <p className="font-heading font-medium">{title}</p>
-              <p className="text-warning-foreground text-sm font-medium">{cost}</p>
+              <p className="text-warning-700 text-sm font-medium">{cost}</p>
               <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
             </CardContent>
           </Card>

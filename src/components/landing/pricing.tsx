@@ -16,7 +16,7 @@ export function Pricing() {
     <section className="mx-auto max-w-3xl px-4 py-14 text-center">
       <h2 className="text-heading-1">
         Perder um reajuste de 10% num aluguel de R$2.000 custa{' '}
-        <span className="text-warning-foreground">R$200/ano</span>.
+        <span className="text-warning-700">R$200/ano</span>.
       </h2>
       <p className="text-muted-foreground mt-2">
         O Alugasim custa a partir de R$50/mês — e evita isso automaticamente, em todos os seus

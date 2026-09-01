@@ -67,7 +67,7 @@ export function LeadCaptureSection() {
         <CardContent>
           {submitted ? (
             <div className="flex flex-col items-center gap-2 py-6 text-center">
-              <CheckCircle2 className="text-success-foreground size-8" />
+              <CheckCircle2 className="text-success-700 size-8" />
               <p className="font-heading font-medium">Recebemos seus dados</p>
               <p className="text-muted-foreground text-sm">
                 Te chamamos no WhatsApp para configurar seus contratos e travar o preço de fundador.
@@ -122,7 +122,7 @@ export function LeadCaptureSection() {
                   type="submit"
                   size="lg"
                   className="w-full"
-                  disabled={form.formState.isSubmitting}
+                  loading={form.formState.isSubmitting}
                 >
                   Calcular meu reajuste grátis
                 </Button>
