@@ -136,7 +136,7 @@ export default async function ReportsPage({
               <div key={row.month} className="space-y-0.5 py-2 text-sm">
                 <p className="text-neutral-700 capitalize">{formatMonthLabel(row.month)}</p>
                 <p className="tabular-nums">
-                  {row.lateCount} / {row.totalDue} atrasados —{' '}
+                  {row.lateCount} / {row.totalDue} atrasados -{' '}
                   <span className="font-medium">{row.latePct.toFixed(1)}%</span>
                 </p>
               </div>

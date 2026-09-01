@@ -83,7 +83,7 @@ export default async function TenantsPage() {
               <TableRow key={tenant.id}>
                 <TableCell>{tenant.name}</TableCell>
                 <TableCell>{tenant.email}</TableCell>
-                <TableCell>{tenant.phone ?? '—'}</TableCell>
+                <TableCell>{tenant.phone ?? '-'}</TableCell>
                 <TableCell>{tenant._count.contracts}</TableCell>
                 <TableCell className="flex justify-end gap-2">
                   <Button variant="ghost" size="sm" asChild>

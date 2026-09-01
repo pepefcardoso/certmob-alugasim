@@ -1,4 +1,4 @@
-// TODO(legal review): draft only, per AGENTS.md — replace [CNPJ]/[endereço]
+// TODO(legal review): draft only, per AGENTS.md. Replace [CNPJ]/[endereço]
 // and have a lawyer sign off before shipping. Structure follows docs/lgpd.md §8.
 import Link from 'next/link';
 import { env } from '@/lib/env';
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-medium">1. Identidade do controlador</h2>
           <p>
-            CertMob [razão social] Ltda. — CNPJ [CNPJ] — [endereço]. Responsável pelo produto{' '}
+            CertMob [razão social] Ltda. - CNPJ [CNPJ] - [endereço]. Responsável pelo produto{' '}
             <strong>Alugasim</strong>. Encarregado de Proteção de Dados (DPO):{' '}
             <a href={`mailto:${env.DPO_EMAIL}`}>{env.DPO_EMAIL}</a>.
           </p>
@@ -80,7 +80,7 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-medium">9. Contato</h2>
           <p>
-            DPO: <a href={`mailto:${env.DPO_EMAIL}`}>{env.DPO_EMAIL}</a> — ANPD:{' '}
+            DPO: <a href={`mailto:${env.DPO_EMAIL}`}>{env.DPO_EMAIL}</a> - ANPD:{' '}
             <a href="https://www.gov.br/anpd/pt-br" target="_blank" rel="noreferrer">
               gov.br/anpd
             </a>

@@ -11,13 +11,13 @@ const FEATURES = [
     icon: LayoutGrid,
     feature: 'Tudo num só painel',
     benefit:
-      'Imóveis, inquilinos, contratos e pagamentos organizados num só lugar — sem planilha, sem pasta de PDF perdida.',
+      'Imóveis, inquilinos, contratos e pagamentos organizados num só lugar. Sem planilha, sem pasta de PDF perdida.',
   },
   {
     icon: BellRing,
     feature: 'Lembretes automáticos por e-mail',
     benefit:
-      'Três dias antes do vencimento, seu inquilino recebe um lembrete — sem você precisar mandar mensagem.',
+      'Três dias antes do vencimento, seu inquilino recebe um lembrete. Sem você precisar mandar mensagem.',
   },
   {
     icon: ListChecks,

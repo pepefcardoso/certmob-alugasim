@@ -12,7 +12,7 @@ const PAINS = [
     icon: MessageCircleWarning,
     title: 'Inquilino atrasa e você não cobra',
     cost: 'Constrangimento vira inadimplência',
-    description: 'Cobrar por WhatsApp é sem graça — então muita gente simplesmente não cobra.',
+    description: 'Cobrar por WhatsApp é sem graça, então muita gente simplesmente não cobra.',
   },
   {
     icon: FolderX,

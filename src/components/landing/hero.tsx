@@ -12,7 +12,7 @@ export function Hero() {
         </h1>
         <p className="text-muted-foreground text-base leading-relaxed sm:text-lg">
           Cadastre o contrato uma vez. O Alugasim calcula o reajuste certo na data certa e avisa
-          você a tempo de aplicar — sem abrir planilha.
+          você a tempo de aplicar, sem abrir planilha.
         </p>
       </div>
       <RentAdjustmentCalculator />

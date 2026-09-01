@@ -92,7 +92,7 @@ export default async function PropertiesPage() {
                   {property.addressStreet}, {property.addressNumber} - {property.addressCity}/
                   {property.addressState}
                 </TableCell>
-                <TableCell>{contract?.tenant.name ?? '—'}</TableCell>
+                <TableCell>{contract?.tenant.name ?? '-'}</TableCell>
                 <TableCell className="tabular-nums">
                   {formatCurrency(Number(relevant?.amount ?? contract?.rentValue ?? 0))}
                 </TableCell>

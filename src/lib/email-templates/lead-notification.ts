@@ -12,7 +12,7 @@ export function leadNotificationHtml({
   const waLink = `https://wa.me/55${whatsapp}`;
   return `
     <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto; color: #1a1a1a;">
-      <h2 style="margin-bottom: 8px;">Novo lead — Alugasim</h2>
+      <h2 style="margin-bottom: 8px;">Novo lead - Alugasim</h2>
       <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
         <tr>
           <td style="padding: 4px 0; color: #666;">WhatsApp</td>

@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 const FAQS = [
   {
     q: 'Isso não é só uma planilha melhorada?',
-    a: 'Uma planilha só calcula. O Alugasim calcula com a taxa oficial, avisa quando é hora de aplicar o reajuste e manda o lembrete de vencimento sozinho — você não precisa lembrar de abrir nada.',
+    a: 'Uma planilha só calcula. O Alugasim calcula com a taxa oficial, avisa quando é hora de aplicar o reajuste e manda o lembrete de vencimento sozinho. Você não precisa lembrar de abrir nada.',
   },
   {
     q: 'Preciso entender de IGP-M, IPCA e INPC?',

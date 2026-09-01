@@ -30,7 +30,7 @@ export function RentAdjustmentCalculator() {
         if (active) setRates(data);
       })
       .catch(() => {
-        // Keep the client-side fallback — the calculator must never break pre-launch.
+        // Keep the client-side fallback, the calculator must never break pre-launch.
       });
     return () => {
       active = false;

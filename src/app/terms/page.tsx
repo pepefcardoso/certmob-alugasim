@@ -1,7 +1,7 @@
 import { BrandLockup } from '@/components/brand-lockup';
 import { Footer } from '@/components/footer';
 
-// TODO(legal review): draft only, per AGENTS.md — have a lawyer sign off before shipping.
+// TODO(legal review): draft only, per AGENTS.md. Have a lawyer sign off before shipping.
 export default function TermsPage() {
   return (
     <>

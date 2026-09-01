@@ -96,7 +96,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
           </div>
           <div>
             <p className="text-body-sm text-neutral-500">Data de término</p>
-            <p>{contract.endDate ? formatDate(contract.endDate) : '—'}</p>
+            <p>{contract.endDate ? formatDate(contract.endDate) : '-'}</p>
           </div>
         </CardContent>
       </Card>
@@ -158,7 +158,7 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
                           <TableCell>
                             <StatusBadge status={variant}>{STATUS_LABEL_PT[variant]}</StatusBadge>
                           </TableCell>
-                          <TableCell>{payment.paidAt ? formatDate(payment.paidAt) : '—'}</TableCell>
+                          <TableCell>{payment.paidAt ? formatDate(payment.paidAt) : '-'}</TableCell>
                           <TableCell>
                             {payment.status !== 'PAID' && <MarkPaidButton paymentId={payment.id} />}
                           </TableCell>

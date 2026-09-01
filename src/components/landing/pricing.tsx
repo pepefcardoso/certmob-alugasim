@@ -19,7 +19,7 @@ export function Pricing() {
         <span className="text-warning-700">R$200/ano</span>.
       </h2>
       <p className="text-muted-foreground mt-2">
-        O Alugasim custa a partir de R$50/mês — e evita isso automaticamente, em todos os seus
+        O Alugasim custa a partir de R$50/mês e evita isso automaticamente, em todos os seus
         imóveis.
       </p>
 
