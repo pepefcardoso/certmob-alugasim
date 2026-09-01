@@ -15,7 +15,7 @@ export default async function EditTenantPage({ params }: { params: Promise<{ id:
 
   return (
     <div className="max-w-md space-y-4">
-      <h1 className="text-2xl font-semibold">Editar locatário</h1>
+      <h1 className="text-heading-1">Editar locatário</h1>
       <TenantForm
         tenantId={tenant.id}
         defaultValues={{
