@@ -3,12 +3,12 @@ import { addMonthsClamped, billingDueDate, buildUpcomingPayments } from './payme
 
 describe('addMonthsClamped', () => {
   it('clamps the 31st into a 30-day month without crashing', () => {
-    const start = new Date(Date.UTC(2026, 2, 31)); // Mar 31
+    const start = new Date(Date.UTC(2026, 2, 31));
     expect(addMonthsClamped(start, 1).toISOString().slice(0, 10)).toBe('2026-04-30');
   });
 
   it('does not drift after a clamp (Jan 31 -> Feb 28 -> Mar 31, not Mar 28)', () => {
-    const start = new Date(Date.UTC(2026, 0, 31)); // Jan 31
+    const start = new Date(Date.UTC(2026, 0, 31));
     expect(billingDueDate(start, 1).toISOString().slice(0, 10)).toBe('2026-02-28');
     expect(billingDueDate(start, 2).toISOString().slice(0, 10)).toBe('2026-03-31');
   });
