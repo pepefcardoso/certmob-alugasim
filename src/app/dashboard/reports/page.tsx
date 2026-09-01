@@ -71,7 +71,7 @@ export default async function ReportsPage({
           <CardTitle>Receita mensal (últimos 12 meses)</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="overflow-x-auto">
+          <div className="hidden overflow-x-auto lg:block">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -83,11 +83,21 @@ export default async function ReportsPage({
                 {revenueRows.map((row) => (
                   <TableRow key={row.month}>
                     <TableCell className="capitalize">{formatMonthLabel(row.month)}</TableCell>
-                    <TableCell className="text-right">{currency.format(row.total)}</TableCell>
+                    <TableCell className="text-right tabular-nums">
+                      {currency.format(row.total)}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
+          </div>
+          <div className="divide-y lg:hidden">
+            {revenueRows.map((row) => (
+              <div key={row.month} className="flex items-center justify-between py-2 text-sm">
+                <span className="text-neutral-700 capitalize">{formatMonthLabel(row.month)}</span>
+                <span className="tabular-nums font-medium">{currency.format(row.total)}</span>
+              </div>
+            ))}
           </div>
         </CardContent>
       </Card>
@@ -97,26 +107,41 @@ export default async function ReportsPage({
           <CardTitle>Taxa de inadimplência</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Mês</TableHead>
-                <TableHead className="text-right">Atrasados / Total</TableHead>
-                <TableHead className="text-right">Taxa</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {delinquencyRows.map((row) => (
-                <TableRow key={row.month}>
-                  <TableCell className="capitalize">{formatMonthLabel(row.month)}</TableCell>
-                  <TableCell className="text-right">
-                    {row.lateCount} / {row.totalDue}
-                  </TableCell>
-                  <TableCell className="text-right">{row.latePct.toFixed(1)}%</TableCell>
+          <div className="hidden lg:block">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Mês</TableHead>
+                  <TableHead className="text-right">Atrasados / Total</TableHead>
+                  <TableHead className="text-right">Taxa</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {delinquencyRows.map((row) => (
+                  <TableRow key={row.month}>
+                    <TableCell className="capitalize">{formatMonthLabel(row.month)}</TableCell>
+                    <TableCell className="text-right tabular-nums">
+                      {row.lateCount} / {row.totalDue}
+                    </TableCell>
+                    <TableCell className="text-right tabular-nums">
+                      {row.latePct.toFixed(1)}%
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+          <div className="divide-y lg:hidden">
+            {delinquencyRows.map((row) => (
+              <div key={row.month} className="space-y-0.5 py-2 text-sm">
+                <p className="text-neutral-700 capitalize">{formatMonthLabel(row.month)}</p>
+                <p className="tabular-nums">
+                  {row.lateCount} / {row.totalDue} atrasados —{' '}
+                  <span className="font-medium">{row.latePct.toFixed(1)}%</span>
+                </p>
+              </div>
+            ))}
+          </div>
         </CardContent>
       </Card>
 
@@ -125,26 +150,26 @@ export default async function ReportsPage({
           <CardTitle>Exportar relatório mensal (CSV)</CardTitle>
         </CardHeader>
         <CardContent>
-          <form action="/dashboard/reports" className="flex items-end gap-3">
-            <div className="flex flex-col gap-1">
+          <form action="/dashboard/reports" className="flex flex-wrap items-end gap-3">
+            <div className="flex flex-col gap-1.5">
               <label className="text-sm font-medium" htmlFor="month">
                 Mês de referência
               </label>
-              <select
-                id="month"
-                name="month"
-                defaultValue={exportMonth}
-                className="border-input h-9 rounded-md border bg-transparent px-3 text-sm shadow-xs"
-              >
-                {revenueMonths
-                  .slice()
-                  .reverse()
-                  .map((m) => (
-                    <option key={m} value={m}>
-                      {formatMonthLabel(m)}
-                    </option>
-                  ))}
-              </select>
+              <Select name="month" defaultValue={exportMonth}>
+                <SelectTrigger id="month" className="w-48">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {revenueMonths
+                    .slice()
+                    .reverse()
+                    .map((m) => (
+                      <SelectItem key={m} value={m}>
+                        {formatMonthLabel(m)}
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
             </div>
             <Button type="submit" variant="outline">
               Aplicar

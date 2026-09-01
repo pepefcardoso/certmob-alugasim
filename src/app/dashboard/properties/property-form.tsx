@@ -165,9 +165,14 @@ export function PropertyForm({
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={form.formState.isSubmitting} size="lg">
-          {form.formState.isSubmitting ? 'Salvando...' : 'Salvar'}
-        </Button>
+        <div className="flex gap-3">
+          <Button type="button" variant="outline" onClick={() => router.back()}>
+            Cancelar
+          </Button>
+          <Button type="submit" loading={form.formState.isSubmitting} size="lg">
+            Salvar imóvel
+          </Button>
+        </div>
       </form>
     </Form>
   );

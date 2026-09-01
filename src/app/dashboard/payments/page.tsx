@@ -9,18 +9,20 @@ import { PaymentFilters } from './filters';
 export default async function PaymentsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ status?: string; propertyId?: string; tenantId?: string }>;
+  searchParams: Promise<{ status?: string; propertyId?: string; tenantId?: string; period?: string }>;
 }) {
   const session = await requireSession();
-  const { status, propertyId, tenantId } = await searchParams;
+  const { status, propertyId, tenantId, period } = await searchParams;
 
   const statusFilter =
     status === 'UPCOMING' || status === 'LATE' || status === 'PAID'
       ? (status as PaymentStatus)
       : undefined;
 
-  const sixMonthsAgo = new Date();
-  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+  const periodMonths = period === '3' || period === '12' ? Number(period) : period === 'all' ? null : 6;
+  const periodStart = periodMonths
+    ? new Date(new Date().setMonth(new Date().getMonth() - periodMonths))
+    : undefined;
 
   const contracts = await prisma.contract.findMany({
     where: {
@@ -32,7 +34,7 @@ export default async function PaymentsPage({
       property: true,
       tenant: true,
       payments: {
-        where: { dueDate: { gte: sixMonthsAgo }, ...(statusFilter && { status: statusFilter }) },
+        where: { ...(periodStart && { dueDate: { gte: periodStart } }), ...(statusFilter && { status: statusFilter }) },
         orderBy: { dueDate: 'asc' },
       },
     },

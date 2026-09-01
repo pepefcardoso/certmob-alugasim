@@ -134,39 +134,70 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
           {contract.payments.length === 0 ? (
             <p className="text-body-sm text-neutral-500">Nenhum pagamento registrado ainda.</p>
           ) : (
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Vencimento</TableHead>
-                    <TableHead>Valor</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Pago em</TableHead>
-                    <TableHead />
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {contract.payments.map((payment) => {
-                    const variant = toStatusVariant(payment);
-                    return (
-                      <TableRow key={payment.id}>
-                        <TableCell>{formatDate(payment.dueDate)}</TableCell>
-                        <TableCell className="tabular-nums">
+            <>
+              <div className="hidden overflow-x-auto lg:block">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Vencimento</TableHead>
+                      <TableHead>Valor</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Pago em</TableHead>
+                      <TableHead />
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {contract.payments.map((payment) => {
+                      const variant = toStatusVariant(payment);
+                      return (
+                        <TableRow key={payment.id}>
+                          <TableCell>{formatDate(payment.dueDate)}</TableCell>
+                          <TableCell className="tabular-nums">
+                            {formatCurrency(Number(payment.amount))}
+                          </TableCell>
+                          <TableCell>
+                            <StatusBadge status={variant}>{STATUS_LABEL_PT[variant]}</StatusBadge>
+                          </TableCell>
+                          <TableCell>{payment.paidAt ? formatDate(payment.paidAt) : '—'}</TableCell>
+                          <TableCell>
+                            {payment.status !== 'PAID' && <MarkPaidButton paymentId={payment.id} />}
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </div>
+
+              <div className="divide-y lg:hidden">
+                {contract.payments.map((payment) => {
+                  const variant = toStatusVariant(payment);
+                  return (
+                    <div key={payment.id} className="space-y-2 py-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <p className="text-body-sm text-neutral-700">
+                            Vence em {formatDate(payment.dueDate)}
+                          </p>
+                          {payment.paidAt && (
+                            <p className="text-caption text-neutral-500">
+                              Pago em {formatDate(payment.paidAt)}
+                            </p>
+                          )}
+                        </div>
+                        <p className="text-heading-3 tabular-nums">
                           {formatCurrency(Number(payment.amount))}
-                        </TableCell>
-                        <TableCell>
-                          <StatusBadge status={variant}>{STATUS_LABEL_PT[variant]}</StatusBadge>
-                        </TableCell>
-                        <TableCell>{payment.paidAt ? formatDate(payment.paidAt) : '—'}</TableCell>
-                        <TableCell>
-                          {payment.status !== 'PAID' && <MarkPaidButton paymentId={payment.id} />}
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            </div>
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between gap-2">
+                        <StatusBadge status={variant}>{STATUS_LABEL_PT[variant]}</StatusBadge>
+                        {payment.status !== 'PAID' && <MarkPaidButton paymentId={payment.id} />}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
           )}
         </CardContent>
       </Card>

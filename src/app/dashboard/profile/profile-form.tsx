@@ -88,8 +88,8 @@ export function ProfileForm({ defaultValues }: { defaultValues: ProfileInput }) 
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={form.formState.isSubmitting}>
-          Salvar
+        <Button type="submit" loading={form.formState.isSubmitting}>
+          Salvar perfil
         </Button>
       </form>
     </Form>

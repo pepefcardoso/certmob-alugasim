@@ -100,9 +100,14 @@ export function TenantForm({
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={form.formState.isSubmitting}>
-          Salvar
-        </Button>
+        <div className="flex gap-3">
+          <Button type="button" variant="outline" onClick={() => router.back()}>
+            Cancelar
+          </Button>
+          <Button type="submit" loading={form.formState.isSubmitting}>
+            Salvar locatário
+          </Button>
+        </div>
       </form>
     </Form>
   );
