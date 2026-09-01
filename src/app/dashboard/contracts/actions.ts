@@ -9,6 +9,8 @@ import Decimal from 'decimal.js';
 import { isAdjustmentEligible } from '@/lib/adjustment-eligibility';
 import { getAccumulated12MonthRate } from '@/lib/rent-index';
 import { buildUpcomingPayments } from '@/lib/payment-generation';
+import { paymentReminderHtml } from '@/lib/email-templates/payment-reminder';
+import { sendEmail } from '@/lib/email';
 
 export async function createContract(input: ContractInput) {
   const session = await requireSession();
@@ -195,6 +197,42 @@ export async function markPaymentPaid(paymentId: string) {
 
   revalidatePath(`/dashboard/contracts/${payment.contractId}`);
   revalidatePath('/dashboard');
+  revalidatePath('/dashboard/payments');
+
+  return { success: true as const };
+}
+
+export async function resendReminder(paymentId: string) {
+  const session = await requireSession();
+
+  const payment = await prisma.payment.findFirst({
+    where: { id: paymentId, contract: { ownerId: session.user.id } },
+    include: { contract: { include: { tenant: true, property: true } } },
+  });
+
+  if (!payment) return { error: 'Pagamento não encontrado' };
+
+  const { tenant, property } = payment.contract;
+  const propertyAddress = `${property.addressStreet}, ${property.addressNumber} - ${property.addressCity}/${property.addressState}`;
+
+  await sendEmail({
+    to: tenant.email,
+    subject: 'Lembrete de pagamento — Alugasim',
+    html: paymentReminderHtml({
+      tenantName: tenant.name,
+      propertyAddress,
+      amount: payment.amount,
+      dueDate: payment.dueDate,
+    }),
+  });
+
+  await prisma.payment.update({
+    where: { id: paymentId },
+    data: { reminderSentAt: new Date() },
+  });
+
+  revalidatePath(`/dashboard/contracts/${payment.contractId}`);
+  revalidatePath('/dashboard/payments');
 
   return { success: true as const };
 }

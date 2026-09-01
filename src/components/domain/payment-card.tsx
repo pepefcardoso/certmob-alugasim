@@ -15,6 +15,7 @@ interface PaymentCardProps {
   amount: number;
   dueDate: Date;
   status: PaymentStatusVariant;
+  actions?: ReactNode;
 }
 
 export function PaymentCard({
@@ -23,6 +24,7 @@ export function PaymentCard({
   amount,
   dueDate,
   status,
+  actions,
 }: PaymentCardProps) {
   return (
     <Card size="sm" className="shadow-card">
@@ -35,6 +37,7 @@ export function PaymentCard({
         <div className="flex flex-col items-end gap-1">
           <p className="text-heading-3 tabular-nums">{formatCurrency(amount)}</p>
           <StatusBadge status={status}>{STATUS_LABEL[status]}</StatusBadge>
+          {actions}
         </div>
       </CardContent>
     </Card>

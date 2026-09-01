@@ -5,6 +5,8 @@ import { PaymentCard } from '@/components/domain/payment-card';
 import { EmptyState } from '@/components/domain/empty-state';
 import { toStatusVariant } from '@/lib/payment-status';
 import { PaymentFilters } from './filters';
+import { MarkPaidButton } from '../contracts/mark-paid-button';
+import { ResendReminderButton } from '../contracts/resend-reminder-button';
 
 export default async function PaymentsPage({
   searchParams,
@@ -77,16 +79,27 @@ export default async function PaymentsPage({
         />
       ) : (
         <div className="space-y-3">
-          {payments.map(({ payment, property, tenant }) => (
-            <PaymentCard
-              key={payment.id}
-              propertyLabel={property.label}
-              tenantName={tenant.name}
-              amount={Number(payment.amount)}
-              dueDate={payment.dueDate}
-              status={toStatusVariant(payment)}
-            />
-          ))}
+          {payments.map(({ payment, property, tenant }) => {
+            const status = toStatusVariant(payment);
+            return (
+              <PaymentCard
+                key={payment.id}
+                propertyLabel={property.label}
+                tenantName={tenant.name}
+                amount={Number(payment.amount)}
+                dueDate={payment.dueDate}
+                status={status}
+                actions={
+                  status !== 'received' ? (
+                    <div className="flex gap-1 pt-1">
+                      <MarkPaidButton paymentId={payment.id} />
+                      <ResendReminderButton paymentId={payment.id} />
+                    </div>
+                  ) : undefined
+                }
+              />
+            );
+          })}
         </div>
       )}
     </div>

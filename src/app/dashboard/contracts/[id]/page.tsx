@@ -20,6 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { ResendReminderButton } from '../resend-reminder-button';
 
 const INDEX_LABEL = { IGPM: 'IGP-M', IPCA: 'IPCA', INPC: 'INPC' } as const;
 
@@ -160,7 +161,12 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
                           </TableCell>
                           <TableCell>{payment.paidAt ? formatDate(payment.paidAt) : '-'}</TableCell>
                           <TableCell>
-                            {payment.status !== 'PAID' && <MarkPaidButton paymentId={payment.id} />}
+                            {payment.status !== 'PAID' && (
+                              <div className="flex gap-1">
+                                <MarkPaidButton paymentId={payment.id} />
+                                <ResendReminderButton paymentId={payment.id} />
+                              </div>
+                            )}
                           </TableCell>
                         </TableRow>
                       );
@@ -191,7 +197,12 @@ export default async function ContractDetailPage({ params }: { params: Promise<{
                       </div>
                       <div className="flex items-center justify-between gap-2">
                         <StatusBadge status={variant}>{STATUS_LABEL_PT[variant]}</StatusBadge>
-                        {payment.status !== 'PAID' && <MarkPaidButton paymentId={payment.id} />}
+                        {payment.status !== 'PAID' && (
+                          <div className="flex gap-1">
+                            <MarkPaidButton paymentId={payment.id} />
+                            <ResendReminderButton paymentId={payment.id} />
+                          </div>
+                        )}
                       </div>
                     </div>
                   );
