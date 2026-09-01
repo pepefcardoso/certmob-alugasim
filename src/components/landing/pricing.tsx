@@ -14,7 +14,7 @@ const INCLUDED = [
 export function Pricing() {
   return (
     <section className="mx-auto max-w-3xl px-4 py-14 text-center">
-      <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+      <h2 className="text-heading-1">
         Perder um reajuste de 10% num aluguel de R$2.000 custa{' '}
         <span className="text-warning-foreground">R$200/ano</span>.
       </h2>

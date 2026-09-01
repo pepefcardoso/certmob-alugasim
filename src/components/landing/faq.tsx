@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 const FAQS = [
   {
     q: 'Isso não é só uma planilha melhorada?',
-    a: 'Uma planilha calcula. O Alugasim calcula, gera a cobrança e manda o lembrete sozinho — você não precisa lembrar de abrir nada.',
+    a: 'Uma planilha só calcula. O Alugasim calcula com a taxa oficial, avisa quando é hora de aplicar o reajuste e manda o lembrete de vencimento sozinho — você não precisa lembrar de abrir nada.',
   },
   {
     q: 'Preciso entender de IGP-M, IPCA e INPC?',
@@ -32,9 +32,7 @@ export function Faq() {
 
   return (
     <section className="mx-auto max-w-2xl px-4 py-14">
-      <h2 className="font-heading text-center text-2xl font-semibold tracking-tight sm:text-3xl">
-        Perguntas frequentes
-      </h2>
+      <h2 className="text-heading-1 text-center">Perguntas frequentes</h2>
       <div className="mt-8 divide-y">
         {FAQS.map((item, i) => (
           <div key={item.q}>

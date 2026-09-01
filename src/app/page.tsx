@@ -11,9 +11,9 @@ import { LeadCaptureSection } from '@/components/landing/lead-capture-section';
 import { Footer } from '@/components/footer';
 
 export const metadata: Metadata = {
-  title: 'Alugasim — Reajuste de aluguel automático',
+  title: 'Alugasim - Reajuste de aluguel automático',
   description:
-    'Alugo ajuda a registrar contrato. Alugasim avisa quando você está perdendo dinheiro no aluguel — e resolve sozinho.',
+    'Alugasim calcula seu reajuste de aluguel com a taxa oficial, avisa na hora certa e organiza contratos, inquilinos e recebimentos num só lugar.',
 };
 
 export default function Home() {

@@ -1,22 +1,23 @@
-import { RefreshCw, QrCode, BellRing, ListChecks } from 'lucide-react';
+import { RefreshCw, LayoutGrid, BellRing, ListChecks } from 'lucide-react';
 
 const FEATURES = [
   {
     icon: RefreshCw,
-    feature: 'Reajuste automático IGP-M/IPCA/INPC',
+    feature: 'Cálculo automático de reajuste (IGP-M/IPCA/INPC)',
     benefit:
-      'Nunca mais perca um reajuste — o sistema aplica o índice certo na data certa e gera a nova cobrança sozinho.',
+      'O sistema calcula o valor certo com a taxa oficial do Banco Central. Você revisa e aplica com um clique, sem montar a conta na mão.',
   },
   {
-    icon: QrCode,
-    feature: 'Cobrança automática',
-    benefit: 'O boleto ou Pix sai sozinho todo mês — você só confere se caiu na conta.',
+    icon: LayoutGrid,
+    feature: 'Tudo num só painel',
+    benefit:
+      'Imóveis, inquilinos, contratos e pagamentos organizados num só lugar — sem planilha, sem pasta de PDF perdida.',
   },
   {
     icon: BellRing,
-    feature: 'Lembretes automáticos',
+    feature: 'Lembretes automáticos por e-mail',
     benefit:
-      'Três dias antes do vencimento, seu inquilino já foi avisado — sem você precisar mandar mensagem.',
+      'Três dias antes do vencimento, seu inquilino recebe um lembrete — sem você precisar mandar mensagem.',
   },
   {
     icon: ListChecks,
@@ -29,9 +30,7 @@ export function FeatureBenefits() {
   return (
     <section className="bg-muted/40 py-14">
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="font-heading text-center text-2xl font-semibold tracking-tight sm:text-3xl">
-          O que muda no seu dia a dia
-        </h2>
+        <h2 className="text-heading-1 text-center">O que muda no seu dia a dia</h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {FEATURES.map(({ icon: Icon, feature, benefit }) => (
             <div key={feature} className="bg-background flex gap-4 rounded-xl p-5 shadow-xs">

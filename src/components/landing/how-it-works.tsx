@@ -8,8 +8,9 @@ const STEPS = [
   },
   {
     icon: RefreshCw,
-    title: 'Sistema calcula e cobra',
-    description: 'Reajuste automático na data certa. Cobrança gerada e enviada sozinha.',
+    title: 'Sistema calcula e avisa',
+    description:
+      'Reajuste calculado com a taxa oficial na data certa. Lembrete de vencimento enviado sozinho.',
   },
   {
     icon: Wallet,
@@ -21,9 +22,7 @@ const STEPS = [
 export function HowItWorks() {
   return (
     <section className="mx-auto max-w-5xl px-4 py-14">
-      <h2 className="font-heading text-center text-2xl font-semibold tracking-tight sm:text-3xl">
-        Simples assim
-      </h2>
+      <h2 className="text-heading-1 text-center">Simples assim</h2>
       <div className="mt-10 grid gap-8 sm:grid-cols-3">
         {STEPS.map(({ icon: Icon, title, description }, i) => (
           <div key={title} className="space-y-2 text-center">
