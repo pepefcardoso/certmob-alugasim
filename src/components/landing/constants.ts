@@ -13,3 +13,9 @@ export const INDEX_LABELS: Record<AdjustmentIndex, string> = {
   IPCA: 'IPCA',
   INPC: 'INPC',
 };
+
+export const FOUNDER_SPOTS_TOTAL = 100;
+export const FOUNDER_SPOTS_TAKEN = 53;
+export const FOUNDER_SPOTS_REMAINING = FOUNDER_SPOTS_TOTAL - FOUNDER_SPOTS_TAKEN;
+
+export const CALCOM_LINK = process.env.NEXT_PUBLIC_CALCOM_LINK ?? 'alugasim/demo';

@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 export const leadSchema = z.object({
-  email: z.string().trim().email('E-mail inválido'),
   whatsapp: z.string().trim().min(10, 'DDD + número (ex: 47999998888)'),
   propertyCount: z
     .string()

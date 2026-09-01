@@ -2,7 +2,7 @@ import { Check } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { LEAD_CTA_LABEL } from '@/components/landing/constants';
+import { FOUNDER_SPOTS_REMAINING, LEAD_CTA_LABEL } from '@/components/landing/constants';
 
 const INCLUDED = [
   'Imóveis, inquilinos e contratos ilimitados',
@@ -43,7 +43,7 @@ export function Pricing() {
             <a href="#lead-magnet">{LEAD_CTA_LABEL}</a>
           </Button>
           <p className="text-muted-foreground text-center text-xs">
-            Primeiros 100 clientes travam esse preço para sempre.
+            Restam {FOUNDER_SPOTS_REMAINING} vagas do preço de fundador.
           </p>
         </CardContent>
       </Card>

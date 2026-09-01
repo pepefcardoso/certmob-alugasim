@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
 
 export function TrustSection() {
   return (
@@ -20,9 +21,13 @@ export function TrustSection() {
         <Card>
           <CardContent className="space-y-3">
             <div className="flex items-center gap-3">
-              <div className="bg-primary text-primary-foreground font-heading flex size-11 shrink-0 items-center justify-center rounded-full font-medium">
-                RE
-              </div>
+              <Image
+                src="/img/founder.jpg"
+                alt="Fundador do Alugasim"
+                width={44}
+                height={44}
+                className="size-11 shrink-0 rounded-full object-cover"
+              />
               <div>
                 <p className="font-heading font-medium">Nota do fundador</p>
                 <p className="text-muted-foreground text-xs">Alugasim</p>
@@ -30,7 +35,7 @@ export function TrustSection() {
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Estou construindo o Alugasim porque vi minha própria família perder reajuste atrás de
-              reajuste numa planilha esquecida. Ainda somos recentes no mercado — por isso mostramos
+              reajuste numa planilha esquecida. Ainda somos recentes no mercado e por isso mostramos
               a matemática aberta, sem prometer nada que não fazemos hoje.
             </p>
           </CardContent>

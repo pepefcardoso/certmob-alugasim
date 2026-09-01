@@ -17,6 +17,8 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { FOUNDER_SPOTS_REMAINING } from './constants';
+import { ScheduleDemoButton } from './schedule-demo-button';
 
 const URGENCY = [
   {
@@ -33,7 +35,7 @@ export function LeadCaptureSection() {
   const [submitted, setSubmitted] = useState(false);
   const form = useForm<LeadInput>({
     resolver: zodResolver(leadSchema),
-    defaultValues: { email: '', whatsapp: '', propertyCount: '1' },
+    defaultValues: { whatsapp: '', propertyCount: '1' },
   });
 
   async function onSubmit(values: LeadInput) {
@@ -49,7 +51,7 @@ export function LeadCaptureSection() {
     <section id="lead-magnet" className="mx-auto max-w-2xl px-4 py-14">
       <div className="space-y-2 text-center">
         <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-          Primeiros 100 clientes travam R$50/mês para sempre
+          Restam {FOUNDER_SPOTS_REMAINING} vagas do preço de fundador — R$50/mês para sempre
         </h2>
         <p className="text-muted-foreground">Depois desse lote, o preço sobe para R$79/mês.</p>
       </div>
@@ -66,29 +68,17 @@ export function LeadCaptureSection() {
       <Card className="mt-8">
         <CardContent>
           {submitted ? (
-            <div className="flex flex-col items-center gap-2 py-6 text-center">
+            <div className="flex flex-col items-center gap-3 py-6 text-center">
               <CheckCircle2 className="text-success-700 size-8" />
               <p className="font-heading font-medium">Recebemos seus dados</p>
               <p className="text-muted-foreground text-sm">
                 Te chamamos no WhatsApp para configurar seus contratos e travar o preço de fundador.
               </p>
+              <ScheduleDemoButton />
             </div>
           ) : (
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>E-mail</FormLabel>
-                      <FormControl>
-                        <Input type="email" placeholder="voce@email.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
                 <FormField
                   control={form.control}
                   name="whatsapp"
@@ -118,14 +108,12 @@ export function LeadCaptureSection() {
                 {form.formState.errors.root && (
                   <p className="text-destructive text-sm">{form.formState.errors.root.message}</p>
                 )}
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full"
-                  loading={form.formState.isSubmitting}
-                >
+                <Button type="submit" size="lg" className="w-full" loading={form.formState.isSubmitting}>
                   Calcular meu reajuste grátis
                 </Button>
+                <p className="text-muted-foreground text-center text-xs">
+                  Sem spam. Seus dados estão protegidos pela LGPD.
+                </p>
               </form>
             </Form>
           )}

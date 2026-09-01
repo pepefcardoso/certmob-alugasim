@@ -2,29 +2,27 @@
 
 import { prisma } from '@/lib/prisma';
 import { sendEmail } from '@/lib/email';
-import { leadMagnetHtml } from '@/lib/email-templates/lead-magnet';
+import { leadNotificationHtml } from '@/lib/email-templates/lead-notification';
 import { leadSchema, type LeadInput } from '@/lib/validations/lead';
+import { env } from '@/lib/env';
 
 export async function captureLead(input: LeadInput, source = 'landing_hero') {
   const data = leadSchema.parse(input);
+  const whatsapp = data.whatsapp.replace(/\D/g, '');
+  const propertyCount = Number(data.propertyCount);
 
   await prisma.lead.create({
-    data: {
-      email: data.email,
-      whatsapp: data.whatsapp.replace(/\D/g, ''),
-      propertyCount: Number(data.propertyCount),
-      source,
-    },
+    data: { whatsapp, propertyCount, source },
   });
 
   try {
     await sendEmail({
-      to: data.email,
-      subject: 'Seu cálculo de reajuste — Alugasim',
-      html: leadMagnetHtml({ propertyCount: Number(data.propertyCount) }),
+      to: env.LEAD_NOTIFY_EMAIL,
+      subject: `Novo lead — ${propertyCount} imóve${propertyCount > 1 ? 'is' : 'l'}`,
+      html: leadNotificationHtml({ whatsapp, propertyCount, source }),
     });
   } catch (error) {
-    console.error('[captureLead] falha ao enviar e-mail de confirmação', error);
+    console.error('[captureLead] falha ao notificar time por e-mail', error);
   }
 
   return { success: true as const };

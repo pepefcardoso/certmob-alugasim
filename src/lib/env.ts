@@ -6,6 +6,7 @@ const envSchema = z.object({
   BETTER_AUTH_URL: z.url(),
   RESEND_API_KEY: z.string().optional(),
   EMAIL_FROM: z.string().min(1, 'EMAIL_FROM is required'),
+  LEAD_NOTIFY_EMAIL: z.email('LEAD_NOTIFY_EMAIL inválido'),
   NEXT_PUBLIC_BETTER_AUTH_URL: z.url(),
   CRON_SECRET: z.string().min(1, 'CRON_SECRET is required'),
   DPO_EMAIL: z.email('DPO_EMAIL inválido'),
