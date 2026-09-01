@@ -8,6 +8,7 @@ import { TrustSection } from '@/components/landing/trust-section';
 import { Pricing } from '@/components/landing/pricing';
 import { Faq } from '@/components/landing/faq';
 import { LeadCaptureSection } from '@/components/landing/lead-capture-section';
+import { Footer } from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'Alugasim — Reajuste de aluguel automático',
@@ -29,6 +30,7 @@ export default function Home() {
         <Faq />
         <LeadCaptureSection />
       </main>
+      <Footer />
     </>
   );
 }
