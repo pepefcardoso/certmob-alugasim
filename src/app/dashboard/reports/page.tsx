@@ -64,29 +64,31 @@ export default async function ReportsPage({
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">Relatórios</h1>
+      <h1 className="text-heading-1">Relatórios</h1>
 
       <Card>
         <CardHeader>
           <CardTitle>Receita mensal (últimos 12 meses)</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Mês</TableHead>
-                <TableHead className="text-right">Total recebido</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {revenueRows.map((row) => (
-                <TableRow key={row.month}>
-                  <TableCell className="capitalize">{formatMonthLabel(row.month)}</TableCell>
-                  <TableCell className="text-right">{currency.format(row.total)}</TableCell>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Mês</TableHead>
+                  <TableHead className="text-right">Total recebido</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {revenueRows.map((row) => (
+                  <TableRow key={row.month}>
+                    <TableCell className="capitalize">{formatMonthLabel(row.month)}</TableCell>
+                    <TableCell className="text-right">{currency.format(row.total)}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
 

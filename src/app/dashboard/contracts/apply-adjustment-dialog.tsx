@@ -13,6 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { formatCurrency } from '@/lib/format';
 
 const currency = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 const percent = new Intl.NumberFormat('pt-BR', {
@@ -73,14 +74,14 @@ export function ApplyAdjustmentDialog({
         </DialogHeader>
         {preview ? (
           <div className="space-y-1 text-sm">
-            <p>Aluguel atual: {currency.format(preview.previousValue)}</p>
+            <p>Aluguel atual: {formatCurrency(preview.previousValue)}</p>
             <p>Índice: {INDEX_LABEL[preview.index]}</p>
             <p>Taxa acumulada (12 meses): {percent.format(preview.ratePercent)}%</p>
             <p className="text-muted-foreground">
-              {currency.format(preview.previousValue)} × (1 + {percent.format(preview.ratePercent)}
-              %) = {currency.format(preview.newValue)}
+              {formatCurrency(preview.previousValue)} × (1 + {percent.format(preview.ratePercent)}
+              %) = {formatCurrency(preview.newValue)}
             </p>
-            <p className="font-medium">Novo aluguel: {currency.format(preview.newValue)}</p>
+            <p className="font-medium">Novo aluguel: {formatCurrency(preview.newValue)}</p>
           </div>
         ) : (
           <p className="text-muted-foreground text-sm">Calculando...</p>

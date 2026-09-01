@@ -6,7 +6,7 @@ export default async function ProfilePage() {
 
   return (
     <div className="max-w-md space-y-4">
-      <h1 className="text-2xl font-semibold">Perfil</h1>
+      <h1 className="text-heading-1">Perfil</h1>
       <ProfileForm
         defaultValues={{
           name: session.user.name,
