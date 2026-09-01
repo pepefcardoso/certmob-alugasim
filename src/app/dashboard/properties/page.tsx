@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { requireSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { PropertyCard } from '@/components/domain/property-card';
+import { EmptyState } from '@/components/domain/empty-state';
 import {
   Table,
   TableBody,
@@ -12,64 +13,101 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { DeletePropertyButton } from './delete-property-button';
+import { toStatusVariant, STATUS_LABEL_PT } from '@/lib/payment-status';
+import { formatCurrency } from '@/lib/format';
 
 export default async function PropertiesPage() {
   const session = await requireSession();
 
   const properties = await prisma.property.findMany({
     where: { ownerId: session.user.id },
-    include: { _count: { select: { contracts: true } } },
+    include: {
+      contracts: {
+        where: { status: 'ACTIVE' },
+        include: { tenant: true, payments: { orderBy: { dueDate: 'asc' } } },
+        take: 1,
+      },
+    },
     orderBy: { createdAt: 'desc' },
   });
 
   if (properties.length === 0) {
     return (
-      <Card>
-        <CardContent className="flex flex-col items-center gap-4 py-12 text-center">
-          <p className="text-muted-foreground">Nenhum imóvel cadastrado ainda.</p>
-          <Button asChild>
-            <Link href="/dashboard/properties/new">Cadastrar imóvel</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      <EmptyState
+        title="Seus imóveis começam aqui"
+        description="Cadastre o primeiro imóvel para acompanhar contratos, recebimentos e cobranças."
+        action={{ label: 'Cadastrar imóvel', href: '/dashboard/properties/new' }}
+      />
     );
   }
+
+  const rows = properties.map((property) => {
+    const contract = property.contracts[0];
+    const relevant = contract
+      ? (contract.payments.find((p) => p.status !== 'PAID') ?? contract.payments.at(-1) ?? null)
+      : null;
+    return { property, contract, relevant, variant: toStatusVariant(relevant) };
+  });
 
   return (
     <div className="space-y-4">
       <div className="flex justify-end">
         <Button asChild>
-          <Link href="/dashboard/properties/new">Novo imóvel</Link>
+          <Link href="/dashboard/properties/new">Cadastrar imóvel</Link>
         </Button>
       </div>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Label</TableHead>
-            <TableHead>Endereço</TableHead>
-            <TableHead>Contratos</TableHead>
-            <TableHead className="text-right">Ações</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {properties.map((property) => (
-            <TableRow key={property.id}>
-              <TableCell>{property.label}</TableCell>
-              <TableCell>
-                {property.addressStreet}, {property.addressNumber} - {property.addressCity}/
-                {property.addressState}
-              </TableCell>
-              <TableCell>{property._count.contracts}</TableCell>
-              <TableCell className="flex justify-end gap-2">
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href={`/dashboard/properties/${property.id}/edit`}>Editar</Link>
-                </Button>
-                <DeletePropertyButton propertyId={property.id} label={property.label} />
-              </TableCell>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:hidden">
+        {rows.map(({ property, contract, relevant, variant }) => (
+          <PropertyCard
+            key={property.id}
+            href={`/dashboard/properties/${property.id}/edit`}
+            label={property.label}
+            address={`${property.addressCity}/${property.addressState}`}
+            tenantName={contract?.tenant.name}
+            rentValue={Number(relevant?.amount ?? contract?.rentValue ?? 0)}
+            status={variant}
+            statusLabel={STATUS_LABEL_PT[variant]}
+          />
+        ))}
+      </div>
+
+      <div className="hidden lg:block">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Imóvel</TableHead>
+              <TableHead>Endereço</TableHead>
+              <TableHead>Inquilino</TableHead>
+              <TableHead>Valor</TableHead>
+              <TableHead>Situação</TableHead>
+              <TableHead className="text-right">Ações</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {rows.map(({ property, contract, relevant, variant }) => (
+              <TableRow key={property.id}>
+                <TableCell>{property.label}</TableCell>
+                <TableCell>
+                  {property.addressStreet}, {property.addressNumber} - {property.addressCity}/
+                  {property.addressState}
+                </TableCell>
+                <TableCell>{contract?.tenant.name ?? '—'}</TableCell>
+                <TableCell className="tabular-nums">
+                  {formatCurrency(Number(relevant?.amount ?? contract?.rentValue ?? 0))}
+                </TableCell>
+                <TableCell>{STATUS_LABEL_PT[variant]}</TableCell>
+                <TableCell className="flex justify-end gap-2">
+                  <Button variant="ghost" size="sm" asChild>
+                    <Link href={`/dashboard/properties/${property.id}/edit`}>Editar</Link>
+                  </Button>
+                  <DeletePropertyButton propertyId={property.id} label={property.label} />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }

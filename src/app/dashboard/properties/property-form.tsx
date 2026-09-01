@@ -70,15 +70,15 @@ export function PropertyForm({
             </FormItem>
           )}
         />
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <FormField
             control={form.control}
             name="addressStreet"
             render={({ field }) => (
-              <FormItem className="col-span-2">
+              <FormItem className="sm:col-span-2">
                 <FormLabel>Rua</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input placeholder="Rua das Flores" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -91,7 +91,7 @@ export function PropertyForm({
               <FormItem>
                 <FormLabel>Número</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input placeholder="123" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -118,21 +118,21 @@ export function PropertyForm({
             <FormItem>
               <FormLabel>Bairro</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input placeholder="Centro" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <FormField
             control={form.control}
             name="addressCity"
             render={({ field }) => (
-              <FormItem className="col-span-2">
+              <FormItem className="sm:col-span-2">
                 <FormLabel>Cidade</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input placeholder="Florianópolis" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -145,7 +145,7 @@ export function PropertyForm({
               <FormItem>
                 <FormLabel>UF</FormLabel>
                 <FormControl>
-                  <Input maxLength={2} className="uppercase" {...field} />
+                  <Input placeholder="SC" maxLength={2} className="uppercase" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -165,8 +165,8 @@ export function PropertyForm({
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={form.formState.isSubmitting}>
-          Salvar
+        <Button type="submit" disabled={form.formState.isSubmitting} size="lg">
+          {form.formState.isSubmitting ? 'Salvando...' : 'Salvar'}
         </Button>
       </form>
     </Form>
