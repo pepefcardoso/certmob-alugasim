@@ -5,6 +5,7 @@ import { FinancialSummaryCard } from '@/components/domain/financial-summary-card
 import { PropertyCard } from '@/components/domain/property-card';
 import { EmptyState } from '@/components/domain/empty-state';
 import { toStatusVariant, STATUS_LABEL_PT, STATUS_PRIORITY } from '@/lib/payment-status';
+import { OnboardingTour } from '@/components/domain/onboarding-tour';
 
 function greeting(hour: number) {
   if (hour < 12) return 'Bom dia';
@@ -23,6 +24,12 @@ export default async function DashboardPage() {
       payments: { orderBy: { dueDate: 'asc' } },
     },
   });
+
+  const [propertiesCount, allContractsCount, adjustmentsCount] = await Promise.all([
+    prisma.property.count({ where: { ownerId: session.user.id } }),
+    prisma.contract.count({ where: { ownerId: session.user.id } }),
+    prisma.rentAdjustment.count({ where: { contract: { ownerId: session.user.id } } }),
+  ]);
 
   const now = new Date();
   const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
@@ -106,10 +113,24 @@ export default async function DashboardPage() {
       )}
 
       {cards.length === 0 ? (
-        <EmptyState
-          title="Nenhum contrato ativo"
-          description="Cadastre um imóvel e um contrato para começar a acompanhar recebimentos."
-          action={{ label: 'Cadastrar imóvel', href: '/dashboard/properties/new' }}
+        <OnboardingTour
+          steps={[
+            {
+              label: 'Cadastre seu primeiro imóvel',
+              done: propertiesCount > 0,
+              href: '/dashboard/properties/new',
+            },
+            {
+              label: 'Crie um contrato',
+              done: allContractsCount > 0,
+              href: '/dashboard/contracts/new',
+            },
+            {
+              label: 'Veja seu primeiro reajuste automático',
+              done: adjustmentsCount > 0,
+              href: '/dashboard/contracts',
+            },
+          ]}
         />
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

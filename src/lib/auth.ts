@@ -24,6 +24,11 @@ export const auth = betterAuth({
         required: true,
         input: true,
       },
+      activationNudgeSentAt: {
+        type: 'date',
+        required: false,
+        input: false,
+      },
     },
   },
 });
