@@ -12,6 +12,39 @@ export default function PrivacyPage() {
         <BrandLockup />
         <h1 className="text-heading-1">Política de Privacidade</h1>
 
+        <div className="bg-success-100/50 border-success-100 space-y-2 rounded-xl border p-4 text-sm">
+          <p className="font-heading font-medium">Em resumo</p>
+          <ul className="list-disc space-y-1 pl-5">
+            <li>
+              Guardamos só os dados necessários pra gerir seus contratos de aluguel: locador,
+              locatário, imóvel e pagamentos.
+            </li>
+            <li>
+              Não vendemos nem alugamos seus dados a terceiros. Só compartilhamos com prestadores
+              essenciais (hospedagem, envio de e-mail), sempre como operadores sob nossas
+              instruções.
+            </li>
+            <li>
+              Você pode acessar, corrigir ou pedir exclusão dos seus dados a qualquer momento pela{' '}
+              <Link href="/privacy/request" className="underline">
+                Central de Privacidade
+              </Link>
+              .
+            </li>
+            <li>
+              Dúvidas? Fale com nosso encarregado (DPO):{' '}
+              <a href={`mailto:${env.DPO_EMAIL}`} className="underline">
+                {env.DPO_EMAIL}
+              </a>
+              .
+            </li>
+          </ul>
+          <p className="text-muted-foreground text-xs">
+            Isso é um resumo — a política completa abaixo tem todos os detalhes exigidos pela
+            LGPD.
+          </p>
+        </div>
+
         <section className="space-y-2">
           <h2 className="text-lg font-medium">1. Identidade do controlador</h2>
           <p>
@@ -63,7 +96,7 @@ export default function PrivacyPage() {
             <Link href="/privacy/request" className="underline">
               Central de Privacidade
             </Link>
-            . Prazo de resposta: 15 dias (Art. 18, LGPD).
+            . Prazo de resposta: 15 dias (Art. 19, II, LGPD).
           </p>
         </section>
 

@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/form';
 import { FOUNDER_SPOTS_REMAINING } from './constants';
 import { ScheduleDemoButton } from './schedule-demo-button';
+import { useRouter } from 'next/router';
 
 const URGENCY = [
   {
@@ -32,7 +33,7 @@ const URGENCY = [
 ];
 
 export function LeadCaptureSection() {
-  const [submitted, setSubmitted] = useState(false);
+  const router = useRouter();
   const form = useForm<LeadInput>({
     resolver: zodResolver(leadSchema),
     defaultValues: { whatsapp: '', propertyCount: '1' },
@@ -41,9 +42,9 @@ export function LeadCaptureSection() {
   async function onSubmit(values: LeadInput) {
     try {
       await captureLead(values, 'landing_final_cta');
-      setSubmitted(true);
+      router.push('/obrigado');
     } catch {
-      form.setError('root', { message: 'Não deu pra enviar agora, tenta de novo em instantes.' });
+      form.setError('root', { message: 'Não deu pra enviar agora — tenta de novo em instantes.' });
     }
   }
 
@@ -51,7 +52,7 @@ export function LeadCaptureSection() {
     <section id="lead-magnet" className="mx-auto max-w-2xl px-4 py-14">
       <div className="space-y-2 text-center">
         <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-          Restam {FOUNDER_SPOTS_REMAINING} vagas do preço de fundador: R$50/mês para sempre
+          Restam {FOUNDER_SPOTS_REMAINING} vagas do preço de fundador — R$50/mês para sempre
         </h2>
         <p className="text-muted-foreground">Depois desse lote, o preço sobe para R$79/mês.</p>
       </div>
@@ -67,56 +68,45 @@ export function LeadCaptureSection() {
 
       <Card className="mt-8">
         <CardContent>
-          {submitted ? (
-            <div className="flex flex-col items-center gap-3 py-6 text-center">
-              <CheckCircle2 className="text-success-700 size-8" />
-              <p className="font-heading font-medium">Recebemos seus dados</p>
-              <p className="text-muted-foreground text-sm">
-                Te chamamos no WhatsApp para configurar seus contratos e travar o preço de fundador.
-              </p>
-              <ScheduleDemoButton />
-            </div>
-          ) : (
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="whatsapp"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>WhatsApp</FormLabel>
-                      <FormControl>
-                        <Input placeholder="(47) 99999-8888" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="propertyCount"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Quantos imóveis você aluga?</FormLabel>
-                      <FormControl>
-                        <Input type="number" min={1} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                {form.formState.errors.root && (
-                  <p className="text-destructive text-sm">{form.formState.errors.root.message}</p>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="whatsapp"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>WhatsApp</FormLabel>
+                    <FormControl>
+                      <Input placeholder="(47) 99999-8888" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
-                <Button type="submit" size="lg" className="w-full" loading={form.formState.isSubmitting}>
-                  Calcular meu reajuste grátis
-                </Button>
-                <p className="text-muted-foreground text-center text-xs">
-                  Sem spam. Seus dados estão protegidos pela LGPD.
-                </p>
-              </form>
-            </Form>
-          )}
+              />
+              <FormField
+                control={form.control}
+                name="propertyCount"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Quantos imóveis você aluga?</FormLabel>
+                    <FormControl>
+                      <Input type="number" min={1} {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {form.formState.errors.root && (
+                <p className="text-destructive text-sm">{form.formState.errors.root.message}</p>
+              )}
+              <Button type="submit" size="lg" className="w-full" loading={form.formState.isSubmitting}>
+                Calcular meu reajuste grátis
+              </Button>
+              <p className="text-muted-foreground text-center text-xs">
+                Sem spam. Seus dados estão protegidos pela LGPD.
+              </p>
+            </form>
+          </Form>
         </CardContent>
       </Card>
     </section>
