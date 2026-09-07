@@ -412,14 +412,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 
 ## Phase 11 — Testing & CI/CD Hardening
 
-### P11.1 — Unit tests: adjustment calculation
+### P11.1 — Unit tests: adjustment calculation - DONE
 
 - **Size:** M
 - **Depends on:** P6.4
 - **Description:** Vitest tests for `getAccumulated12MonthRate` (P6.2) and `isAdjustmentEligible` (P6.3) — these are the financial-correctness-critical functions in the whole product. Cover: compounding vs. naive sum, exact 12-month boundary, leap-year date math.
 - **DoD:** ≥90% branch coverage on these two functions specifically; all tests pass in CI.
 
-### P11.2 — Unit tests: payment generation and status transitions
+### P11.2 — Unit tests: payment generation and status transitions - DONE
 
 - **Size:** M
 - **Depends on:** P7.3

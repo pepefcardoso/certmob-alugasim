@@ -1,7 +1,11 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { env } from '@/lib/env';
-import { buildUpcomingPayments } from '@/lib/payment-generation';
+import {
+  buildUpcomingPayments,
+  dedupeNewPayments,
+  isLateFlipCandidate,
+} from '@/lib/payment-generation';
 
 function isAuthorized(request: Request) {
   const auth = request.headers.get('authorization');
@@ -21,24 +25,41 @@ export async function POST(request: Request) {
   let created = 0;
   for (const contract of contracts) {
     created += await prisma.$transaction(async (tx) => {
-      const existingCount = await tx.payment.count({ where: { contractId: contract.id } });
-      const result = await tx.payment.createMany({
-        data: buildUpcomingPayments({
-          contractId: contract.id,
-          startDate: contract.startDate,
-          rentValue: contract.rentValue,
-          existingCount,
-        }),
-        skipDuplicates: true,
+      const existing = await tx.payment.findMany({
+        where: { contractId: contract.id },
+        select: { dueDate: true },
       });
+      const existingDueDates = new Set(existing.map((p) => p.dueDate.toISOString().slice(0, 10)));
+
+      const candidates = buildUpcomingPayments({
+        contractId: contract.id,
+        startDate: contract.startDate,
+        rentValue: contract.rentValue,
+        existingCount: existing.length,
+      });
+      const rowsToInsert = dedupeNewPayments(candidates, existingDueDates);
+      if (rowsToInsert.length === 0) return 0;
+
+      const result = await tx.payment.createMany({ data: rowsToInsert, skipDuplicates: true });
       return result.count;
     });
   }
 
-  const { count: markedLate } = await prisma.payment.updateMany({
-    where: { status: 'UPCOMING', dueDate: { lt: new Date() } },
-    data: { status: 'LATE' },
+  const upcoming = await prisma.payment.findMany({
+    where: { status: 'UPCOMING' },
+    select: { id: true, status: true, dueDate: true },
   });
+  const now = new Date();
+  const lateIds = upcoming.filter((p) => isLateFlipCandidate(p, now)).map((p) => p.id);
+
+  let markedLate = 0;
+  if (lateIds.length > 0) {
+    const result = await prisma.payment.updateMany({
+      where: { id: { in: lateIds } },
+      data: { status: 'LATE' },
+    });
+    markedLate = result.count;
+  }
 
   return NextResponse.json({ contractsProcessed: contracts.length, created, markedLate });
 }

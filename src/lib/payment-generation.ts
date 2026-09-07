@@ -21,6 +21,24 @@ export function isDueInDays(dueDate: Date, days: number, today: Date = new Date(
   return diffDays === days;
 }
 
+export function isLateFlipCandidate(
+  payment: { status: PaymentStatus; dueDate: Date },
+  now: Date = new Date(),
+): boolean {
+  return payment.status === 'UPCOMING' && payment.dueDate < now;
+}
+
+function dueDateKey(date: Date): string {
+  return date.toISOString().slice(0, 10);
+}
+
+export function dedupeNewPayments<T extends { dueDate: Date }>(
+  candidates: T[],
+  existingDueDates: Set<string>,
+): T[] {
+  return candidates.filter((c) => !existingDueDates.has(dueDateKey(c.dueDate)));
+}
+
 export function buildUpcomingPayments({
   contractId,
   startDate,
@@ -33,7 +51,12 @@ export function buildUpcomingPayments({
   rentValue: Prisma.Decimal | number | string;
   existingCount: number;
   windowMonths?: number;
-}): { contractId: string; dueDate: Date; amount: Prisma.Decimal | number | string; status: PaymentStatus }[] {
+}): {
+  contractId: string;
+  dueDate: Date;
+  amount: Prisma.Decimal | number | string;
+  status: PaymentStatus;
+}[] {
   return Array.from({ length: windowMonths }, (_, i) => ({
     contractId,
     dueDate: billingDueDate(startDate, existingCount + i),
