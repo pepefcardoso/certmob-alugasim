@@ -426,14 +426,14 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** Tests for P7.1/P7.2/P7.3 logic: rolling window generation, idempotency (no duplicates on re-run), late-flip boundary condition.
 - **DoD:** Tests pass in CI; re-running the generation logic twice in a test asserts row count is unchanged.
 
-### P11.3 — Component tests: Contract form validation
+### P11.3 — Component tests: Contract form validation - DONE (REVIEW)
 
 - **Size:** M
 - **Depends on:** P5.2
 - **Description:** RTL tests for the contract form's client-side validation rules (P5.2) and the cross-owner rejection behavior (mocked).
 - **DoD:** Tests pass in CI.
 
-### P11.4 — E2E happy path
+### P11.4 — E2E happy path - DONE (REVIEW)
 
 - **Size:** L
 - **Depends on:** P9.2, P8.4
