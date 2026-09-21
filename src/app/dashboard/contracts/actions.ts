@@ -130,7 +130,7 @@ export async function previewAdjustment(contractId: string) {
   );
 
   return {
-    index: contract.adjustmentIndex,
+    index: contract.adjustmentIndex as 'IGPM' | 'IPCA' | 'INPC',
     ratePercent,
     previousValue: previousValue.toNumber(),
     newValue: newValue.toNumber(),

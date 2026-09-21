@@ -109,7 +109,7 @@ describe('ContractForm — client-side validation', () => {
 
     const rentInput = screen.getByLabelText('Valor do aluguel');
     await user.clear(rentInput);
-    await user.type(rentInput, '0');
+    await user.type(rentInput, '-10');
     await user.click(screen.getByRole('button', { name: 'Salvar contrato' }));
 
     expect(await screen.findByText('Valor deve ser maior que zero')).toBeInTheDocument();

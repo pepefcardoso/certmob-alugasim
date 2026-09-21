@@ -15,7 +15,6 @@ import {
 } from '@/components/ui/dialog';
 import { formatCurrency } from '@/lib/format';
 
-const currency = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 const percent = new Intl.NumberFormat('pt-BR', {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,

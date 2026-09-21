@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Reajuste, cobrança e controle de aluguel automáticos.',
 };
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={cn('h-full', 'antialiased', inter.variable)}>
       <body className="flex min-h-full flex-col">{children}</body>

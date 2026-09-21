@@ -3,7 +3,6 @@ import { prisma } from '@/lib/prisma';
 import { Wallet, Clock3, AlertTriangle } from 'lucide-react';
 import { FinancialSummaryCard } from '@/components/domain/financial-summary-card';
 import { PropertyCard } from '@/components/domain/property-card';
-import { EmptyState } from '@/components/domain/empty-state';
 import { toStatusVariant, STATUS_LABEL_PT, STATUS_PRIORITY } from '@/lib/payment-status';
 import { OnboardingTour } from '@/components/domain/onboarding-tour';
 

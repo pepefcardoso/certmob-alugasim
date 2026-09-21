@@ -221,7 +221,7 @@ model PrivacyRequest {
 
 model Lead {
   id            String   @id @default(cuid())
-  email         String
+  email         String?
   whatsapp      String
   propertyCount Int
   source        String   @default("landing_hero")

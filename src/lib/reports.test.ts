@@ -109,7 +109,7 @@ describe('buildIncomeExportRows / rowsToCsv', () => {
     ]);
     const [header, row] = csv.split('\n');
     expect(header).toBe('Data,Imóvel,Locatário,Valor');
-    expect(row).toBe('2026-01-10,Rua X, 123 - SP/SP,Maria Santos,2500.00');
+    expect(row).toBe('2026-01-10,"Rua X, 123 - SP/SP",Maria Santos,2500.00');
   });
 
   it('quotes fields containing commas', () => {

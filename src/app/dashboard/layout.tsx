@@ -2,7 +2,7 @@ import { requireSession } from '@/lib/auth';
 import { AppSidebar } from '@/components/domain/app-sidebar';
 import { AppBottomNav } from '@/components/domain/app-bottom-nav';
 
-export default async function DashboardLayout({ children }: LayoutProps<'/dashboard'>) {
+export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   await requireSession();
 
   return (

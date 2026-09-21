@@ -1,9 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { CalendarCheck2, Users, CheckCircle2 } from 'lucide-react';
+import { CalendarCheck2, Users } from 'lucide-react';
 import { captureLead } from '@/components/landing/actions';
 import { leadSchema, type LeadInput } from '@/lib/validations/lead';
 import { Card, CardContent } from '@/components/ui/card';
@@ -18,7 +17,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { FOUNDER_SPOTS_REMAINING } from './constants';
-import { ScheduleDemoButton } from './schedule-demo-button';
 import { useRouter } from 'next/router';
 
 const URGENCY = [

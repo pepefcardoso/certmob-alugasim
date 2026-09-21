@@ -15,7 +15,7 @@ interface PaymentCardProps {
   amount: number;
   dueDate: Date;
   status: PaymentStatusVariant;
-  actions?: ReactNode;
+  actions?: React.ReactNode;
 }
 
 export function PaymentCard({
