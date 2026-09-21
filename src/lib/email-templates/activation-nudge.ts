@@ -1,10 +1,10 @@
 type ActivationNudgeInput = {
-    name: string;
-    propertiesUrl: string;
+  name: string;
+  propertiesUrl: string;
 };
 
 export function activationNudgeHtml({ name, propertiesUrl }: ActivationNudgeInput): string {
-    return `
+  return `
       <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto; color: #1a1a1a;">
         <h2 style="margin-bottom: 8px;">Seu primeiro contrato está te esperando</h2>
         <p>Olá, ${name}.</p>

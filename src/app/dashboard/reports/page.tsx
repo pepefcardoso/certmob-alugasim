@@ -95,7 +95,7 @@ export default async function ReportsPage({
             {revenueRows.map((row) => (
               <div key={row.month} className="flex items-center justify-between py-2 text-sm">
                 <span className="text-neutral-700 capitalize">{formatMonthLabel(row.month)}</span>
-                <span className="tabular-nums font-medium">{currency.format(row.total)}</span>
+                <span className="font-medium tabular-nums">{currency.format(row.total)}</span>
               </div>
             ))}
           </div>

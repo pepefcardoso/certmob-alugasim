@@ -99,7 +99,12 @@ export function LeadCaptureSection() {
               {form.formState.errors.root && (
                 <p className="text-destructive text-sm">{form.formState.errors.root.message}</p>
               )}
-              <Button type="submit" size="lg" className="w-full" loading={form.formState.isSubmitting}>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                loading={form.formState.isSubmitting}
+              >
                 Calcular meu reajuste grátis
               </Button>
               <p className="text-muted-foreground text-center text-xs">

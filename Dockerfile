@@ -8,7 +8,16 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN mkdir -p public
+
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV DATABASE_URL="postgresql://postgres:postgres@localhost:5432/alugasim?schema=public"
+ENV BETTER_AUTH_SECRET="build-time-placeholder"
+ENV BETTER_AUTH_URL="http://localhost:3000"
+ENV EMAIL_FROM="Alugasim <no-reply@alugasim.com.br>"
+ENV LEAD_NOTIFY_EMAIL="founder@alugasim.com.br"
+ENV NEXT_PUBLIC_BETTER_AUTH_URL="http://localhost:3000"
+ENV CRON_SECRET="build-time-placeholder"
+ENV DPO_EMAIL="privacidade@alugasim.com.br"
 RUN npm run build
 
 RUN mkdir -p public

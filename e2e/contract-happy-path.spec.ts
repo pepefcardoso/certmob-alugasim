@@ -99,7 +99,5 @@ test('sign up → property → tenant → contract → adjustment → payment �
 
   await page.goto('/dashboard/reports');
   const revenueTable = page.locator('table').first();
-  await expect(revenueTable.locator('tbody tr').last()).toContainText(
-    currency.format(RENT_VALUE),
-  );
+  await expect(revenueTable.locator('tbody tr').last()).toContainText(currency.format(RENT_VALUE));
 });

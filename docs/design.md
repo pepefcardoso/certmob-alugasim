@@ -154,39 +154,39 @@ A paleta evita neon, vermelho e tons excessivamente vibrantes. O sistema usa azu
 
 ### Cores principais
 
-| Token | Cor | Hex | Uso |
-| --- | --- | ---: | --- |
-| `brand-900` | Azul profundo | `#183447` | Marca, navegação, títulos importantes |
-| `brand-800` | Azul petróleo | `#244D60` | Botões principais e elementos ativos |
-| `brand-700` | Azul médio sóbrio | `#376C7D` | Links, ícones e estados de interação |
-| `brand-100` | Azul névoa | `#E5EFF1` | Fundos informativos e seleção |
-| `brand-50` | Azul quase branco | `#F4F8F8` | Áreas secundárias |
+| Token       | Cor               |       Hex | Uso                                   |
+| ----------- | ----------------- | --------: | ------------------------------------- |
+| `brand-900` | Azul profundo     | `#183447` | Marca, navegação, títulos importantes |
+| `brand-800` | Azul petróleo     | `#244D60` | Botões principais e elementos ativos  |
+| `brand-700` | Azul médio sóbrio | `#376C7D` | Links, ícones e estados de interação  |
+| `brand-100` | Azul névoa        | `#E5EFF1` | Fundos informativos e seleção         |
+| `brand-50`  | Azul quase branco | `#F4F8F8` | Áreas secundárias                     |
 
 ### Cores neutras
 
-| Token | Cor | Hex | Uso |
-| --- | --- | ---: | --- |
-| `neutral-950` | Grafite escuro | `#202A2E` | Texto principal |
-| `neutral-700` | Cinza grafite | `#526168` | Texto secundário |
-| `neutral-500` | Cinza médio | `#849197` | Placeholder e texto auxiliar |
-| `neutral-300` | Cinza claro | `#D7DFE1` | Bordas e divisores |
-| `neutral-100` | Cinza muito claro | `#EEF2F2` | Fundos de campos |
-| `neutral-50` | Areia clara | `#F8F8F5` | Fundo principal |
-| `surface` | Branco | `#FFFFFF` | Cards, modais e superfícies |
+| Token         | Cor               |       Hex | Uso                          |
+| ------------- | ----------------- | --------: | ---------------------------- |
+| `neutral-950` | Grafite escuro    | `#202A2E` | Texto principal              |
+| `neutral-700` | Cinza grafite     | `#526168` | Texto secundário             |
+| `neutral-500` | Cinza médio       | `#849197` | Placeholder e texto auxiliar |
+| `neutral-300` | Cinza claro       | `#D7DFE1` | Bordas e divisores           |
+| `neutral-100` | Cinza muito claro | `#EEF2F2` | Fundos de campos             |
+| `neutral-50`  | Areia clara       | `#F8F8F5` | Fundo principal              |
+| `surface`     | Branco            | `#FFFFFF` | Cards, modais e superfícies  |
 
 ### Cores semânticas
 
 As cores de status devem sempre aparecer junto de texto, ícone ou outro indicador visual.
 
-| Token | Cor | Hex | Uso |
-| --- | --- | ---: | --- |
-| `success-700` | Verde fechado | `#367A5C` | Recebido, confirmado, concluído |
-| `success-100` | Verde suave | `#E5F1EA` | Fundo de status positivo |
-| `warning-700` | Ocre | `#996A20` | Pendente, atenção, vencimento próximo |
-| `warning-100` | Amarelo areia | `#F8EED8` | Fundo de alerta |
-| `danger-700` | Bordô discreto | `#9B4B4B` | Atrasado, falha, ação destrutiva |
-| `danger-100` | Rosa queimado claro | `#F5E5E3` | Fundo de erro ou atraso |
-| `info-700` | Azul acinzentado | `#3F6875` | Informação contextual |
+| Token         | Cor                 |       Hex | Uso                                   |
+| ------------- | ------------------- | --------: | ------------------------------------- |
+| `success-700` | Verde fechado       | `#367A5C` | Recebido, confirmado, concluído       |
+| `success-100` | Verde suave         | `#E5F1EA` | Fundo de status positivo              |
+| `warning-700` | Ocre                | `#996A20` | Pendente, atenção, vencimento próximo |
+| `warning-100` | Amarelo areia       | `#F8EED8` | Fundo de alerta                       |
+| `danger-700`  | Bordô discreto      | `#9B4B4B` | Atrasado, falha, ação destrutiva      |
+| `danger-100`  | Rosa queimado claro | `#F5E5E3` | Fundo de erro ou atraso               |
+| `info-700`    | Azul acinzentado    | `#3F6875` | Informação contextual                 |
 
 O vermelho não deve ser usado como cor de marca. O tom bordô fica restrito a situações semânticas de erro ou atraso.
 
@@ -231,16 +231,16 @@ Alternativas:
 
 ### Escala tipográfica
 
-| Nome | Tamanho | Peso | Uso |
-| --- | ---: | ---: | --- |
-| `display` | 32 px | 700 | Títulos de destaque |
-| `heading-1` | 28 px | 700 | Títulos de página |
-| `heading-2` | 22 px | 650 | Seções principais |
-| `heading-3` | 18 px | 650 | Cards e blocos |
-| `body-lg` | 18 px | 400 | Mensagens importantes |
-| `body` | 16 px | 400 | Texto padrão |
-| `body-sm` | 14 px | 400 | Apoio e metadados |
-| `caption` | 12 px | 500 | Labels auxiliares |
+| Nome        | Tamanho | Peso | Uso                   |
+| ----------- | ------: | ---: | --------------------- |
+| `display`   |   32 px |  700 | Títulos de destaque   |
+| `heading-1` |   28 px |  700 | Títulos de página     |
+| `heading-2` |   22 px |  650 | Seções principais     |
+| `heading-3` |   18 px |  650 | Cards e blocos        |
+| `body-lg`   |   18 px |  400 | Mensagens importantes |
+| `body`      |   16 px |  400 | Texto padrão          |
+| `body-sm`   |   14 px |  400 | Apoio e metadados     |
+| `caption`   |   12 px |  500 | Labels auxiliares     |
 
 ### Regras
 
@@ -532,9 +532,7 @@ Regras:
 - Ícone somente quando ajudar na compreensão.
 
 ```tsx
-<Button variant="primary">
-  Cadastrar imóvel
-</Button>
+<Button variant="primary">Cadastrar imóvel</Button>
 ```
 
 ### StatusBadge
@@ -542,19 +540,17 @@ Regras:
 Nunca depender apenas da cor.
 
 ```tsx
-<StatusBadge status="pending">
-  Pendente
-</StatusBadge>
+<StatusBadge status="pending">Pendente</StatusBadge>
 ```
 
 Mapeamento:
 
 ```ts
 const statusVariants = {
-  received: "success",
-  pending: "warning",
-  overdue: "danger",
-  sent: "info",
+  received: 'success',
+  pending: 'warning',
+  overdue: 'danger',
+  sent: 'info',
 };
 ```
 
@@ -647,16 +643,16 @@ Adequado:
 
 ### Exemplos
 
-| Situação | Texto recomendado |
-| --- | --- |
-| Sucesso | Imóvel cadastrado com sucesso. |
-| Recebimento | Pagamento registrado. |
-| Pendente | Este aluguel ainda está pendente. |
-| Atraso | Este pagamento está 3 dias atrasado. |
-| Cobrança | Cobrança pronta para envio. |
-| Falha | Não foi possível enviar a cobrança. Tente novamente. |
-| Campo obrigatório | Informe o valor do aluguel. |
-| Exclusão | Excluir este imóvel? Essa ação não poderá ser desfeita. |
+| Situação          | Texto recomendado                                       |
+| ----------------- | ------------------------------------------------------- |
+| Sucesso           | Imóvel cadastrado com sucesso.                          |
+| Recebimento       | Pagamento registrado.                                   |
+| Pendente          | Este aluguel ainda está pendente.                       |
+| Atraso            | Este pagamento está 3 dias atrasado.                    |
+| Cobrança          | Cobrança pronta para envio.                             |
+| Falha             | Não foi possível enviar a cobrança. Tente novamente.    |
+| Campo obrigatório | Informe o valor do aluguel.                             |
+| Exclusão          | Excluir este imóvel? Essa ação não poderá ser desfeita. |
 
 ### Evitar
 
@@ -671,31 +667,31 @@ Adequado:
 ```ts
 export const designTokens = {
   radius: {
-    sm: "6px",
-    md: "10px",
-    lg: "14px",
-    xl: "18px",
+    sm: '6px',
+    md: '10px',
+    lg: '14px',
+    xl: '18px',
   },
 
   spacing: {
-    1: "4px",
-    2: "8px",
-    3: "12px",
-    4: "16px",
-    5: "20px",
-    6: "24px",
-    8: "32px",
-    10: "40px",
-    12: "48px",
+    1: '4px',
+    2: '8px',
+    3: '12px',
+    4: '16px',
+    5: '20px',
+    6: '24px',
+    8: '32px',
+    10: '40px',
+    12: '48px',
   },
 
   shadow: {
-    card: "0 1px 3px rgba(24, 52, 71, 0.08)",
-    elevated: "0 8px 24px rgba(24, 52, 71, 0.12)",
+    card: '0 1px 3px rgba(24, 52, 71, 0.08)',
+    elevated: '0 8px 24px rgba(24, 52, 71, 0.12)',
   },
 
   touchTarget: {
-    minimum: "44px",
+    minimum: '44px',
   },
 };
 ```
@@ -737,17 +733,17 @@ Usar `cva` para estados e variantes:
 
 ```tsx
 const statusBadgeVariants = cva(
-  "inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium",
+  'inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium',
   {
     variants: {
       status: {
-        received: "bg-success-100 text-success-700",
-        pending: "bg-warning-100 text-warning-700",
-        overdue: "bg-danger-100 text-danger-700",
-        sent: "bg-brand-100 text-brand-800",
+        received: 'bg-success-100 text-success-700',
+        pending: 'bg-warning-100 text-warning-700',
+        overdue: 'bg-danger-100 text-danger-700',
+        sent: 'bg-brand-100 text-brand-800',
       },
     },
-  }
+  },
 );
 ```
 

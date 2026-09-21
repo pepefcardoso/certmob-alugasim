@@ -30,11 +30,7 @@ vi.mock('@/components/ui/combobox', () => ({
     onChange: (value: string) => void;
     placeholder?: string;
   }) => (
-    <select
-      aria-label={placeholder}
-      value={value ?? ''}
-      onChange={(e) => onChange(e.target.value)}
-    >
+    <select aria-label={placeholder} value={value ?? ''} onChange={(e) => onChange(e.target.value)}>
       <option value="" />
       {options.map((option) => (
         <option key={option.value} value={option.value}>

@@ -11,7 +11,12 @@ import { ResendReminderButton } from '../contracts/resend-reminder-button';
 export default async function PaymentsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ status?: string; propertyId?: string; tenantId?: string; period?: string }>;
+  searchParams: Promise<{
+    status?: string;
+    propertyId?: string;
+    tenantId?: string;
+    period?: string;
+  }>;
 }) {
   const session = await requireSession();
   const { status, propertyId, tenantId, period } = await searchParams;
@@ -21,7 +26,8 @@ export default async function PaymentsPage({
       ? (status as PaymentStatus)
       : undefined;
 
-  const periodMonths = period === '3' || period === '12' ? Number(period) : period === 'all' ? null : 6;
+  const periodMonths =
+    period === '3' || period === '12' ? Number(period) : period === 'all' ? null : 6;
   const periodStart = periodMonths
     ? new Date(new Date().setMonth(new Date().getMonth() - periodMonths))
     : undefined;
@@ -36,7 +42,10 @@ export default async function PaymentsPage({
       property: true,
       tenant: true,
       payments: {
-        where: { ...(periodStart && { dueDate: { gte: periodStart } }), ...(statusFilter && { status: statusFilter }) },
+        where: {
+          ...(periodStart && { dueDate: { gte: periodStart } }),
+          ...(statusFilter && { status: statusFilter }),
+        },
         orderBy: { dueDate: 'asc' },
       },
     },

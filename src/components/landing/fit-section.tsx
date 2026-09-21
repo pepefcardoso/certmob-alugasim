@@ -1,7 +1,11 @@
 import { Check, X } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
-const FOR_YOU = ['Donos de 4 a 10 imóveis', 'Quem usa planilha ou caderno', 'Quer automatizar reajustes'];
+const FOR_YOU = [
+  'Donos de 4 a 10 imóveis',
+  'Quem usa planilha ou caderno',
+  'Quer automatizar reajustes',
+];
 
 const NOT_FOR_YOU = [
   'Grandes imobiliárias',
