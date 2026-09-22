@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { FOUNDER_SPOTS_REMAINING } from './constants';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const URGENCY = [
   {
