@@ -1,6 +1,11 @@
 services:
   app:
-    build: .
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_BETTER_AUTH_URL: ${NEXT_PUBLIC_BETTER_AUTH_URL}
+        NEXT_PUBLIC_CALCOM_LINK: ${NEXT_PUBLIC_CALCOM_LINK}
+        NEXT_PUBLIC_WHATSAPP_BUSINESS_NUMBER: ${NEXT_PUBLIC_WHATSAPP_BUSINESS_NUMBER}
     restart: unless-stopped
     mem_limit: 512m
     env_file:
