@@ -1,23 +1,24 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm ci --ignore-scripts
 
 FROM node:22-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+RUN npx prisma generate
 ARG NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
 ARG NEXT_PUBLIC_CALCOM_LINK=alugasim/demo
-ARG NEXT_PUBLIC_WHATSAPP_BUSINESS_NUMBER=47999998888
+ARG NEXT_PUBLIC_WHATSAPP_BUSINESS_NUMBER=5548991155026
 ENV NEXT_TELEMETRY_DISABLED=1 \
     DATABASE_URL="postgresql://postgres:postgres@localhost:5432/alugasim?schema=public" \
     BETTER_AUTH_SECRET="build-time-placeholder" \
     BETTER_AUTH_URL="http://localhost:3000" \
-    EMAIL_FROM="Alugasim <no-reply@alugasim.com.br>" \
-    LEAD_NOTIFY_EMAIL="founder@alugasim.com.br" \
+    EMAIL_FROM="Alugasim <pppfcardoso@gmail.com>" \
+    LEAD_NOTIFY_EMAIL="pppfcardoso@gmail.com" \
     CRON_SECRET="build-time-placeholder" \
-    DPO_EMAIL="privacidade@alugasim.com.br" \
+    DPO_EMAIL="pppfcardoso@gmail.com" \
     NEXT_PUBLIC_BETTER_AUTH_URL=$NEXT_PUBLIC_BETTER_AUTH_URL \
     NEXT_PUBLIC_CALCOM_LINK=$NEXT_PUBLIC_CALCOM_LINK \
     NEXT_PUBLIC_WHATSAPP_BUSINESS_NUMBER=$NEXT_PUBLIC_WHATSAPP_BUSINESS_NUMBER
