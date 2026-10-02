@@ -4,6 +4,8 @@ import { redirect } from 'next/navigation';
 import { headers } from 'next/headers';
 import { prisma } from '@/lib/prisma';
 import { env } from '@/lib/env';
+import { sendEmail } from '@/lib/email';
+import { passwordResetHtml } from '@/lib/email-templates/password-reset';
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, { provider: 'postgresql' }),
@@ -11,6 +13,15 @@ export const auth = betterAuth({
   baseURL: env.BETTER_AUTH_URL,
   emailAndPassword: {
     enabled: true,
+    resetPasswordTokenExpiresIn: 60 * 60,
+    revokeSessionsOnPasswordReset: true,
+    sendResetPassword: async ({ user, url }) => {
+      sendEmail({
+        to: user.email,
+        subject: 'Redefinição de senha — Alugasim',
+        html: passwordResetHtml({ name: user.name, url }),
+      }).catch((err) => console.error('[auth] falha ao enviar e-mail de reset', err));
+    },
   },
   user: {
     additionalFields: {

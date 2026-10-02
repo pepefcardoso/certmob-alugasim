@@ -39,12 +39,22 @@
 }
 
 @theme inline {
-  --color-border: var(--border);
-  --color-ring: var(--ring);
-  --color-success: var(--success);
-  --color-success-foreground: var(--success-foreground);
-  --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
+  --color-border: hsl(var(--border));
+  --color-ring: hsl(var(--ring));
+  --color-input: hsl(var(--input));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
 }
 
 :root {
@@ -72,6 +82,11 @@
   --warning-foreground: 0 0% 100%;
   --destructive: 0 34% 45%;
   --destructive-foreground: 0 0% 100%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 198 18% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 198 18% 15%;
 }
 
 body {
@@ -81,8 +96,8 @@ body {
 
 @layer base {
   * {
-    border-color: var(--border);
-    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+    border-color: hsl(var(--border));
+    outline-color: color-mix(in srgb, hsl(var(--ring)) 50%, transparent);
   }
   body {
     background-color: var(--background);

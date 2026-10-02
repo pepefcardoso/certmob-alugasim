@@ -166,6 +166,20 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Description:** `/dashboard/profile` — view/edit `name`, `personType`, `document`. No password change flow yet (out of MVP scope unless requested).
 - **DoD:** Editing and saving updates the `User` row and reflects on reload.
 
+### P2.6 — Password reset
+
+- **Size:** M
+- **Depends on:** P2.3, email helper
+- **Description:** `/forgot-password` (pede e-mail, resposta sempre neutra) e `/reset-password?token=` (nova senha + confirmação, estado de token inválido/expirado). Better Auth `sendResetPassword` via `sendEmail`, token de 1h, sessões revogadas após o reset. Template `password-reset.ts` com escape de HTML.
+- **DoD:** Fluxo completo verificado no Mailhog; token expirado/reutilizado cai na tela de link inválido; e-mail inexistente devolve a mesma resposta.
+
+### P2.7 — Auth entry points and auth layout
+
+- **Size:** S
+- **Depends on:** P2.3
+- **Description:** Botão "Entrar" no `SiteNav`, links "Entrar/Criar conta" no `Footer`, layout `(auth)` com marca e footer, links cruzados login ↔ cadastro, redirect para `/dashboard` se já houver sessão, `<Toaster />` no root layout.
+- **DoD:** Landing → login → dashboard sem digitar URL; toast de erro de credencial visível.
+
 ---
 
 ## Phase 3 — Core CRUD: Property
@@ -318,6 +332,13 @@ Scope: property + contract registration, rent adjustment calculator (IGP-M/IPCA/
 - **Depends on:** P7.3, P7.4
 - **Description:** `/dashboard` — cards/list across all the owner's contracts: color-coded by status (green=paid, yellow=upcoming, red=late), matching the product spec's dashboard concept. Sort late items first.
 - **DoD:** Seeded data with a mix of statuses renders with correct colors/ordering; a paid item shown after P7.4 no longer shows as late.
+
+### P7.7 — Landing product demo
+
+- **Size:** M
+- **Depends on:** nenhuma
+- **Description:** `ProductDemo` com os componentes reais (`FinancialSummaryCard`, `PropertyCard`, `PaymentCard`, `AdjustmentPreview` extraído do `ApplyAdjustmentDialog`). Loop pausa fora da viewport e respeita `prefers-reduced-motion`.
+- **DoD:** Sem hydration warning; cena estática com reduced-motion; o dialog real e o demo compartilham `AdjustmentPreview`.
 
 ---
 

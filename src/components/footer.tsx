@@ -16,6 +16,12 @@ export function Footer() {
           <Link href="/privacy/request" className="hover:text-neutral-950">
             Meus dados (LGPD)
           </Link>
+          <Link href="/sign-in" className="hover:text-neutral-950">
+            Entrar
+          </Link>
+          <Link href="/sign-up" className="hover:text-neutral-950">
+            Criar conta
+          </Link>
         </div>
       </div>
     </footer>
