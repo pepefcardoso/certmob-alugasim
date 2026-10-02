@@ -42,7 +42,7 @@ export function LeadCaptureSection() {
       await captureLead(values, 'landing_final_cta');
       router.push('/obrigado');
     } catch {
-      form.setError('root', { message: 'Não deu pra enviar agora — tenta de novo em instantes.' });
+      form.setError('root', { message: 'Não deu pra enviar agora. Tenta de novo em instantes.' });
     }
   }
 
@@ -50,7 +50,7 @@ export function LeadCaptureSection() {
     <section id="lead-magnet" className="mx-auto max-w-2xl px-4 py-14">
       <div className="space-y-2 text-center">
         <h2 className="font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
-          Restam {FOUNDER_SPOTS_REMAINING} vagas do preço de fundador — R$50/mês para sempre
+          Restam {FOUNDER_SPOTS_REMAINING} vagas do preço de fundador: R$50/mês para sempre
         </h2>
         <p className="text-muted-foreground">Depois desse lote, o preço sobe para R$79/mês.</p>
       </div>

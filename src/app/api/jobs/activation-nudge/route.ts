@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     try {
       await sendEmail({
         to: user.email,
-        subject: 'Seu primeiro contrato está te esperando — Alugasim',
+        subject: 'Seu primeiro contrato está te esperando | Alugasim',
         html: activationNudgeHtml({
           name: user.name?.split(' ')[0] ?? '',
           propertiesUrl: `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/dashboard/properties/new`,

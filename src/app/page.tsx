@@ -13,7 +13,7 @@ import { FitSection } from '@/components/landing/fit-section';
 import { ProductDemo } from '@/components/landing/product-demo';
 
 export const metadata: Metadata = {
-  title: 'Alugasim - Reajuste de aluguel automático',
+  title: 'Alugasim: Reajuste de aluguel automático',
   description:
     'Alugasim calcula seu reajuste de aluguel com a taxa oficial, avisa na hora certa e organiza contratos, inquilinos e recebimentos num só lugar.',
 };

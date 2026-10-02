@@ -18,9 +18,8 @@ export default function ObrigadoPage() {
           </p>
         </div>
 
-        {/* TODO: substituir por vídeo real do fundador (public/video/founder-intro.mp4) */}
         <div className="bg-muted flex aspect-video items-center justify-center rounded-xl border border-dashed">
-          <p className="text-muted-foreground text-sm">Vídeo do fundador — adicionar asset</p>
+          <p className="text-muted-foreground text-sm">Vídeo do fundador: adicionar asset</p>
         </div>
 
         <div className="space-y-3">

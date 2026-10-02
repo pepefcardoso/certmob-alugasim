@@ -40,7 +40,7 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p className="text-muted-foreground text-xs">
-            Isso é um resumo — a política completa abaixo tem todos os detalhes exigidos pela LGPD.
+            Isso é um resumo, a política completa abaixo tem todos os detalhes exigidos pela LGPD.
           </p>
         </div>
 

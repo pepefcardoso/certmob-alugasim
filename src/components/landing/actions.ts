@@ -18,7 +18,7 @@ export async function captureLead(input: LeadInput, source = 'landing_hero') {
   try {
     await sendEmail({
       to: env.LEAD_NOTIFY_EMAIL,
-      subject: `Novo lead — ${propertyCount} imóve${propertyCount > 1 ? 'is' : 'l'}`,
+      subject: `Novo lead: ${propertyCount} imóve${propertyCount > 1 ? 'is' : 'l'}`,
       html: leadNotificationHtml({ whatsapp, propertyCount, source }),
     });
   } catch (error) {

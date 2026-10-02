@@ -5,7 +5,7 @@ const PAINS = [
   {
     icon: CalendarClock,
     title: 'Esqueceu o reajuste',
-    cost: 'R$200–500/ano perdidos por imóvel',
+    cost: 'R$200 a R$500/ano perdidos por imóvel',
     description: 'A inflação acumulada some no seu bolso, um contrato de cada vez.',
   },
   {

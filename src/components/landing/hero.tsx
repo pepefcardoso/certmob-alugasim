@@ -8,7 +8,7 @@ export function Hero() {
         <Badge variant="secondary">Para donos de 4 a 10 imóveis</Badge>
         <h1 className="text-display">
           Reajuste de aluguel atrasado custa caro.{' '}
-          <span className="text-warning-700">Em média, R$200–500 por imóvel ao ano.</span>
+          <span className="text-warning-700">Em média, R$200 a R$500 por imóvel ao ano.</span>
         </h1>
         <p className="text-muted-foreground text-base leading-relaxed sm:text-lg">
           Cadastre o contrato uma vez. O Alugasim calcula o reajuste certo na data certa e avisa

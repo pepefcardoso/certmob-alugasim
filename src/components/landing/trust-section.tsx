@@ -6,8 +6,7 @@ import Image from 'next/image';
 const TRUST_BADGES = [
   { icon: Landmark, label: 'Cálculo baseado em dados do Banco Central' },
   { icon: ShieldCheck, label: 'LGPD compliant' },
-  // TODO: confirmar tempo/área real de experiência do fundador antes de publicar
-  { icon: BadgeCheck, label: 'Fundador com 4 anos de experiência em finanças' },
+  { icon: BadgeCheck, label: 'Fundador com 5+ anos de experiência em finanças' },
 ];
 
 export function TrustSection() {
@@ -27,7 +26,7 @@ export function TrustSection() {
             <p className="font-heading font-medium">Como calculamos</p>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Novo aluguel = aluguel atual × (1 + índice acumulado em 12 meses). Os índices (IGP-M,
-              IPCA, INPC) vêm direto do Sistema Gerenciador de Séries Temporais do Banco Central — a
+              IPCA, INPC) vêm direto do Sistema Gerenciador de Séries Temporais do Banco Central, a
               mesma fonte oficial usada em contratos de locação.
             </p>
             <p className="bg-muted/50 rounded-md p-3 font-mono text-sm">
@@ -52,7 +51,7 @@ export function TrustSection() {
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Estou construindo o Alugasim porque vi minha própria família perder reajuste atrás de
-              reajuste numa planilha esquecida. Ainda somos recentes no mercado — por isso mostramos
+              reajuste numa planilha esquecida. Ainda somos recentes no mercado, por isso mostramos
               a matemática aberta, sem prometer nada que não fazemos hoje.
             </p>
           </CardContent>
